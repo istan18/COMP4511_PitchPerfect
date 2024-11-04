@@ -1,14 +1,14 @@
 import { Text, View, TouchableOpacity, Image, ImageURISource } from "react-native";
 import { router } from "expo-router";
 
-interface FilledButtonProps {
+interface ButtonProps {
   icon?: ImageURISource;
   filled?: boolean;
   title: string;
   route: string;
 }
 
-export default function FilledButton({ icon, filled = true, title, route }: FilledButtonProps) {
+export default function Button({ icon, filled = true, title, route }: ButtonProps) {
   return (
     <View className="flex w-[80%] py-2">
       <TouchableOpacity 

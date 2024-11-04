@@ -1,14 +1,31 @@
-import { Text, View , Button} from "react-native";
-import { router } from "expo-router";
+import { Text, View, SafeAreaView, TextInput, TouchableWithoutFeedback, Keyboard} from "react-native";
+import Button from "@/components/Button";
+import SocialMediaLogin from "@/components/SocialMedia";
+import { Link } from "expo-router";
 
-export default function Index() {
+export default function Login() {
   return (
-    <View className="flex-1 justify-center items-center bg-[#171F20]">
-      <Text className="text-white">Edit login.tsx to edit this screen.</Text>
-      <Button
-        title="Login"
-        onPress={() => router.replace('/tabs/home' as any)}
-      />
-    </View>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <View className="flex-1 bg-[#171F20]">
+        <SafeAreaView className="w-full items-center">
+          <Text className="text-4xl text-white mt-20">Login</Text>
+          <TextInput 
+            placeholder="Email"
+            className="w-[80%] color-white border border-gray-400 rounded-2xl p-4 mt-8 mb-4 text-xl"
+          />
+          <TextInput 
+            placeholder="Password"
+            secureTextEntry={true}
+            className="w-[80%] color-white border border-gray-400 rounded-2xl p-4 mb-8 text-xl"
+          />
+          <Button title="Log in" route="/tabs/home" />
+
+          <Text className="text-white text-base underline my-2">Forgot password?</Text>
+          <Link href="/register" className="text-white text-base underline mb-4">Create an account</Link>
+          
+          <SocialMediaLogin />
+        </SafeAreaView>
+      </View>
+    </TouchableWithoutFeedback>
   );
 }
