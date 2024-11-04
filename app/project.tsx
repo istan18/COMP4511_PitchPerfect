@@ -1,8 +1,8 @@
 import React from "react";
 import { SafeAreaView } from "react-native";
 
-const NewProject = () => {
+const Project = () => {
   return <SafeAreaView>New Project</SafeAreaView>;
 };
 
-export default NewProject;
+export default Project;
