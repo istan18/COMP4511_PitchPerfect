@@ -34,7 +34,7 @@ export default function Welcome() {
               />
             </ScrollView>
 
-            <Button title="Next" route="/photo" />
+            <Button title="Next" route="/photo" backAllowed={true} />
             <Dots currentIndex={0} totalNo={3} />
           </SafeAreaView>
         </KeyboardAvoidingView>
