@@ -8,15 +8,15 @@ export default function MyProjects() {
         <ScrollView className="px-4 pt-2">
           <ProjectCard
             projectName="Skill Swap"
-            projectIcon={require("@/assets/images/my-project1.png")}
+            projectIcon={require("@/assets/images/project-logo-1.png")}
           />
           <ProjectCard
             projectName="Second Project"
-            projectIcon={require("@/assets/images/my-project1.png")}
+            projectIcon={require("@/assets/images/project-logo-2.png")}
           />
           <ProjectCard
             projectName="Third Project"
-            projectIcon={require("@/assets/images/my-project1.png")}
+            projectIcon={require("@/assets/images/project-logo-3.png")}
           />
         </ScrollView>
       </View>
