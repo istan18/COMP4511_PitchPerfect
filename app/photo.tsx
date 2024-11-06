@@ -47,8 +47,8 @@ export default function Photo() {
         </TouchableOpacity>
         
         <View className="absolute bottom-20 w-full items-center"> 
-          <Button title="Next" route="/role" />
-          <Link href="/photo" className="text-white text-lg underline mb-4 mt-2">Skip</Link>
+          <Button title="Next" route="/role" backAllowed={true} />
+          <Link href="/tabs/home" className="text-white text-lg underline mb-4 mt-2">Skip</Link>
           <Dots currentIndex={1} totalNo={3} />
         </View>
       </SafeAreaView>
