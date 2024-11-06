@@ -2,9 +2,9 @@ import { View, Text, Image, SafeAreaView, TouchableOpacity } from "react-native"
 import { useState } from "react";
 import * as ImagePicker from 'expo-image-picker';
 import Ionicons from "@expo/vector-icons/Ionicons";
-import Button from "@/components/Button";
-import Dots from "@/components/Dots";
-import { Link } from "expo-router";
+import FilledButton from "@/components/FilledButton";
+import Progress from "@/components/Progress";
+import { Link, router } from "expo-router";
 import BackButton from "@/components/BackButton";
 
 export default function Photo() {
@@ -47,9 +47,9 @@ export default function Photo() {
         </TouchableOpacity>
         
         <View className="absolute bottom-20 w-full items-center"> 
-          <Button title="Next" route="/role" backAllowed={true} />
+          <FilledButton title="Next" onPress={() => router.push("/role")} />
           <Link href="/tabs/home" className="text-white text-lg underline mb-4 mt-2">Skip</Link>
-          <Dots currentIndex={1} totalNo={3} />
+          <Progress filledIndex={1} length={3} />
         </View>
       </SafeAreaView>
     </View>

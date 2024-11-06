@@ -1,6 +1,7 @@
 import { SafeAreaView, Text, View, Image, TextInput, Platform, TouchableWithoutFeedback, Keyboard, KeyboardAvoidingView, ScrollView } from "react-native";
-import Button from "@/components/Button";
-import Dots from "@/components/Dots";
+import FilledButton from "@/components/FilledButton";
+import Progress from "@/components/Progress";
+import { router } from "expo-router";
 
 export default function Welcome() {
   return (
@@ -34,8 +35,8 @@ export default function Welcome() {
               />
             </ScrollView>
 
-            <Button title="Next" route="/photo" backAllowed={true} />
-            <Dots currentIndex={0} totalNo={3} />
+            <FilledButton title="Next" onPress={() => router.replace("/photo")} />
+            <Progress filledIndex={0} length={3} />
           </SafeAreaView>
         </KeyboardAvoidingView>
       </View>

@@ -1,28 +1,91 @@
-import { Tabs } from 'expo-router';
-import Ionicons from '@expo/vector-icons/Ionicons';
+import { Tabs, usePathname } from "expo-router";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import { Feather, MaterialCommunityIcons } from "@expo/vector-icons";
 
 export default function TabsLayout() {
+  const pathname = usePathname();
+  const isPostScreen = pathname.startsWith("/tabs/post");
+
   return (
-    <Tabs screenOptions={{
-      tabBarStyle: {
-        height: 95,
-        backgroundColor: '#171F20',
-      },
-      tabBarLabelStyle: {
-        fontSize: 16,
-      },
-      headerShown: false,
-    }}>
-      <Tabs.Screen name="home" options={{ title: 'Home',
-        tabBarIcon: ({ color, size }) => (
-          <Ionicons name="home" color={color} size={size} className="mt-4" />
-        ),
-       }} />
-      {/* ENABLE ONCE YOU HAVE CREATED THE SCREENS
-      <Tabs.Screen name="projects" />
-      <Tabs.Screen name="post" />
-      <Tabs.Screen name="messages" />
-      <Tabs.Screen name="account" /> */}
+    <Tabs
+      screenOptions={{
+        tabBarStyle: isPostScreen
+          ? { display: "none" }
+          : {
+              height: 95,
+              backgroundColor: "#171F20",
+            },
+        tabBarLabelStyle: {
+          fontSize: 14,
+        },
+        headerShown: false,
+      }}
+    >
+      <Tabs.Screen
+        name="home"
+        options={{
+          title: "Home",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="home" color={color} size={size} className="mt-4" />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="projects"
+        options={{
+          title: "Projects",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons
+              name="briefcase-outline"
+              color={color}
+              size={size}
+              className="mt-4"
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="post"
+        options={{
+          title: "Post",
+          tabBarIcon: ({ color, size }) => (
+            <Feather
+              name="plus-circle"
+              color={color}
+              size={size}
+              className={"mt-4"}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="messages"
+        options={{
+          title: "Messages",
+          tabBarIcon: ({ color, size }) => (
+            <Feather
+              name="message-circle"
+              color={color}
+              size={size}
+              className={"mt-4"}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="account"
+        options={{
+          title: "Account",
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons
+              name="account-circle-outline"
+              color={color}
+              size={size}
+              className="mt-4"
+            />
+          ),
+        }}
+      />
     </Tabs>
   );
 }

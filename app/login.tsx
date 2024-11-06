@@ -1,7 +1,7 @@
 import { Text, View, SafeAreaView, TextInput, TouchableWithoutFeedback, Keyboard} from "react-native";
-import Button from "@/components/Button";
+import FilledButton from "@/components/FilledButton";
 import SocialMediaLogin from "@/components/SocialMedia";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 
 export default function Login() {
   return (
@@ -18,7 +18,7 @@ export default function Login() {
             secureTextEntry={true}
             className="w-[80%] color-white border border-gray-400 rounded-2xl p-4 mb-8 text-xl"
           />
-          <Button title="Log in" route="/tabs/home" />
+          <FilledButton title="Log in" onPress={() => router.replace("/tabs/home")} />
 
           <Text className="text-white text-base underline my-2">Forgot password?</Text>
           <Link href="/register" className="text-white text-base underline mb-4">Create an account</Link>

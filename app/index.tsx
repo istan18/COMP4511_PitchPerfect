@@ -1,6 +1,7 @@
 import { Text, View, Image, ScrollView, SafeAreaView } from "react-native";
-import Button from "@/components/Button";
+import FilledButton from "@/components/FilledButton";
 import SocialMediaLogin from "@/components/SocialMedia";
+import { router } from "expo-router";
 
 export default function Index() {
   return (
@@ -17,12 +18,12 @@ export default function Index() {
             resizeMode="contain"
           />
           <Text className="text-2xl w-[80%] color-white py-4" >Insert very cool slogan here about pitching projects</Text>
-          <Button title="Log in" route="/login" />
-          <Button 
-            title="Sign up with email" 
-            route="/register" 
+          <FilledButton title="Log in" onPress={() => router.replace("/login")} />
+          <FilledButton
+            title="Sign up with email"
+            onPress={() => router.replace("/register")}
             filled={false}
-            icon={require('../assets/images/email.png')}
+            icon={require("../assets/images/email.png")}
           />
           <SocialMediaLogin />
         </ScrollView>

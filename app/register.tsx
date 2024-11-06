@@ -1,6 +1,6 @@
 import { Text, View, TouchableWithoutFeedback, SafeAreaView, Keyboard, TextInput} from "react-native";
-import Button from "@/components/Button";
-import { Link } from "expo-router";
+import FilledButton from "@/components/FilledButton";
+import { Link, router } from "expo-router";
 import SocialMediaLogin from "@/components/SocialMedia";
 
 export default function Register() {
@@ -25,7 +25,7 @@ export default function Register() {
             className="w-[80%] color-white border border-gray-400 rounded-2xl p-4 mb-8 text-xl"
           />
 
-          <Button title="Sign up" route="/welcome" />
+          <FilledButton title="Sign up" onPress={() => router.replace("/welcome")} />
           <Link href="/login" className="text-white text-base underline mt-2 mb-4">Already have an account? Log in</Link>
           
           <SocialMediaLogin />

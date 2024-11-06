@@ -1,8 +1,8 @@
 import { View, Text, SafeAreaView } from "react-native";
 import BackButton from "@/components/BackButton";
-import Button from "@/components/Button";
-import { Link } from "expo-router";
-import Dots from "@/components/Dots";
+import FilledButton from "@/components/FilledButton";
+import { Link, router } from "expo-router";
+import Progress from "@/components/Progress";
 
 export default function Role() {
     return (
@@ -14,9 +14,9 @@ export default function Role() {
                 <Text className="text-4xl text-white mt-8">Add your education</Text>
                 
                 <View className="absolute bottom-20 w-full items-center"> 
-                    <Button title="Start browsing!" route="/tabs/home" backAllowed={true} />
+                    <FilledButton title="Start browsing!" onPress={() => router.push("/tabs/home")} />
                     <Link href="/tabs/home" className="text-white text-lg underline mb-4 mt-2">Skip</Link>
-                    <Dots currentIndex={2} totalNo={3} />
+                    <Progress filledIndex={2} length={3} />
                 </View>
             </SafeAreaView>
         </View>
