@@ -20,8 +20,8 @@ export default function Login() {
           />
           <FilledButton title="Log in" onPress={() => router.replace("/tabs/home")} />
 
-          <Text className="text-white text-base underline my-2">Forgot password?</Text>
-          <Link href="/register" className="text-white text-base underline mb-4">Create an account</Link>
+          <Text className="text-white text-lg underline my-2">Forgot password?</Text>
+          <Link href="/register" className="text-white text-lg underline mb-4">Create an account</Link>
           
           <SocialMediaLogin />
         </SafeAreaView>
