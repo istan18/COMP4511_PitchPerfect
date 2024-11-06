@@ -35,7 +35,7 @@ export default function Welcome() {
               />
             </ScrollView>
 
-            <FilledButton title="Next" onPress={() => router.replace("/photo")} />
+            <FilledButton title="Next" onPress={() => router.push("/photo")} />
             <Progress filledIndex={0} length={3} />
           </SafeAreaView>
         </KeyboardAvoidingView>
