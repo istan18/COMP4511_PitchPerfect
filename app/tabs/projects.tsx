@@ -1,6 +1,7 @@
 import { View, ScrollView, SafeAreaView, Text } from "react-native";
 import { useState, useEffect } from "react";
 import ProjectCard from "@/components/MyProjectCard";
+import TabNavigation from "@/components/TabNavigation";
 
 export default function MyProjects() {
   const [showHint, setShowHint] = useState(true);
@@ -11,7 +12,8 @@ export default function MyProjects() {
 
   return (
     <SafeAreaView className="flex-1 bg-[#171F20]">
-      <View className="flex-1">
+      <TabNavigation />
+      <View className="flex-1 mt-5">
         <ScrollView className="px-4 pt-2">
           <ProjectCard
             projectName="Skill Swap"
