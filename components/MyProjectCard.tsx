@@ -35,7 +35,6 @@ export default function ProjectCard({
             />
             <Button
               title="Project Schedule"
-              route="/register"
               filled={false}
               icon={require("../assets/images/calendar.png")}
             />
