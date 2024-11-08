@@ -26,7 +26,7 @@ export default function Register() {
           />
 
           <FilledButton title="Sign up" onPress={() => router.replace("/welcome")} />
-          <Link href="/login" className="text-white text-base underline mt-2 mb-4">Already have an account? Log in</Link>
+          <Link href="/login" className="text-white text-lg underline mt-2 mb-4">Already have an account? Log in</Link>
           
           <SocialMediaLogin />
         </SafeAreaView>
