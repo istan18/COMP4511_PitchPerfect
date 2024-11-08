@@ -13,7 +13,7 @@ export default function MyProjects() {
         activeTab={activeTab}
         setActiveTab={setActiveTab}
         tab1Name="My Projects"
-        tab2Name="My Applications"
+        tab2Name="Applications"
       />
       {activeTab === "My Projects" ? (
         <MyProjectsContent />
