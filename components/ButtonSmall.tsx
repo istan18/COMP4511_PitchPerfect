@@ -21,7 +21,7 @@ export default function FilledButton({
   route,
 }: FilledButtonProps) {
   return (
-    <View className="flex py-2">
+    <View className="flex py-2 w-[160px]">
       <TouchableOpacity
         className={`flex-row items-center rounded-3xl py-3 px-6 ${
           filled ? "bg-[#F5E5C9]" : "bg-[#171F20] border border-white"

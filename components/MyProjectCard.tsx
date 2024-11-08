@@ -25,7 +25,8 @@ export default function ProjectCard({
       <TouchableOpacity className="h-36 rounded-lg border border-white p-4">
         <View className="flex-1 flex-row items-center">
           <Image source={projectIcon} className="w-[27%] h-[90%]" />
-          <View className="flex-1 items-center">
+          <View className="w-[1px] h-[80%] bg-white mx-4" />
+          <View className="flex-1 items-start ml-2">
             <Button
               title="View Applicants"
               route="/register"
