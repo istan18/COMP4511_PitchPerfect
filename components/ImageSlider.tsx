@@ -5,9 +5,10 @@ const { width } = Dimensions.get("window");
 
 interface ImageSliderProps {
   images: string[];
+  height: number;
 }
 
-export default function ImageSlider({ images }: ImageSliderProps) {
+export default function ImageSlider({ images, height }: ImageSliderProps) {
   const renderItem = ({ item }: { item: string }) => (
     <View style={{ width: width * 0.85, marginHorizontal: 10 }}>
       <Image
@@ -23,7 +24,7 @@ export default function ImageSlider({ images }: ImageSliderProps) {
       style={{
         position: "relative",
         width: "100%",
-        height: 200,
+        height: height,
         alignSelf: "center",
       }}
     >

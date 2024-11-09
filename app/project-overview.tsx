@@ -19,7 +19,7 @@ const ProjectOverview = () => {
           Welcome to the project overview page. Here you will find all the
           details about the project.
         </Text>
-        <ImageSlider images={images} />
+        <ImageSlider images={images} height={250} />
       </View>
     </ScrollView>
   );
