@@ -8,6 +8,7 @@ import {
   Modal,
 } from "react-native";
 import * as Haptics from "expo-haptics";
+import { router } from "expo-router";
 
 interface ApplicationCardProps {
   role: string;
@@ -16,6 +17,7 @@ interface ApplicationCardProps {
   lead: string;
   projectName: string;
   projectIcon: ImageSourcePropType;
+  routePath?: string;
   hideHint: () => void;
 }
 
@@ -26,6 +28,7 @@ export default function ApplicationCard({
   lead,
   projectName,
   projectIcon,
+  routePath,
   hideHint,
 }: ApplicationCardProps) {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -36,6 +39,12 @@ export default function ApplicationCard({
     hideHint();
   };
 
+  const handlePress = () => {
+    if (routePath) {
+      router.replace(routePath as any);
+    }
+  };
+
   return (
     <View className="w-[90%] self-center mb-8">
       <Text className="absolute -top-3.5 left-3 px-2 text-xl font-extralight text-white bg-[#171F20] z-10">
@@ -43,6 +52,7 @@ export default function ApplicationCard({
       </Text>
       <TouchableOpacity
         className="h-40 rounded-lg border border-white p-4"
+        onPress={handlePress}
         onLongPress={handleLongPress}
         delayLongPress={500}
       >
