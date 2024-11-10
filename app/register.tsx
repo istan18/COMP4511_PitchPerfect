@@ -1,4 +1,5 @@
 import {
+  Image,
   Keyboard,
   SafeAreaView,
   Text,
@@ -9,40 +10,62 @@ import {
 import FilledButton from "@/components/FilledButton";
 import { Link, router } from "expo-router";
 import SocialMediaLogin from "@/components/SocialMedia";
+import PasswordInput from "@/components/PasswordInput";
+import { useState } from "react";
+import ErrorMessage from "@/components/ErrorMessage";
 
 export default function Register() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSignUp = () => {
+    setError("");
+    if (!email || !password) {
+      setError("Email and password are required");
+    } else if (password !== confirmPassword) {
+      setError("Passwords must match");
+    } else {
+      router.replace("/welcome");
+    }
+  };
+
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View className="flex-1 bg-[#171F20]">
-        <SafeAreaView className="w-full items-center">
-          <Text className="text-4xl text-white mt-20">Sign up</Text>
+        <SafeAreaView className="flex-1 w-full items-center">
+          <Image
+            source={require("../assets/images/logo.png")}
+            className="w-40 h-40 mt-20"
+          />
+          <Text className="text-4xl text-white mt-4">Sign up</Text>
 
           <TextInput
             placeholder="Email"
+            value={email}
+            onChangeText={setEmail}
             className="w-[80%] color-white border border-gray-400 rounded-2xl p-4 mt-8 mb-4 text-xl"
           />
-          <TextInput
+          <PasswordInput
             placeholder="Password"
-            secureTextEntry={true}
-            className="w-[80%] color-white border border-gray-400 rounded-2xl p-4 mb-4 text-xl"
+            value={password}
+            setPassword={setPassword}
           />
-          <TextInput
+          <PasswordInput
             placeholder="Confirm password"
-            secureTextEntry={true}
-            className="w-[80%] color-white border border-gray-400 rounded-2xl p-4 mb-8 text-xl"
+            value={confirmPassword}
+            setPassword={setConfirmPassword}
           />
 
-          <FilledButton
-            title="Sign up"
-            onPress={() => router.replace("/welcome")}
-          />
+          {error && <ErrorMessage error={error} />}
+          <FilledButton title="Sign up" onPress={handleSignUp} />
           <Link
             href="/login"
-            className="text-white text-base underline mt-2 mb-4"
+            className="text-white text-lg underline mt-2 mb-4"
           >
             Already have an account? Log in
           </Link>
-
           <SocialMediaLogin />
         </SafeAreaView>
       </View>

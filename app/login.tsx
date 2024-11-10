@@ -1,4 +1,5 @@
 import {
+  Image,
   Keyboard,
   SafeAreaView,
   Text,
@@ -9,34 +10,56 @@ import {
 import FilledButton from "@/components/FilledButton";
 import SocialMediaLogin from "@/components/SocialMedia";
 import { Link, router } from "expo-router";
+import PasswordInput from "@/components/PasswordInput";
+import { useState } from "react";
+
+import ErrorMessage from "@/components/ErrorMessage";
 
 export default function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleLogin = () => {
+    setError("");
+    if (!email || !password) {
+      setError("Email and password are required");
+    } else {
+      router.replace("/home");
+    }
+  };
+
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View className="flex-1 bg-[#171F20]">
         <SafeAreaView className="w-full items-center">
-          <Text className="text-4xl text-white mt-20">Login</Text>
+          <Image
+            source={require("../assets/images/logo.png")}
+            className="w-40 h-40 mt-20"
+          />
+          <Text className="text-4xl text-white mt-8">Login</Text>
           <TextInput
             placeholder="Email"
+            value={email}
+            onChangeText={setEmail}
             className="w-[80%] color-white border border-gray-400 rounded-2xl p-4 mt-8 mb-4 text-xl"
           />
-          <TextInput
+          <PasswordInput
             placeholder="Password"
-            secureTextEntry={true}
-            className="w-[80%] color-white border border-gray-400 rounded-2xl p-4 mb-8 text-xl"
+            value={password}
+            setPassword={setPassword}
           />
-          <FilledButton
-            title="Log in"
-            onPress={() => router.replace("/home")}
-          />
+          {error && <ErrorMessage error={error} />}
 
-          <Text className="text-white text-base underline my-2">
-            Forgot password?
-          </Text>
+          <FilledButton title="Log in" onPress={handleLogin} />
+
           <Link
-            href="/register"
-            className="text-white text-base underline mb-4"
+            href="/forgotPassword"
+            className="text-white text-lg underline my-2"
           >
+            Forgot password?
+          </Link>
+          <Link href="/register" className="text-white text-lg underline mb-4">
             Create an account
           </Link>
 
