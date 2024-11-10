@@ -29,7 +29,7 @@
     "expo-system-ui": "~3.0.7",
     "expo-web-browser": "~13.0.3",
     "globals": "^15.11.0",
-    "metro": "^0.81.0",
+    "metro": "^0.80.12",
     "nativewind": "^4.1.21",
     "react": "18.2.0",
     "react-dom": "18.2.0",

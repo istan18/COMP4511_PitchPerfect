@@ -48,6 +48,7 @@ export default function TabsLayout() {
         name="post"
         options={{
           title: "Post",
+          href: "/post",
           tabBarIcon: ({ color, size }) => (
             <Feather
               name="plus-circle"

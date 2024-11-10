@@ -8,6 +8,9 @@ module.exports = {
       colors: {
         background: "#171F20",
         filledButton: "#F5E5C9",
+        tagBackground: "#154647",
+        tagBackgroundSelected: "#B5E3A0",
+        tagText: "#46AAAC",
       },
     },
   },

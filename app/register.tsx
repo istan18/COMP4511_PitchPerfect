@@ -1,4 +1,11 @@
-import { Text, View, TouchableWithoutFeedback, SafeAreaView, Keyboard, TextInput} from "react-native";
+import {
+  Keyboard,
+  SafeAreaView,
+  Text,
+  TextInput,
+  TouchableWithoutFeedback,
+  View,
+} from "react-native";
 import FilledButton from "@/components/FilledButton";
 import { Link, router } from "expo-router";
 import SocialMediaLogin from "@/components/SocialMedia";
@@ -10,24 +17,32 @@ export default function Register() {
         <SafeAreaView className="w-full items-center">
           <Text className="text-4xl text-white mt-20">Sign up</Text>
 
-          <TextInput 
+          <TextInput
             placeholder="Email"
             className="w-[80%] color-white border border-gray-400 rounded-2xl p-4 mt-8 mb-4 text-xl"
           />
-          <TextInput 
+          <TextInput
             placeholder="Password"
             secureTextEntry={true}
             className="w-[80%] color-white border border-gray-400 rounded-2xl p-4 mb-4 text-xl"
           />
-          <TextInput 
+          <TextInput
             placeholder="Confirm password"
             secureTextEntry={true}
             className="w-[80%] color-white border border-gray-400 rounded-2xl p-4 mb-8 text-xl"
           />
 
-          <FilledButton title="Sign up" onPress={() => router.replace("/welcome")} />
-          <Link href="/login" className="text-white text-base underline mt-2 mb-4">Already have an account? Log in</Link>
-          
+          <FilledButton
+            title="Sign up"
+            onPress={() => router.replace("/welcome")}
+          />
+          <Link
+            href="/login"
+            className="text-white text-base underline mt-2 mb-4"
+          >
+            Already have an account? Log in
+          </Link>
+
           <SocialMediaLogin />
         </SafeAreaView>
       </View>
