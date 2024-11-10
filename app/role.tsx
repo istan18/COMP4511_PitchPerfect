@@ -1,9 +1,8 @@
 import {
   Keyboard,
-  Pressable,
   SafeAreaView,
   Text,
-  TextInput,
+  TouchableWithoutFeedback,
   View,
 } from "react-native";
 import BackButton from "@/components/BackButton";
@@ -13,6 +12,7 @@ import Progress from "@/components/Progress";
 import RadioGroup from "@/components/RadioGroup";
 import CustomDropdown from "@/components/CustomDropdown";
 import Checkbox from "@/components/Checkbox";
+import CustomTextInput from "@/components/CustomTextInput";
 
 export default function Role() {
   const radioOptions = [
@@ -29,32 +29,28 @@ export default function Role() {
   ];
 
   return (
-    <Pressable onPress={Keyboard.dismiss}>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View className="flex-1 bg-[#171F20]">
         <SafeAreaView className="flex-1 flex-col gap-4 items-center text-left w-full">
           <BackButton />
-          <Text className="text-4xl text-white mt-20">
+          <Text className="text-4xl text-white mt-20 mb-2">
             I'm interested in...
           </Text>
           <RadioGroup options={radioOptions} />
-
-          <Text className="text-4xl text-white mt-4">Add your education</Text>
-          <TextInput
-            placeholder="Degree/Diploma/Other"
-            placeholderTextColor="#6B7280"
-            className="w-[80%] color-white border border-gray-400 rounded-2xl p-4 text-xl"
-          />
+          <Text className="text-4xl text-white mt-12 mb-2">
+            Add your education
+          </Text>
+          <CustomTextInput placeholder="Degree/Diploma/Other" />
           <CustomDropdown options={dropdownOptions} />
           <Checkbox label={"I am currently a student"} />
-
           <View className="absolute bottom-20 w-full items-center">
             <FilledButton
               title="Start browsing!"
-              onPress={() => router.replace("/tabs/home")}
+              onPress={() => router.replace("/home")}
             />
             <Link
-              href="/tabs/home"
-              className="text-white text-lg underline mb-4 mt-2"
+              href="/home"
+              className="text-white text-xl underline mb-4 mt-2"
             >
               Skip
             </Link>
@@ -62,6 +58,6 @@ export default function Role() {
           </View>
         </SafeAreaView>
       </View>
-    </Pressable>
+    </TouchableWithoutFeedback>
   );
 }

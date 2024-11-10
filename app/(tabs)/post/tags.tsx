@@ -75,12 +75,10 @@ const Tags = () => {
           onPress={() => router.push("/post/edit")}
         />
         <TouchableOpacity
-          className="w-full mx-auto mb-4"
+          className="w-full mx-auto my-4"
           onPress={() => router.push("/post/edit")}
         >
-          <Text className={"text-white my-2 mx-auto text-2xl underline"}>
-            Skip
-          </Text>
+          <Text className={"text-white mx-auto text-2xl underline"}>Skip</Text>
         </TouchableOpacity>
         <Progress filledIndex={1} length={3} />
       </View>

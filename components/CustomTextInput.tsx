@@ -2,8 +2,8 @@ import { Text, TextInput, View } from "react-native";
 import React from "react";
 
 interface TitleInputProps {
-  text: string;
-  setText: (text: string) => void;
+  text?: string;
+  setText?: (text: string) => void;
   placeholder: string;
   padding?: string;
   maxLength?: number;
@@ -18,8 +18,8 @@ interface TitleInputProps {
 }
 
 const TitleInput: React.FC<TitleInputProps> = ({
-  text,
-  setText,
+  text = "",
+  setText = () => {},
   placeholder,
   children,
   heading,
@@ -41,7 +41,7 @@ const TitleInput: React.FC<TitleInputProps> = ({
           </Text>
         ) : null}
         <TextInput
-          className={`border text-left text-white border-white ${height} text-2xl pl-4 rounded-2xl ${padding}`}
+          className={`border text-left text-white border-gray-400 ${height} text-2xl p-4 rounded-2xl ${padding}w-full color-white border border-gray-400 rounded-2xl p-4 text-xl`}
           onChangeText={(newText) => {
             if (maxLength) {
               if (newText.length >= maxLength) return;

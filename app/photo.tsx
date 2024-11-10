@@ -58,10 +58,7 @@ export default function Photo() {
 
         <View className="absolute bottom-20 w-full items-center">
           <FilledButton title="Next" onPress={() => router.push("/role")} />
-          <Link
-            href="/tabs/home"
-            className="text-white text-lg underline mb-4 mt-2"
-          >
+          <Link href="/home" className="text-white text-xl underline mb-4 mt-2">
             Skip
           </Link>
           <Progress filledIndex={1} length={3} />

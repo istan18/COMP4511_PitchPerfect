@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   Image,
   Keyboard,
@@ -11,9 +12,9 @@ import FilledButton from "@/components/FilledButton";
 import SocialMediaLogin from "@/components/SocialMedia";
 import { Link, router } from "expo-router";
 import PasswordInput from "@/components/PasswordInput";
-import { useState } from "react";
 
 import ErrorMessage from "@/components/ErrorMessage";
+import BackButton from "@/components/BackButton";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -33,6 +34,7 @@ export default function Login() {
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View className="flex-1 bg-[#171F20]">
         <SafeAreaView className="w-full items-center">
+          <BackButton />
           <Image
             source={require("../assets/images/logo.png")}
             className="w-40 h-40 mt-20"

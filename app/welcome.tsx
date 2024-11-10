@@ -6,15 +6,15 @@ import {
   SafeAreaView,
   ScrollView,
   Text,
-  TextInput,
   TouchableWithoutFeedback,
   View,
 } from "react-native";
 import FilledButton from "@/components/FilledButton";
 import Progress from "@/components/Progress";
 import { router } from "expo-router";
-import { useState } from "react";
+import React, { useState } from "react";
 import ErrorMessage from "@/components/ErrorMessage";
+import CustomTextInput from "@/components/CustomTextInput";
 
 export default function Welcome() {
   const [firstName, setFirstName] = useState("");
@@ -32,47 +32,54 @@ export default function Welcome() {
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <View className="flex-1 bg-[#171F20]">
+      <View className="flex-1 bg-background">
         <SafeAreaView className="w-full items-center">
           <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
           >
-            <ScrollView contentContainerClassName="items-center">
+            <ScrollView
+              className="w-full"
+              contentContainerClassName="items-center"
+            >
               <Image
                 source={require("../assets/images/logo.png")}
                 className="w-40 h-40 mt-20"
               />
               <Text className="text-4xl text-white mt-8">Welcome!</Text>
-              <Text className="text-2xl text-white mt-4">
+              <Text className="text-2xl text-white mt-4 mb-12">
                 Set up how other people see you.
               </Text>
 
-              <TextInput
+              <CustomTextInput
                 placeholder="First Name*"
-                value={firstName}
-                onChangeText={setFirstName}
-                className="w-full color-white border border-gray-400 rounded-2xl p-4 mt-8 mb-4 text-xl"
+                text={firstName}
+                width={"w-96"}
+                setText={setFirstName}
+                marginBottom={"mb-2"}
               />
-              <TextInput
+              <CustomTextInput
+                width={"w-96"}
                 placeholder="Last Name*"
-                value={lastName}
-                onChangeText={setLastName}
-                className="w-full color-white border border-gray-400 rounded-2xl p-4 mb-4 text-xl"
+                text={lastName}
+                setText={setLastName}
+                marginBottom={"mb-2"}
               />
-              <TextInput
+              <CustomTextInput
                 placeholder="Pronouns"
-                className="w-full color-white border border-gray-400 rounded-2xl p-4 mb-4 text-xl"
+                width={"w-96"}
+                marginBottom={"mb-2"}
               />
-              <TextInput
-                placeholder="Location"
-                className="w-full color-white border border-gray-400 rounded-2xl p-4 mb-4 text-xl"
-              />
+              <CustomTextInput width={"w-96"} placeholder="Location" />
             </ScrollView>
           </KeyboardAvoidingView>
-
-          <View className="absolute bottom-20 w-full items-center">
+          <View className={"mx-auto w-full absolute bottom-20"}>
             {error && <ErrorMessage error={error} />}
-            <FilledButton title="Next" onPress={handleNext} />
+            <FilledButton
+              filled={true}
+              title={"Next"}
+              otherStyles={"mb-4"}
+              onPress={handleNext}
+            />
             <Progress filledIndex={0} length={3} />
           </View>
         </SafeAreaView>

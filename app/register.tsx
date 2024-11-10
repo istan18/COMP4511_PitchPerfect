@@ -13,6 +13,7 @@ import SocialMediaLogin from "@/components/SocialMedia";
 import PasswordInput from "@/components/PasswordInput";
 import { useState } from "react";
 import ErrorMessage from "@/components/ErrorMessage";
+import BackButton from "@/components/BackButton";
 
 export default function Register() {
   const [email, setEmail] = useState("");
@@ -33,8 +34,9 @@ export default function Register() {
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <View className="flex-1 bg-[#171F20]">
+      <View className="flex-1 bg-background">
         <SafeAreaView className="flex-1 w-full items-center">
+          <BackButton />
           <Image
             source={require("../assets/images/logo.png")}
             className="w-40 h-40 mt-20"
