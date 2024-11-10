@@ -22,7 +22,7 @@ const Progress = ({
   filledColor = "#D9D9D9",
 }: ProgressProps) => {
   return (
-    <View className={"flex flex-row justify-center items-center"}>
+    <View className={"flex flex-row justify-center mx-auto mt-2 items-center"}>
       {Array.from({ length }, (_, index) => {
         const isFilled = index === filledIndex;
         const fillColor = isFilled ? filledColor : unfilledColor;

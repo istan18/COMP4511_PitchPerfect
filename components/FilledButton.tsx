@@ -19,9 +19,10 @@ export default function FilledButton({
   filled = true,
   title,
   onPress,
+  otherStyles = "",
 }: FilledButtonProps) {
   return (
-    <View className="flex w-[80%] py-2">
+    <View className={`${otherStyles} flex w-[80%] py-2 mx-auto`}>
       <TouchableOpacity
         className={`flex-row relative items-center rounded-2xl py-4 ${filled ? "bg-filledButton" : "bg-background border border-white"} `}
         onPress={onPress}

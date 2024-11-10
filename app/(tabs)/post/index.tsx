@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import CustomTextInput from "@/components/CustomTextInput";
 import Svg, { Rect } from "react-native-svg";
+// @ts-ignore
 import Upload from "@/assets/images/upload.png";
 import * as ImagePicker from "expo-image-picker";
 import FilledButton from "@/components/FilledButton";
@@ -19,7 +20,6 @@ const Index = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
-  console.log(image);
   const pickImage = async () => {
     const result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
@@ -47,10 +47,10 @@ const Index = () => {
 
   return (
     <SafeAreaView className={"flex-1 bg-background"}>
-      <Text className={"mt-12 text-center mx-auto text-5xl mb-12 text-white"}>
+      <Text className={"mt-20 text-center mx-auto text-5xl mb-8 text-white"}>
         New Project
       </Text>
-      <View className={"items-center flex flex-col gap-y-4"}>
+      <View className={"items-center flex flex-col gap-y-2"}>
         <CustomTextInput
           heading={"What is your project about?"}
           setText={setTitle}
@@ -124,10 +124,12 @@ const Index = () => {
             </TouchableOpacity>
           )}
         </View>
+      </View>
+      <View className={"mx-auto w-full absolute bottom-12"}>
         <FilledButton
           filled={true}
           title={"Next"}
-          onPress={() => router.push("/tabs/post/tags")}
+          onPress={() => router.push("/post/tags")}
         />
         <Progress filledIndex={0} length={3} />
       </View>
