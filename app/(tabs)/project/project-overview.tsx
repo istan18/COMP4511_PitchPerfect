@@ -12,10 +12,7 @@ const ProjectOverview = () => {
 
   return (
     <ScrollView className="flex-1 bg-[#171F20]">
-      <ProjectHeader
-        projectName="Project Name"
-        projectLogo="https://picsum.photos/100"
-      />
+      <ProjectHeader projectName="Meal Planner" />
       <View className="">
         <ImageSlider images={images} height={250} />
         <Text className="p-4 mt-4 text-base text-gray-600">
