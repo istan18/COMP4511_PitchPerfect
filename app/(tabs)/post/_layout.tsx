@@ -1,4 +1,3 @@
-// tabs/post/_layout.tsx
 import { Stack } from "expo-router";
 
 export default function PostLayout() {
@@ -18,7 +17,7 @@ export default function PostLayout() {
         }}
       />
       <Stack.Screen name="tags" options={{ title: "Tags" }} />
-      <Stack.Screen name="edit" options={{ title: "Tags" }} />
+      <Stack.Screen name="edit" options={{ title: "Edit" }} />
     </Stack>
   );
 }

@@ -4,7 +4,7 @@ import { Feather, MaterialCommunityIcons } from "@expo/vector-icons";
 
 export default function TabsLayout() {
   const pathname = usePathname();
-  const isPostScreen = pathname.startsWith("/tabs/post");
+  const isPostScreen = pathname.startsWith("/post");
 
   return (
     <Tabs
@@ -48,6 +48,7 @@ export default function TabsLayout() {
         name="post"
         options={{
           title: "Post",
+          href: "/post",
           tabBarIcon: ({ color, size }) => (
             <Feather
               name="plus-circle"

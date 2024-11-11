@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, ScrollView } from "react-native";
 import ImageSlider from "@/components/ImageSlider";
-import ProjectHeader from "@/app/tabs/project/projectHeader";
+import ProjectHeader from "@/app/(tabs)/project/projectHeader";
 
 const ProjectOverview = () => {
   const images = [
