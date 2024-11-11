@@ -11,7 +11,6 @@ export default function RootLayout() {
       <Stack.Screen name="photo" options={{ headerShown: false }} />
       <Stack.Screen name="role" options={{ headerShown: false }} />
       <Stack.Screen name="tabs" options={{ headerShown: false }} />
-      <Stack.Screen name="project-overview" options={{ headerShown: false }} />
     </Stack>
   );
 }

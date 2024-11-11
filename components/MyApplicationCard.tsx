@@ -41,7 +41,7 @@ export default function ApplicationCard({
 
   const handlePress = () => {
     if (routePath) {
-      router.replace(routePath as any);
+      router.push(routePath as any);
     }
   };
 

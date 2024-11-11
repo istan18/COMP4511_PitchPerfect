@@ -21,7 +21,7 @@ export default function MyApplicationsContent() {
             lead="Jenny Liu"
             projectIcon={require("@/assets/images/project-logo-1.png")}
             hideHint={hideHint}
-            routePath="/project-overview"
+            routePath="/tabs/project/project-overview"
           />
           <ApplicationCard
             projectName="Project 2"
