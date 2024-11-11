@@ -9,10 +9,10 @@ interface ProjectHeaderProps {
 export default function ProjectHeader({ projectName }: ProjectHeaderProps) {
   return (
     <SafeAreaView className="bg-[#171F20]">
-      <View className="flex-row justify-between bg-[#171F20] px-5 py-3 border-b border-white">
+      <View className="flex-row justify-between bg-[#171F20] px-5 pb-5 border-b border-white">
         <BackButton />
 
-        <Text className="text-4xl font-normal text-white flex-1 text-center mt-2">
+        <Text className="text-4xl font-normal text-white text-center mt-2">
           {projectName}
         </Text>
 
