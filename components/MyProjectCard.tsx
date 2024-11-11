@@ -46,7 +46,7 @@ export default function ProjectCard({
           <View className="flex-1 items-start ml-2">
             <Button
               title="View Applicants"
-              route="/register"
+              route="/(tabs)/project/project-overview" // Change this later with path to view applicants
               filled={false}
               icon={require("../assets/images/person.png")}
             />
