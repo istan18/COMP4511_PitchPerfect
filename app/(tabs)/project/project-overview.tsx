@@ -50,7 +50,7 @@ const ProjectOverview = () => {
           <Text className="px-5 pt-2 text-2xl text-white text-center font-extrabold">
             Members
           </Text>
-          <View className="flex-row justify-around mt-4 px-5">
+          <View className="flex-row justify-around mt-1 px-5">
             {members.map((member, index) => (
               <View key={index} className="items-center">
                 <Image
@@ -62,6 +62,43 @@ const ProjectOverview = () => {
             ))}
           </View>
           <View className="border-b border-gray-500 mt-3" />
+          <Text className="px-5 pt-2 text-2xl text-white">
+            Estimated Release: 23/03/25
+          </Text>
+          <View className="flex-row items-center px-5 pt-2">
+            <Text className="text-2xl text-white mr-2">Progress:</Text>
+            <View className="bg-[#46AAAC] h-2 w-20 mx-1 rounded-full" />
+            <View className="bg-white h-2 w-44 rounded-full" />
+            <Text className="text-2xl ml-5 text-white">30%</Text>
+          </View>
+          <View className="flex-row items-center px-5 pt-2">
+            <Text className="text-2xl text-white mr-3.5">Funding:</Text>
+            <View className="bg-[#46AAAC] h-2 w-10 mx-1 rounded-full" />
+            <View className="bg-white h-2 w-[190px] rounded-full" />
+            <Text className="text-2xl ml-5 text-white">$125</Text>
+          </View>
+          <Text className="px-5 pt-2 text-2xl text-white text-center">
+            Skills Required
+          </Text>
+          <View className="flex-row justify-around mt-2 px-5">
+            <View className="bg-[#46AAAC] px-3 py-1 rounded-full">
+              <Text className="text-white">Software Engineer</Text>
+            </View>
+            <View className="bg-[#46AAAC] px-3 py-1 rounded-full">
+              <Text className="text-white">UI/UX Design</Text>
+            </View>
+            <View className="bg-[#46AAAC] px-3 py-1 rounded-full">
+              <Text className="text-white">Photographer</Text>
+            </View>
+          </View>
+          <Text className="px-5 pt-4 text-2xl text-white text-center">
+            Project Updates
+          </Text>
+          <Text className="px-5 text-xl text-gray-400">
+            As the user base grows, we’ve added new features to our community
+            forums: the ability to create private groups, share photos, and
+          </Text>
+          <Text className="px-5 text-xl text-blue-400 text-right">more</Text>
         </View>
       </ScrollView>
     </View>
