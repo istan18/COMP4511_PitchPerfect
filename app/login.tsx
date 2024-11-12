@@ -32,7 +32,7 @@ export default function Login() {
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <View className="flex-1 bg-[#171F20]">
+      <View className="flex-1 bg-background">
         <SafeAreaView className="w-full items-center">
           <BackButton />
           <Image
