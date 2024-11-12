@@ -1,9 +1,20 @@
-import React from "react";
-import { View, Text, ScrollView, SafeAreaView, Image } from "react-native";
+import React, { useState } from "react";
+import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
 import ImageSlider from "@/components/ImageSlider";
 import ProjectHeader from "@/app/(tabs)/project/projectHeader";
+import { router } from "expo-router";
 
 const ProjectOverview = () => {
+  const [isLiked, setIsLiked] = useState(false);
+
+  const handleLikePress = () => {
+    setIsLiked(!isLiked);
+  };
+
+  const handleCollaboratePress = () => {
+    router.push("/(tabs)/project/collaborate");
+  };
+
   const images = [
     require("@/assets/images/meal-planner-2.png"),
     require("@/assets/images/meal-planner-1.png"),
@@ -34,10 +45,10 @@ const ProjectOverview = () => {
   ];
 
   return (
-    <View className="flex-1">
+    <View className="flex-1 bg-[#171F20]">
       <ProjectHeader projectName="Meal Planner" />
-      <ScrollView className="flex-1 bg-[#171F20]">
-        <View className="mt-5">
+      <ScrollView className="flex-1">
+        <View className="mt-5 pb-28">
           <ImageSlider images={images} height={250} />
           <Text className="px-5 pt-3 text-xl text-white">
             This app is designed to help students coordinate meal plans, form
@@ -62,22 +73,33 @@ const ProjectOverview = () => {
             ))}
           </View>
           <View className="border-b border-gray-500 mt-3" />
-          <Text className="px-5 pt-2 text-2xl text-white">
+          <Text className="text-2xl text-white mr-2 text-center font-bold mt-2">
+            Project Details
+          </Text>
+          <Text className="px-5 pt-2 text-2xl text-white font-extralight">
             Estimated Release: 23/03/25
           </Text>
           <View className="flex-row items-center px-5 pt-2">
-            <Text className="text-2xl text-white mr-2">Progress:</Text>
+            <Text className="text-2xl text-white mr-2 font-extralight">
+              Progress:
+            </Text>
             <View className="bg-[#46AAAC] h-2 w-20 mx-1 rounded-full" />
             <View className="bg-white h-2 w-44 rounded-full" />
-            <Text className="text-2xl ml-5 text-white">30%</Text>
+            <Text className="text-2xl ml-5 text-white font-extralight">
+              30%
+            </Text>
           </View>
           <View className="flex-row items-center px-5 pt-2">
-            <Text className="text-2xl text-white mr-3.5">Funding:</Text>
+            <Text className="text-2xl text-white mr-3.5 font-extralight">
+              Funding:
+            </Text>
             <View className="bg-[#46AAAC] h-2 w-10 mx-1 rounded-full" />
             <View className="bg-white h-2 w-[190px] rounded-full" />
-            <Text className="text-2xl ml-5 text-white">$125</Text>
+            <Text className="text-2xl ml-5 text-white font-extralight">
+              $125
+            </Text>
           </View>
-          <Text className="px-5 pt-2 text-2xl text-white text-center">
+          <Text className="px-5 pt-2 text-2xl text-white text-center font-bold">
             Skills Required
           </Text>
           <View className="flex-row justify-around mt-2 px-5">
@@ -91,7 +113,7 @@ const ProjectOverview = () => {
               <Text className="text-white">Photographer</Text>
             </View>
           </View>
-          <Text className="px-5 pt-4 text-2xl text-white text-center">
+          <Text className="px-5 pt-4 text-2xl text-white text-center font-bold">
             Project Updates
           </Text>
           <Text className="px-5 text-xl text-gray-400">
@@ -101,6 +123,30 @@ const ProjectOverview = () => {
           <Text className="px-5 text-xl text-blue-400 text-right">more</Text>
         </View>
       </ScrollView>
+      <View className="absolute bottom-4 w-full items-center">
+        <View className="absolute bottom-0 w-[90%] bg-[#000e10] flex-row justify-around items-center px-5 py-3 rounded-full">
+          <Image
+            source={require("@/assets/images/commentProject.png")}
+            className="w-10 h-16"
+          />
+          <TouchableOpacity
+            className="bg-[#F5E5C9] px-20 py-4 rounded-full items-center"
+            onPress={handleCollaboratePress}
+          >
+            <Text className="text-black text-xl">Collaborate</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleLikePress}>
+            <Image
+              source={
+                isLiked
+                  ? require("@/assets/images/likedProject.png")
+                  : require("@/assets/images/likeProject.png")
+              }
+              className="w-10 h-16"
+            />
+          </TouchableOpacity>
+        </View>
+      </View>
     </View>
   );
 };
