@@ -72,7 +72,10 @@ export default function ApplicationCard({
             </Text>
           </View>
           <View className="w-[1px] h-[80%] bg-white mx-4" />
-          <Image source={projectIcon} className="w-[32%] h-[92%] ml-5" />
+          <Image
+            source={projectIcon}
+            className="w-[32%] h-[92%] ml-5 rounded-3xl"
+          />
         </View>
       </TouchableOpacity>
 

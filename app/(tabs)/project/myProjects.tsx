@@ -15,17 +15,17 @@ export default function MyProjectsContent() {
         <ScrollView className="px-4 pt-2">
           <ProjectCard
             projectName="Skill Swap"
-            projectIcon={require("@/assets/images/project-logo-1.png")}
+            projectIcon={require("@/assets/images/skill-swap.png")}
             hideHint={hideHint}
           />
           <ProjectCard
             projectName="Second Project"
-            projectIcon={require("@/assets/images/project-logo-2.png")}
+            projectIcon={require("@/assets/images/second-project.png")}
             hideHint={hideHint}
           />
           <ProjectCard
             projectName="Third Project"
-            projectIcon={require("@/assets/images/project-logo-3.png")}
+            projectIcon={require("@/assets/images/project-3.png")}
             hideHint={hideHint}
           />
           {showHint && (
