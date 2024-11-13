@@ -50,15 +50,15 @@ const ProjectOverview = () => {
       <ScrollView className="flex-1">
         <View className="mt-5 pb-28">
           <ImageSlider images={images} height={250} />
-          <Text className="px-5 pt-3 text-xl text-white">
+          <Text className="px-5 pt-5 text-xl text-white">
             This app is designed to help students coordinate meal plans, form
             dining groups, and discover the best on-campus dining spots. Whether
             students are looking for a quick meal between classes or a chance to
             socialise over lunch, this app provides a seamless experience for
             organising group meals on campus.
           </Text>
-          <View className="border-b border-gray-500 mt-3" />
-          <Text className="px-5 pt-2 text-2xl text-white text-center font-extrabold">
+          <View className="border-b border-gray-500 mt-5" />
+          <Text className="px-5 pt-4 text-2xl text-white text-center font-extrabold">
             Members
           </Text>
           <View className="flex-row justify-around mt-1 px-5">
@@ -72,8 +72,8 @@ const ProjectOverview = () => {
               </View>
             ))}
           </View>
-          <View className="border-b border-gray-500 mt-3" />
-          <Text className="text-2xl text-white mr-2 text-center font-bold mt-2">
+          <View className="border-b border-gray-500 mt-7" />
+          <Text className="text-2xl text-white mr-2 text-center font-bold mt-6">
             Project Details
           </Text>
           <Text className="px-5 pt-2 text-2xl text-white font-extralight">
@@ -99,28 +99,28 @@ const ProjectOverview = () => {
               $125
             </Text>
           </View>
-          <Text className="px-5 pt-2 text-2xl text-white text-center font-bold">
+          <Text className="px-5 pt-8 text-2xl text-white text-center font-bold">
             Skills Required
           </Text>
-          <View className="flex-row justify-around mt-2 px-5">
-            <View className="bg-[#46AAAC] px-3 py-1 rounded-full">
+          <View className="flex-row justify-around mt-4 px-5">
+            <View className="bg-[#46AAAC] px-3 py-2 rounded-full">
               <Text className="text-white">Software Engineer</Text>
             </View>
-            <View className="bg-[#46AAAC] px-3 py-1 rounded-full">
+            <View className="bg-[#46AAAC] px-3 py-2 rounded-full">
               <Text className="text-white">UI/UX Design</Text>
             </View>
-            <View className="bg-[#46AAAC] px-3 py-1 rounded-full">
+            <View className="bg-[#46AAAC] px-3 py-2 rounded-full">
               <Text className="text-white">Photographer</Text>
             </View>
           </View>
-          <Text className="px-5 pt-4 text-2xl text-white text-center font-bold">
+          <Text className="px-5 pt-10 text-2xl text-white text-center font-bold">
             Project Updates
           </Text>
           <Text className="px-5 text-xl text-gray-400">
             As the user base grows, we’ve added new features to our community
-            forums: the ability to create private groups, share photos, and
+            forums: the ability to create private groups, share photos, and...
+            <Text className="text-blue-500"> more</Text>
           </Text>
-          <Text className="px-5 text-xl text-blue-400 text-right">more</Text>
         </View>
       </ScrollView>
       <View className="absolute bottom-4 w-full items-center">
