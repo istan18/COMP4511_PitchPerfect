@@ -1,12 +1,12 @@
-import { Image, SafeAreaView, ScrollView, Text, View } from "react-native";
+import { Image, SafeAreaView, Text, View } from "react-native";
 import FilledButton from "@/components/FilledButton";
 import SocialMediaLogin from "@/components/SocialMedia";
 import { router } from "expo-router";
 
 export default function Index() {
   return (
-    <View className="flex-1 bg-[#171F20]">
-      <SafeAreaView className='flex-1 justify-end items-center'>
+    <View className="flex-1 bg-background">
+      <SafeAreaView className="flex-1 items-center">
         <Image
           source={require("../assets/images/logo.png")}
           className="w-40 h-40 mt-20"

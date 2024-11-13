@@ -33,7 +33,7 @@ export default function Login() {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View className="flex-1 bg-background">
-        <SafeAreaView className="w-full items-center">
+        <SafeAreaView className="w-full items-center ">
           <BackButton />
           <Image
             source={require("../assets/images/logo.png")}
