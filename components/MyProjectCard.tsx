@@ -41,7 +41,10 @@ export default function ProjectCard({
         delayLongPress={500}
       >
         <View className="flex-1 flex-row items-center">
-          <Image source={projectIcon} className="w-[32%] h-[92%] mr-5" />
+          <Image
+            source={projectIcon}
+            className="w-[32%] h-[92%] mr-5 rounded-3xl"
+          />
           <View className="w-[1px] h-[80%] bg-white mx-4" />
           <View className="flex-1 items-start ml-2">
             <Button
