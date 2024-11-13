@@ -30,14 +30,14 @@ export default function Role() {
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <View className="flex-1 bg-[#171F20]">
+      <View className="flex-1 bg-background">
         <SafeAreaView className="flex-1 flex-col gap-4 items-center text-left w-full">
           <BackButton />
           <Text className="text-4xl text-white mt-20 mb-2">
             I'm interested in...
           </Text>
           <RadioGroup options={radioOptions} />
-          <Text className="text-4xl text-white mt-12 mb-2">
+          <Text className="text-4xl text-white mt-4 mb-2">
             Add your education
           </Text>
           <CustomTextInput placeholder="Degree/Diploma/Other" />
