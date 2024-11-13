@@ -17,7 +17,7 @@ export default function ProjectHeader({ projectName }: ProjectHeaderProps) {
         </Text>
 
         <Image
-          source={require("@/assets/images/project-logo-1.png")}
+          source={require("@/assets/images/mealplanner.png")}
           className="w-14 h-14 s rounded-full"
         />
       </View>

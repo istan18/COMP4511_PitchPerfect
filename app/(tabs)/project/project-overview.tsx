@@ -46,7 +46,7 @@ const ProjectOverview = () => {
 
   return (
     <View className="flex-1 bg-[#171F20]">
-      <ProjectHeader projectName="Meal Planner" />
+      <ProjectHeader projectName="Inside the Box" />
       <ScrollView className="flex-1">
         <View className="mt-5 pb-28">
           <ImageSlider images={images} height={250} />

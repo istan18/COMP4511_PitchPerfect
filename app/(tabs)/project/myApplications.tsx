@@ -14,12 +14,12 @@ export default function MyApplicationsContent() {
       <View className="flex-1 mt-5">
         <ScrollView className="px-4 pt-2">
           <ApplicationCard
-            projectName="Meal Planner"
+            projectName="Inside the Box"
             role="Javascript Developer"
             status="Received"
             applied="23/10/24"
             lead="Jenny Liu"
-            projectIcon={require("@/assets/images/project-logo-1.png")}
+            projectIcon={require("@/assets/images/mealplanner.png")}
             hideHint={hideHint}
             routePath="/(tabs)/project/project-overview"
           />
@@ -29,7 +29,7 @@ export default function MyApplicationsContent() {
             status="Interview"
             applied="10/09/24"
             lead="Samantha Fang"
-            projectIcon={require("@/assets/images/project-logo-2.png")}
+            projectIcon={require("@/assets/images/rocket.png")}
             hideHint={hideHint}
           />
           <ApplicationCard
@@ -38,7 +38,7 @@ export default function MyApplicationsContent() {
             status="Accepted Offer"
             applied="13/02/24"
             lead="Bob Thorton"
-            projectIcon={require("@/assets/images/project-logo-3.png")}
+            projectIcon={require("@/assets/images/bird.jpg")}
             hideHint={hideHint}
           />
           {showHint && (
