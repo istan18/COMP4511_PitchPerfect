@@ -1,4 +1,12 @@
-import { Text, View, TouchableOpacity, TouchableWithoutFeedback, Keyboard, SafeAreaView, ScrollView } from "react-native";
+import {
+  Keyboard,
+  SafeAreaView,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View,
+} from "react-native";
 import { useState } from "react";
 import { Searchbar } from "react-native-paper";
 import Category from "@/components/Category";
@@ -6,8 +14,8 @@ import { Ionicons } from "@expo/vector-icons";
 import ProjectCard from "@/components/ProjectCard";
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState('Explore');
-  const [searchQuery, setSearchQuery] = useState('');
+  const [activeTab, setActiveTab] = useState("Explore");
+  const [searchQuery, setSearchQuery] = useState("");
 
   const onChangeSearch = (text: string) => setSearchQuery(text);
 
