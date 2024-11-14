@@ -3,7 +3,6 @@ import {
   SafeAreaView,
   ScrollView,
   Text,
-  TouchableOpacity,
   TouchableWithoutFeedback,
   View,
 } from "react-native";
@@ -11,10 +10,9 @@ import { useState } from "react";
 import { Searchbar } from "react-native-paper";
 import Category from "@/components/Category";
 import { Ionicons } from "@expo/vector-icons";
-import ProjectCard from "@/components/ProjectCard";
+import SmallProjectCard from "@/components/SmallProjectCard";
 
-export default function Home() {
-  const [activeTab, setActiveTab] = useState("Explore");
+export default function Explore() {
   const [searchQuery, setSearchQuery] = useState("");
 
   const onChangeSearch = (text: string) => setSearchQuery(text);
@@ -23,30 +21,6 @@ export default function Home() {
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View className="flex-1 bg-[#171F20]">
         <SafeAreaView className="w-full mx-auto flex-1 items-center">
-          <View className="flex-row w-full justify-around items-center">
-            <TouchableOpacity
-              onPress={() => setActiveTab("Explore")}
-              className={`px-8 py-4 ${activeTab === "Explore" && "border-b-2 border-white"}`}
-            >
-              <Text
-                className={`text-gray-400 text-3xl ${activeTab === "Explore" && "text-white"}`}
-              >
-                Explore
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => setActiveTab("Connected")}
-              className={`px-8 py-4 ${activeTab === "Connected" && "border-b-2 border-white"}`}
-            >
-              <Text
-                className={`text-gray-400 text-3xl ${activeTab === "Connected" && "text-white"}`}
-              >
-                Connected
-              </Text>
-            </TouchableOpacity>
-          </View>
-          <View className="w-full h-0.5 bg-gray-500" />
-
           <ScrollView
             className="w-full"
             contentContainerClassName="items-center"
@@ -109,23 +83,23 @@ export default function Home() {
               showsHorizontalScrollIndicator={false}
             >
               <View className="flex-1 flex-row gap-4 my-4 mx-8">
-                <ProjectCard
+                <SmallProjectCard
                   title="Inside the Box"
                   hours={1}
-                  frequency="week"
-                  image={require("../../assets/images/mealplanner.png")}
+                  image={require("../../../assets/images/mealplanner.png")}
+                  tag="Coding"
                 />
-                <ProjectCard
+                <SmallProjectCard
                   title="Sky Rocket"
                   hours={20}
-                  frequency="month"
-                  image={require("../../assets/images/rocket.png")}
+                  image={require("../../../assets/images/rocket.png")}
+                  tag="Maths"
                 />
-                <ProjectCard
+                <SmallProjectCard
                   title="Birdline"
                   hours={5}
-                  frequency="week"
-                  image={require("../../assets/images/bird.jpg")}
+                  image={require("../../../assets/images/bird.jpg")}
+                  tag="Science"
                 />
               </View>
             </ScrollView>
@@ -141,23 +115,23 @@ export default function Home() {
               showsHorizontalScrollIndicator={false}
             >
               <View className="flex-1 flex-row gap-4 my-4 mx-8">
-                <ProjectCard
+                <SmallProjectCard
                   title="Inside the Box"
                   hours={1}
-                  frequency="week"
-                  image={require("../../assets/images/mealplanner.png")}
+                  image={require("../../../assets/images/mealplanner.png")}
+                  tag="Coding"
                 />
-                <ProjectCard
+                <SmallProjectCard
                   title="Sky Rocket"
                   hours={20}
-                  frequency="month"
-                  image={require("../../assets/images/rocket.png")}
+                  image={require("../../../assets/images/rocket.png")}
+                  tag="Maths"
                 />
-                <ProjectCard
+                <SmallProjectCard
                   title="Birdline"
                   hours={5}
-                  frequency="week"
-                  image={require("../../assets/images/bird.jpg")}
+                  image={require("../../../assets/images/bird.jpg")}
+                  tag="Science"
                 />
               </View>
             </ScrollView>
