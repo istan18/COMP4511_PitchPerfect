@@ -34,32 +34,36 @@ export default function Welcome() {
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View className="flex-1 bg-background">
         <SafeAreaView className="w-full items-center">
-          <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+          <KeyboardAvoidingView
+            behavior={Platform.OS === "ios" ? "padding" : "height"}
+          >
             <ScrollView contentContainerClassName="items-center">
               <Image
-                source={require('../assets/images/logo.png')}
+                source={require("../assets/images/logo.png")}
                 className="w-40 h-40 mt-20"
               />
               <Text className="text-4xl text-white mt-8">Welcome!</Text>
-              <Text className="text-2xl text-white mt-4">Set up how other people see you.</Text>
-            
-              <TextInput 
+              <Text className="text-2xl text-white mt-4">
+                Set up how other people see you.
+              </Text>
+
+              <TextInput
                 placeholder="First Name*"
                 value={firstName}
                 onChangeText={setFirstName}
                 className="w-full color-white border border-gray-400 rounded-2xl p-4 mt-8 mb-4 text-xl"
               />
-              <TextInput 
+              <TextInput
                 placeholder="Last Name*"
                 value={lastName}
                 onChangeText={setLastName}
                 className="w-full color-white border border-gray-400 rounded-2xl p-4 mb-4 text-xl"
               />
-              <TextInput 
+              <TextInput
                 placeholder="Pronouns"
                 className="w-full color-white border border-gray-400 rounded-2xl p-4 mb-4 text-xl"
               />
-              <TextInput 
+              <TextInput
                 placeholder="Location"
                 className="w-full color-white border border-gray-400 rounded-2xl p-4 mb-4 text-xl"
               />
@@ -67,7 +71,7 @@ export default function Welcome() {
           </KeyboardAvoidingView>
 
           <View className="absolute bottom-20 w-full items-center">
-            {error && <ErrorMessage error={error}/>} 
+            {error && <ErrorMessage error={error} />}
             <FilledButton title="Next" onPress={handleNext} />
             <Progress filledIndex={0} length={3} />
           </View>

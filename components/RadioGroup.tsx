@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { View } from 'react-native';
-import RadioButton from './RadioButton';
+import React, { useState } from "react";
+import { View } from "react-native";
+import RadioButton from "./RadioButton";
 
 interface RadioGroupProps {
-  options: {label: string, value: string}[];
+  options: { label: string; value: string }[];
 }
 
 export default function RadioGroup({ options }: RadioGroupProps) {
-  const [selectedValue, setSelectedValue] = useState('');
+  const [selectedValue, setSelectedValue] = useState("");
 
   return (
     <View className="flex flex-col gap-4 w-[80%]">
@@ -21,4 +21,4 @@ export default function RadioGroup({ options }: RadioGroupProps) {
       ))}
     </View>
   );
-};
+}

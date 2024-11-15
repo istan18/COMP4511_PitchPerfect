@@ -15,6 +15,7 @@ import * as ImagePicker from "expo-image-picker";
 import FilledButton from "@/components/FilledButton";
 import { router } from "expo-router";
 import Progress from "@/components/Progress";
+import ExitButton from "@/components/ExitButton";
 
 const Index = () => {
   const [title, setTitle] = useState("");
@@ -47,6 +48,7 @@ const Index = () => {
 
   return (
     <SafeAreaView className={"flex-1 bg-background"}>
+      <ExitButton url={"/home"} />
       <Text className={"mt-20 text-center mx-auto text-5xl mb-8 text-white"}>
         New Project
       </Text>
@@ -63,7 +65,7 @@ const Index = () => {
           setText={setDescription}
           text={description}
           height={"h-36"}
-          padding={"pb-20"}
+          padding={"pb-24"}
           maxLength={200}
           placeholder={"Description"}
           includeCounter={true}
@@ -82,7 +84,7 @@ const Index = () => {
             </TouchableOpacity>
           ) : (
             <TouchableOpacity onPress={pickImage}>
-              <Svg height="290" width="360">
+              <Svg className="relative" height="290" width="360">
                 <Rect
                   x="10"
                   y="10"
@@ -95,27 +97,27 @@ const Index = () => {
                   rx={10}
                   ry={10}
                 />
-                <View
+              </Svg>
+              <View
+                className={
+                  "rounded-lg flex items-center justify-center absolute top-[5rem] left-[8.5rem]  mx-auto"
+                }
+              >
+                <View className="h-36 w-36">
+                  <Image
+                    resizeMode={"contain"}
+                    className={"w-full flex-1"}
+                    source={Upload}
+                  />
+                </View>
+                <Text
                   className={
-                    "rounded-lg flex items-center justify-center h-full mx-auto"
+                    "text-center text-3xl text-white mt-4 justify-center"
                   }
                 >
-                  <View className="h-36 w-36">
-                    <Image
-                      resizeMode={"contain"}
-                      className={"w-full flex-1"}
-                      source={Upload}
-                    />
-                  </View>
-                  <Text
-                    className={
-                      "text-center text-3xl text-white mt-4 justify-center"
-                    }
-                  >
-                    Upload
-                  </Text>
-                </View>
-              </Svg>
+                  Upload
+                </Text>
+              </View>
               <View
                 className={
                   "absolute top-[10px] left-[10px] w-[340px] rounded-lg h-[270px] opacity-10 bg-white"

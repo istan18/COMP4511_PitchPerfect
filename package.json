@@ -5,8 +5,8 @@
   "scripts": {
     "start": "expo start",
     "reset-project": "node ./scripts/reset-project.js",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
     "web": "expo start --web",
     "test": "jest --watchAll",
     "lint": "expo lint"
@@ -21,22 +21,22 @@
     "@rneui/base": "^4.0.0-rc.7",
     "@rneui/themed": "^4.0.0-rc.8",
     "eslint-plugin-react": "^7.37.2",
-    "expo-constants": "~17.0.2",
+    "expo-constants": "~17.0.3",
     "expo-font": "~13.0.1",
     "expo-haptics": "~14.0.0",
-    "expo-image-picker": "~16.0.1",
+    "expo-image-picker": "~16.0.2",
     "expo-linking": "~7.0.2",
     "expo-router": "~4.0.5",
-    "expo-splash-screen": "~0.29.8",
+    "expo-splash-screen": "~0.29.10",
     "expo-status-bar": "~2.0.0",
-    "expo-system-ui": "~4.0.2",
-    "expo-web-browser": "~14.0.0",
+    "expo-system-ui": "~4.0.3",
+    "expo-web-browser": "~14.0.1",
     "globals": "^15.11.0",
     "metro": "^0.81.0",
     "nativewind": "^4.1.21",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "react-native": "0.76.1",
+    "react-native": "0.76.2",
     "react-native-element-dropdown": "^2.12.2",
     "react-native-paper": "^5.12.5",
     "react-native-safe-area-context": "4.12.0",
@@ -45,9 +45,11 @@
     "react-native-web": "~0.19.10",
     "tailwindcss": "^3.4.14",
     "typescript-eslint": "^8.11.0",
-    "uuid": "^11.0.2"
+    "uuid": "^11.0.2",
+    "expo": "~52.0.7"
   },
   "expo": {
+    "jsEngine": "hermes",
     "doctor": {
       "reactNativeDirectoryCheck": {
         "exclude": [
@@ -74,9 +76,9 @@
     "eslint-config-expo": "~8.0.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
-    "expo": "^52.0.5",
+    "expo": "~52.0.7",
     "jest": "^29.2.1",
-    "jest-expo": "~52.0.0",
+    "jest-expo": "~52.0.1",
     "prettier": "^3.3.3",
     "react-test-renderer": "18.2.0",
     "typescript": "~5.3.3"

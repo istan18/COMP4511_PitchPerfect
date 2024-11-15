@@ -8,7 +8,7 @@ export default function MyProjects() {
   const [activeTab, setActiveTab] = useState("My Projects");
 
   return (
-    <SafeAreaView className="flex-1 bg-[#171F20]">
+    <SafeAreaView className="flex-1 bg-background">
       <TabNavigation
         activeTab={activeTab}
         setActiveTab={setActiveTab}
