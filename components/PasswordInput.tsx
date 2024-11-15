@@ -8,7 +8,11 @@ interface PasswordInputProps {
   setPassword?: (text: string) => void;
 }
 
-export default function PasswordInput({ placeholder, value, setPassword }: PasswordInputProps) {
+export default function PasswordInput({
+  placeholder,
+  value,
+  setPassword,
+}: PasswordInputProps) {
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -26,7 +30,7 @@ export default function PasswordInput({ placeholder, value, setPassword }: Passw
       />
       <TouchableOpacity onPress={togglePasswordVisibility}>
         <Ionicons
-          name={showPassword ? 'eye-off' : 'eye'}
+          name={showPassword ? "eye-off" : "eye"}
           size={24}
           color="lightgray"
         />

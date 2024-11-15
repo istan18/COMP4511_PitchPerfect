@@ -5,16 +5,18 @@ import { Feather, MaterialCommunityIcons } from "@expo/vector-icons";
 export default function TabsLayout() {
   const pathname = usePathname();
   const isPostScreen = pathname.startsWith("/post");
+  const isConfirmationScreen = pathname === "/project/applicants/confirmation";
 
   return (
     <Tabs
       screenOptions={{
-        tabBarStyle: isPostScreen
-          ? { display: "none" }
-          : {
-              height: 95,
-              backgroundColor: "#171F20",
-            },
+        tabBarStyle:
+          isPostScreen || isConfirmationScreen
+            ? { display: "none" }
+            : {
+                height: 95,
+                backgroundColor: "#171F20",
+              },
         tabBarLabelStyle: {
           fontSize: 14,
         },
@@ -25,8 +27,9 @@ export default function TabsLayout() {
         name="home"
         options={{
           title: "Home",
+          href: "/home",
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="home" color={color} size={size} className="mt-4" />
+            <Ionicons name="home" color={color} size={size} />
           ),
         }}
       />
@@ -34,13 +37,9 @@ export default function TabsLayout() {
         name="project"
         options={{
           title: "Projects",
+          href: "/project",
           tabBarIcon: ({ color, size }) => (
-            <Ionicons
-              name="briefcase-outline"
-              color={color}
-              size={size}
-              className="mt-4"
-            />
+            <Ionicons name="briefcase-outline" color={color} size={size} />
           ),
         }}
       />
@@ -50,26 +49,17 @@ export default function TabsLayout() {
           title: "Post",
           href: "/post",
           tabBarIcon: ({ color, size }) => (
-            <Feather
-              name="plus-circle"
-              color={color}
-              size={size}
-              className={"mt-4"}
-            />
+            <Feather name="plus-circle" color={color} size={size} />
           ),
         }}
       />
       <Tabs.Screen
         name="messages"
         options={{
+          href: "/messages",
           title: "Messages",
           tabBarIcon: ({ color, size }) => (
-            <Feather
-              name="message-circle"
-              color={color}
-              size={size}
-              className={"mt-4"}
-            />
+            <Feather name="message-circle" color={color} size={size} />
           ),
         }}
       />
@@ -77,12 +67,12 @@ export default function TabsLayout() {
         name="account"
         options={{
           title: "Account",
+          href: "/account",
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons
               name="account-circle-outline"
               color={color}
               size={size}
-              className="mt-4"
             />
           ),
         }}

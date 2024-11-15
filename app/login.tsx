@@ -26,6 +26,7 @@ export default function Login() {
     if (!email || !password) {
       setError("Email and password are required");
     } else {
+      router.dismissAll();
       router.replace("/home");
     }
   };

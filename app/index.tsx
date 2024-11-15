@@ -19,10 +19,10 @@ export default function Index() {
         <Text className="text-2xl w-[80%] color-white py-4">
           Insert very cool slogan here about pitching projects
         </Text>
-        <FilledButton title="Log in" onPress={() => router.push("/login")} />
+        <FilledButton title="Log in" onPress={() => router.replace("/login")} />
         <FilledButton
           title="Sign up with email"
-          onPress={() => router.push("/register")}
+          onPress={() => router.replace("/register")}
           filled={false}
           icon={require("../assets/images/email.png")}
         />

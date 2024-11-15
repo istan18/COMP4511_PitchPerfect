@@ -12,4 +12,4 @@ export default function ErrorMessage({ error }: ErrorMessageProps) {
       <Text className="text-red-500 text-base">{error}</Text>
     </View>
   );
-};
+}

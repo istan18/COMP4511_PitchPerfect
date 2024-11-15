@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import {
-  View,
-  Text,
-  TouchableOpacity,
   Image,
   ImageSourcePropType,
   Modal,
-  Vibration,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
-import Button from "@/components/ButtonSmall";
+import ButtonSmall from "@/components/ButtonSmall";
 import * as Haptics from "expo-haptics";
 
 interface ProjectCardProps {
@@ -47,13 +46,14 @@ export default function ProjectCard({
           />
           <View className="w-[1px] h-[80%] bg-white mx-4" />
           <View className="flex-1 items-start ml-2">
-            <Button
+            <ButtonSmall
               title="View Applicants"
-              route="/(tabs)/project/project-overview" // Change this later with path to view applicants
+              route="/project/applicants" // Change this later with path to view applicants
               filled={false}
+              push={true}
               icon={require("../assets/images/person.png")}
             />
-            <Button
+            <ButtonSmall
               title="Project Schedule"
               filled={false}
               icon={require("../assets/images/calendar.png")}

@@ -8,11 +8,8 @@ export default function ProjectLayout() {
       }}
     >
       <Stack.Screen name="index" />
-      <Stack.Screen name="myProjects" />
-      <Stack.Screen name="myApplications" />
-      <Stack.Screen name="project-overview" />
-      <Stack.Screen name="collaborate" />
-      <Stack.Screen name="applicants" />
+      <Stack.Screen name="applicant" />
+      <Stack.Screen name="confirmation" />
     </Stack>
   );
 }
