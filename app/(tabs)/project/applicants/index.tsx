@@ -17,7 +17,7 @@ const Index = () => {
         Applicants Summary
       </Text>
       <View
-        className={"mt-2 flex flex-col justify-center items-center gap-y-12"}
+        className={"mt-2 flex flex-col justify-center items-center gap-y-8"}
       >
         <ApplicantCard
           name="Christian Tolentino"
