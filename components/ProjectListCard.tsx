@@ -3,6 +3,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
 
 interface ProjectListCardProps {
+  profile: ImageURISource;
   manager: string;
   image: ImageURISource;
   title: string;
@@ -12,6 +13,7 @@ interface ProjectListCardProps {
 }
 
 export default function ProjectListCard({
+  profile,
   manager,
   image,
   title,
@@ -24,7 +26,19 @@ export default function ProjectListCard({
       onPress={() => router.push("/project/project-overview")}
       className="mb-8 gap-1.5"  
     >
-      <Text className="text-white text-xl mb-2">{manager}</Text>
+      <View className="flex-row justify-between mb-2">
+        <View className="flex-row gap-2 items-center w-[90%]">
+            <Image
+              source={profile}
+              className="w-[10%] aspect-square rounded-full"
+              resizeMode="cover"
+            />
+          <Text className="text-white text-xl">{manager}</Text>
+        </View>
+        <TouchableOpacity>
+          <Ionicons name="ellipsis-horizontal" size={24} color="white" /> 
+        </TouchableOpacity>
+      </View>
       <Image
         source={image}
         className="w-full h-60 mb-2 rounded-2xl"
