@@ -4,19 +4,20 @@ import { Feather, MaterialCommunityIcons } from "@expo/vector-icons";
 
 export default function TabsLayout() {
   const pathname = usePathname();
-  const isPostScreen = pathname.startsWith("/post");
-  const isConfirmationScreen = pathname === "/project/applicants/confirmation";
+  const hideTab =
+    pathname.startsWith("/post") ||
+    pathname === "/messages/individual" ||
+    pathname === "/project/applicants/confirmation";
 
   return (
     <Tabs
       screenOptions={{
-        tabBarStyle:
-          isPostScreen || isConfirmationScreen
-            ? { display: "none" }
-            : {
-                height: 95,
-                backgroundColor: "#171F20",
-              },
+        tabBarStyle: hideTab
+          ? { display: "none" }
+          : {
+              height: 95,
+              backgroundColor: "#171F20",
+            },
         tabBarLabelStyle: {
           fontSize: 14,
         },
