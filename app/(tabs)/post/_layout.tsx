@@ -18,6 +18,7 @@ export default function PostLayout() {
       />
       <Stack.Screen name="tags" options={{ title: "Tags" }} />
       <Stack.Screen name="edit" options={{ title: "Edit" }} />
+      <Stack.Screen name="confirmation" options={{ title: "Confirmation" }} />
     </Stack>
   );
 }

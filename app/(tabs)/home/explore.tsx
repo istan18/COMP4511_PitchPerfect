@@ -19,7 +19,7 @@ export default function Explore() {
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <View className="flex-1 bg-[#171F20]">
+      <View className="flex-1 bg-background">
         <SafeAreaView className="w-full mx-auto flex-1 items-center">
           <ScrollView
             className="w-full"

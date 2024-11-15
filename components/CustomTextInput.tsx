@@ -41,7 +41,7 @@ const TitleInput: React.FC<TitleInputProps> = ({
           </Text>
         ) : null}
         <TextInput
-          className={`border text-left text-white border-gray-400 ${height} text-2xl p-4 rounded-2xl ${padding}w-full color-white border border-gray-400 rounded-2xl p-4 text-xl`}
+          className={`border text-left text-white border-gray-400 ${height} text-2xl rounded-2xl ${padding} w-full color-white border border-gray-400 rounded-2xl pl-4  text-xl`}
           onChangeText={(newText) => {
             if (maxLength) {
               if (newText.length >= maxLength) return;

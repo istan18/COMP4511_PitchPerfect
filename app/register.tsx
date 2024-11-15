@@ -11,7 +11,7 @@ import FilledButton from "@/components/FilledButton";
 import { Link, router } from "expo-router";
 import SocialMediaLogin from "@/components/SocialMedia";
 import PasswordInput from "@/components/PasswordInput";
-import { useState } from "react";
+import React, { useState } from "react";
 import ErrorMessage from "@/components/ErrorMessage";
 import BackButton from "@/components/BackButton";
 
