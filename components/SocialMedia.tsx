@@ -40,8 +40,8 @@ export default function SocialMediaLogin() {
         <TouchableOpacity
           className="flex-col items-center gap-2"
           onPress={() => {
-            (router.canDismiss() && router.dismissAll()) ||
-              console.log("Not Dismissing");
+            router.canDismiss() && router.dismissAll();
+            router.replace("/home");
           }}
         >
           <Image

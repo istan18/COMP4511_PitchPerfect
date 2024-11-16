@@ -17,6 +17,7 @@ import {
 } from "@expo/vector-icons";
 import { router } from "expo-router";
 import * as WebBrowser from "expo-web-browser";
+import ButtonSmall from "@/components/ButtonSmall";
 
 const Applicant = () => {
   const handleDecline = () => {
@@ -64,22 +65,41 @@ const Applicant = () => {
         <BackButton />
         <ScrollView showsVerticalScrollIndicator={false}>
           <View
-            className={"mt-20 flex flex-row justify-center gap-x-4 items-start"}
+            className={"mt-14 flex flex-row justify-center gap-x-4 items-start"}
           >
-            <Image source={Man} className="w-32 h-32 rounded-full" />
-            <View className={"flex flex-col gap-y-2 mt-2 w-72"}>
-              <Text className={" text-center text-4xl text-white"}>
+            <Image source={Man} className="w-24 h-24 rounded-full" />
+            <View className={"flex flex-col gap-y-2 w-72"}>
+              <Text className={"mx-auto text-center text-4xl text-white"}>
                 Christian Tolentino
               </Text>
-              <FilledButton
-                icon={
-                  <Feather name={"message-circle"} color={"white"} size={30} />
-                }
-                onPress={() => router.replace("/messages")}
-                filled={false}
-                width={"w-full"}
-                title={"Message"}
-              />
+              <View className={"ml-4 flex mx-auto flex-row gap-x-4 "}>
+                <ButtonSmall
+                  width={"w-32 h-16"}
+                  icon={
+                    <MaterialCommunityIcons
+                      name={"account-outline"}
+                      size={20}
+                      color={"black"}
+                    />
+                  }
+                  title={"View Profile"}
+                  route={"/profile"}
+                />
+                <ButtonSmall
+                  width={"w-32 h-16"}
+                  filled={false}
+                  icon={
+                    <Feather
+                      name={"message-circle"}
+                      size={20}
+                      color={"white"}
+                      className={"mr-2"}
+                    />
+                  }
+                  title={"Message"}
+                  route={"/messages/individual"}
+                />
+              </View>
             </View>
           </View>
           <View className={"border-white border-t mt-4 w-full"} />

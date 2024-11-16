@@ -35,13 +35,13 @@ export default function FilledButton({
         onPress={onPress}
       >
         {icon && isImageURISource(icon) && (
-          <Image source={icon} className="w-8 h-8 absolute left-4" />
+          <Image source={icon} className="w-10 h-10 absolute left-4" />
         )}
         {icon && React.isValidElement(icon) && (
-          <View className="w-8 h-8 absolute left-4">{icon}</View>
+          <View className="w-10 h-10 absolute left-4">{icon}</View>
         )}
         <Text
-          className={`text-2xl text-center flex-1 ${filled || "text-white"}`}
+          className={`${icon ? "ml-2" : "ml-0"} text-2xl text-center flex-1 ${filled || "text-white"}`}
         >
           {title}
         </Text>

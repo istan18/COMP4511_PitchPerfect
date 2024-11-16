@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import ButtonSmall from "@/components/ButtonSmall";
 import * as Haptics from "expo-haptics";
+import { router } from "expo-router";
 
 interface ProjectCardProps {
   projectName: string;
@@ -38,6 +39,7 @@ export default function ProjectCard({
         className="h-40 rounded-lg border border-white p-4"
         onLongPress={handleLongPress}
         delayLongPress={500}
+        onPress={() => router.push("/project/project-overview")}
       >
         <View className="flex-1 flex-row items-center">
           <Image
@@ -51,12 +53,12 @@ export default function ProjectCard({
               route="/project/applicants" // Change this later with path to view applicants
               filled={false}
               push={true}
-              icon={require("../assets/images/person.png")}
+              icon={require("@/assets/images/person.png")}
             />
             <ButtonSmall
               title="Project Schedule"
               filled={false}
-              icon={require("../assets/images/calendar.png")}
+              icon={require("@/assets/images/calendar.png")}
             />
           </View>
         </View>

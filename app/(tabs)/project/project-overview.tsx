@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
+import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import ImageSlider from "@/components/ImageSlider";
 import ProjectHeader from "@/app/(tabs)/project/projectHeader";
 import { router } from "expo-router";
@@ -63,13 +63,17 @@ const ProjectOverview = () => {
           </Text>
           <View className="flex-row justify-around mt-1 px-5">
             {members.map((member, index) => (
-              <View key={index} className="items-center">
+              <TouchableOpacity
+                onPress={() => router.push("/profile")}
+                key={index}
+                className="items-center"
+              >
                 <Image
                   source={member.icon}
                   className="w-16 h-16 rounded-full"
                 />
                 <Text className="text-white mt-2">{member.role}</Text>
-              </View>
+              </TouchableOpacity>
             ))}
           </View>
           <View className="border-b border-gray-500 mt-7" />

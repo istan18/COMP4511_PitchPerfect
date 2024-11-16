@@ -45,7 +45,7 @@ const Individual = () => {
         <View className="absolute top-20 z-20 w-full">
           <View className={"flex flex-row items-center ml-24"}>
             <TouchableOpacity
-              onPress={() => router.replace("/account")}
+              onPress={() => router.replace("/profile")}
               className={"flex flex-row items-center mr-20"}
             >
               <Image
