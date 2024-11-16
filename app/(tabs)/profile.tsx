@@ -45,11 +45,13 @@ const Profile = () => {
         <View className={"w-full flex flex-col mt-4 justify-center gap-y-4"}>
           <JobCard
             title={"Pitcher"}
+            imageSource={require("@/assets/images/meal-planner-1.png")}
             company={"Inside the Box"}
             duration={"July 2022 - Present ⋅ 2 years 3 months"}
           />
           <JobCard
             title={"Collaborator"}
+            imageSource={require("@/assets/images/robots.jpg")}
             company={"Robotic Chefs"}
             duration={"August 2021 - June 2022 ⋅ 10 months"}
           />
@@ -61,11 +63,13 @@ const Profile = () => {
         <View className={"flex flex-col mt-4 mr-auto justify-center gap-y-4"}>
           <JobCard
             title={"University of Sydney"}
+            imageSource={require("@/assets/images/usyd.png")}
             duration={"Jan 2021 - Present ⋅ 3 years 10 months"}
           />
           <JobCard
             title={"PM Intern"}
             company={"Atlassian"}
+            imageSource={require("@/assets/images/atlassian.png")}
             duration={"Jan 2023 - Feb 2024 ⋅ 1 year 1 month"}
           />
         </View>
