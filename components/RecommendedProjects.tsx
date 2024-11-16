@@ -36,8 +36,9 @@ export default function RecommendedProjects() {
         showsHorizontalScrollIndicator={false}
       >
         <View className="flex-1 flex-row gap-4 my-4 mx-8">
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <SmallProjectCard
+              key={index}
               title={project.title}
               hours={project.hours}
               image={project.image}
@@ -58,8 +59,9 @@ export default function RecommendedProjects() {
         showsHorizontalScrollIndicator={false}
       >
         <View className="flex-1 flex-row gap-4 my-4 mx-8">
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <SmallProjectCard
+              key={index}
               title={project.title}
               hours={project.hours}
               image={project.image}
