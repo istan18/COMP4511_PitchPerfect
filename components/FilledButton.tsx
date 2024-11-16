@@ -14,6 +14,8 @@ interface FilledButtonProps {
   onPress?: () => void;
   width?: string;
   otherStyles?: string;
+  textStyle?: string;
+  buttonStyle?: string;
 }
 
 export default function FilledButton({
@@ -23,6 +25,8 @@ export default function FilledButton({
   onPress = () => {},
   otherStyles = "",
   width = "w-4/5",
+  buttonStyle = "",
+  textStyle = "",
 }: FilledButtonProps) {
   const isImageURISource = (source: any): source is ImageURISource => {
     return source && typeof source === "object" && source.uri;
@@ -31,7 +35,7 @@ export default function FilledButton({
   return (
     <View className={`${otherStyles} flex ${width} py-2 mx-auto`}>
       <TouchableOpacity
-        className={`flex-row relative items-center rounded-2xl py-4 ${filled ? "bg-filledButton" : "bg-background border border-white"} `}
+        className={`flex-row items-center rounded-2xl ${buttonStyle || "py-4"} ${filled ? "bg-filledButton" : "bg-background border border-white"} `}
         onPress={onPress}
       >
         {icon && isImageURISource(icon) && (
@@ -41,7 +45,7 @@ export default function FilledButton({
           <View className="w-10 h-10 absolute left-4">{icon}</View>
         )}
         <Text
-          className={`${icon ? "ml-2" : "ml-0"} text-2xl text-center flex-1 ${filled || "text-white"}`}
+          className={`${textStyle}  ${icon ? "ml-2" : "ml-0"} text-2xl text-center flex-1 ${filled || "text-white"}`}
         >
           {title}
         </Text>

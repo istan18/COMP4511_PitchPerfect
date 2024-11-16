@@ -19,9 +19,9 @@ export default function TabNavigation({
   };
 
   return (
-    <View className="flex-row justify-around border-b border-white">
+    <View className="flex-row justify-around items-center border-b border-gray-500">
       <TouchableOpacity
-        className={`py-4 ${activeTab === tab1Name ? "border-b-4 border-white" : "border-b-2 border-gray-400"}`}
+        className={`px-4 py-4 ${activeTab === tab1Name ? "border-b-2 border-white" : "border-b-2 border-gray-400"}`}
         onPress={() => handleNavigation(tab1Name)}
       >
         <Text
@@ -31,7 +31,7 @@ export default function TabNavigation({
         </Text>
       </TouchableOpacity>
       <TouchableOpacity
-        className={`py-4 ${activeTab === tab2Name ? "border-b-4 border-white" : "border-b-2 border-gray-400"}`}
+        className={`px-4 py-4 ${activeTab === tab2Name ? "border-b-2 border-white" : "border-b-2 border-gray-400"}`}
         onPress={() => handleNavigation(tab2Name)}
       >
         <Text

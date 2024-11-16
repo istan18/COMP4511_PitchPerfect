@@ -1,6 +1,6 @@
 import { Ionicons } from "@expo/vector-icons";
 import {
-  Image,
+  ImageBackground,
   ImageURISource,
   Text,
   TouchableOpacity,
@@ -11,28 +11,36 @@ import { router } from "expo-router";
 interface ProjectCardProps {
   title: string;
   hours: number;
-  frequency: string;
   image: ImageURISource;
+  tag: string;
 }
 
-export default function ProjectCard({
+export default function SmallProjectCard({
   title,
   hours,
-  frequency,
   image,
+  tag,
 }: ProjectCardProps) {
   return (
     <TouchableOpacity onPress={() => router.push("/project/project-overview")}>
-      <Image
-        source={image}
-        className="w-40 h-40 rounded-2xl mb-2"
-        resizeMode="cover"
-      />
+      <View className="w-60 h-40 mb-2 rounded-2xl overflow-hidden">
+        <ImageBackground
+          source={image}
+          className="flex-1"
+          resizeMode="cover"
+        >
+          <View className="absolute inset-0 bg-black opacity-30" />
+
+          <View className="absolute bottom-2 right-2 bg-tagBackground px-3 py-1 rounded-2xl">
+            <Text className="text-tagBackgroundSelected text-s">{tag}</Text>
+          </View>
+        </ImageBackground>
+      </View>
       <Text className="text-white text-xl font-bold">{title}</Text>
       <View className="flex-row gap-2 items-center">
         <Ionicons name="time-outline" size={20} color="white" />
         <Text className="text-white text-lg">
-          {hours} hr/{frequency}
+          {hours} hr/week
         </Text>
       </View>
     </TouchableOpacity>
