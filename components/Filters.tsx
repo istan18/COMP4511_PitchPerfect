@@ -1,4 +1,4 @@
-import { Touchable, TouchableWithoutFeedback, View } from "react-native";
+import { View } from "react-native";
 import FilledButton from "./FilledButton";
 import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
@@ -62,7 +62,7 @@ export default function Filters({ rowStyles }: FiltersProps) {
   };
 
   return (
-    <View>
+    <View className="w-full">
       <View className={`${rowStyles} flex-row gap-2 items-center w-full my-4`}>
         {filters.map((filter) => (
           <FilledButton
