@@ -35,19 +35,19 @@ export default function FilledButton({
   return (
     <View className={`${otherStyles} flex ${width} py-2 mx-auto`}>
       <TouchableOpacity
-        className={`flex-row items-center rounded-2xl ${buttonStyle || 'py-4'} ${filled ? "bg-filledButton" : "bg-background border border-white"} `}
+        className={`flex-row items-center rounded-2xl ${buttonStyle || "py-4"} ${filled ? "bg-filledButton" : "bg-background border border-white"} `}
         onPress={onPress}
       >
         <Text
-          className={`${textStyle} text-2xl text-center flex-1 ${filled || "text-white"}`}
+          className={`${textStyle}  ${icon ? "ml-2" : "ml-0"} text-2xl text-center flex-1 ${filled || "text-white"}`}
         >
           {title}
         </Text>
         {icon && isImageURISource(icon) && (
-          <Image source={icon} className="w-8 h-8 flex justify-center left-4" />
+          <Image source={icon} className="w-10 h-10 absolute left-4" />
         )}
         {icon && React.isValidElement(icon) && (
-          <View className="w-8 h-8 flex justify-center">{icon}</View>
+          <View className="w-10 h-10 absolute left-4">{icon}</View>
         )}
       </TouchableOpacity>
     </View>

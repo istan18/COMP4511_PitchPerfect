@@ -16,6 +16,10 @@ module.exports = {
         textGray: "#ABABAB",
         chatGray: "#333333",
         chatLight: "#F2CD92",
+        barGreen: "#3A5B5B",
+      },
+      width: {
+        "9/10": "90%",
       },
     },
   },

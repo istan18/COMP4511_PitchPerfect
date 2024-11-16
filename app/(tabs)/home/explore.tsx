@@ -14,22 +14,35 @@ import RecommendedProjects from "@/components/RecommendedProjects";
 import ProjectList from "@/components/ProjectList";
 
 export default function Explore() {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   const categories = [
-    { name: 'Coding', icon: <Ionicons name="code" size={24} color="lightblue" /> },
-    { name: 'Maths', icon: <Ionicons name="calculator" size={24} color="pink" /> },
-    { name: 'Arts', icon: <Ionicons name="brush" size={24} color="cyan" />},
-    { name: 'Science', icon: <Ionicons name="flask" size={24} color="lightgreen" /> },
-    { name: 'Health', icon: <Ionicons name="medkit" size={24} color="lightyellow" /> },
-    { name: 'Business', icon: <Ionicons name="bar-chart" size={24} color="purple" /> },
+    {
+      name: "Coding",
+      icon: <Ionicons name="code" size={24} color="lightblue" />,
+    },
+    {
+      name: "Maths",
+      icon: <Ionicons name="calculator" size={24} color="pink" />,
+    },
+    { name: "Arts", icon: <Ionicons name="brush" size={24} color="cyan" /> },
+    {
+      name: "Science",
+      icon: <Ionicons name="flask" size={24} color="lightgreen" />,
+    },
+    {
+      name: "Health",
+      icon: <Ionicons name="medkit" size={24} color="lightyellow" />,
+    },
+    {
+      name: "Business",
+      icon: <Ionicons name="bar-chart" size={24} color="purple" />,
+    },
   ];
-  
+
   const handleSelectCategory = (category: string) => {
-    setSelectedCategory((prev) =>
-      category === prev ? '' : category
-    );
+    setSelectedCategory((prev) => (category === prev ? "" : category));
   };
 
   return (
@@ -58,9 +71,9 @@ export default function Explore() {
               showsHorizontalScrollIndicator={false}
             >
               <View className="flex-1 flex-row gap-8 my-4 mx-4 ml-8">
-                {categories.map((category) => (
+                {categories.map((category, index) => (
                   <Category
-                    key={category.name}
+                    key={index}
                     category={category.name}
                     icon={category.icon}
                     isSelected={selectedCategory === category.name}
@@ -69,11 +82,14 @@ export default function Explore() {
                 ))}
               </View>
             </ScrollView>
-          
-            {selectedCategory || searchQuery 
-              ? <View className="mt-4 px-8"><ProjectList searchQuery={searchQuery} /></View>
-              : <RecommendedProjects />
-            }
+
+            {selectedCategory || searchQuery ? (
+              <View className="mt-4 px-8">
+                <ProjectList searchQuery={searchQuery} />
+              </View>
+            ) : (
+              <RecommendedProjects />
+            )}
           </ScrollView>
         </SafeAreaView>
       </View>
