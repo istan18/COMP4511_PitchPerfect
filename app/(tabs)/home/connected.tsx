@@ -10,7 +10,7 @@ export default function Connected() {
             className="w-full"
             contentContainerClassName="items-center"
         >
-          <View className="w-[90%] flex-col gap-2">
+          <View className="w-9/10 flex-col gap-2">
             <Filters />
             <ProjectList />
           </View>

@@ -1,8 +1,16 @@
-import { View, Text, Image, TouchableOpacity, TouchableWithoutFeedback, ImageURISource } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
-import { router } from "expo-router";
 import { useState } from "react";
 import ProjectOptions from "./ProjectOptions";
+import {
+  Image,
+  ImageURISource,
+  Text,
+  TouchableOpacity,
+  View,
+  TouchableWithoutFeedback,
+} from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import { router } from "expo-router";
+import React from "react";
 
 interface ProjectListCardProps {
   profile: ImageURISource;
@@ -29,14 +37,14 @@ export default function ProjectListCard({
     <TouchableWithoutFeedback onPress={() => setIsOptionsVisible(!isOptionsVisible)}>
       <View className="mb-8 gap-1.5">
         <View className="flex-row justify-between mb-2">
-          <View className="flex-row gap-2 items-center w-[90%]">
-              <Image
-                source={profile}
-                className="w-[10%] aspect-square rounded-full"
-                resizeMode="cover"
-              />
+          <TouchableOpacity className="flex-row gap-2 items-center w-[90%]">
+            <Image
+              source={profile}
+              className="w-[10%] aspect-square rounded-full"
+              resizeMode="cover"
+            />
             <Text className="text-white text-xl">{manager}</Text>
-          </View>
+          </TouchableOpacity>
 
           <TouchableOpacity onPress={() => setIsOptionsVisible(!isOptionsVisible)}>
             <Ionicons name="ellipsis-horizontal" size={24} color="white" /> 
