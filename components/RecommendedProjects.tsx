@@ -1,4 +1,4 @@
-import { View, Text, ScrollView } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 import SmallProjectCard from "./SmallProjectCard";
 
 export default function RecommendedProjects() {
@@ -36,8 +36,9 @@ export default function RecommendedProjects() {
         showsHorizontalScrollIndicator={false}
       >
         <View className="flex-1 flex-row gap-4 my-4 mx-8">
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <SmallProjectCard
+              key={index}
               title={project.title}
               hours={project.hours}
               image={project.image}
@@ -58,8 +59,9 @@ export default function RecommendedProjects() {
         showsHorizontalScrollIndicator={false}
       >
         <View className="flex-1 flex-row gap-4 my-4 mx-8">
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <SmallProjectCard
+              key={index}
               title={project.title}
               hours={project.hours}
               image={project.image}

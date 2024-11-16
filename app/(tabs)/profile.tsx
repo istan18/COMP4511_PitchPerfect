@@ -1,94 +1,43 @@
-import React, { useState } from "react";
-import {
-  Image,
-  SafeAreaView,
-  ScrollView,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import React from "react";
+import { Image, SafeAreaView, ScrollView, Text, View } from "react-native";
 import BackButton from "@/components/BackButton";
-import { AntDesign, Feather } from "@expo/vector-icons";
-import FilledButton from "@/components/FilledButton";
-import { router } from "expo-router";
-import IonIcons from "@expo/vector-icons/Ionicons";
 import JobCard from "@/components/JobCard";
+import ProfileHeader from "@/components/ProfileHeader";
+import Tag from "@/components/Tag";
+import FilledButton from "@/components/FilledButton";
+import ReviewSummary from "@/components/ReviewSummary";
+import ReviewCard from "@/components/ReviewCard";
+
+const tags = [
+  ["Communicative", "Requirements Defining"],
+  ["Management", "Accounting"],
+  ["Microsoft Excel", "Python"],
+  ["Financial Mathematics", "SQL"],
+  ["Strategist Excel", "R"],
+];
+
+const reviews = [
+  { stars: 5, count: 15 },
+  { stars: 4, count: 7 },
+  { stars: 3, count: 3 },
+  { stars: 2, count: 1 },
+  { stars: 1, count: 1 },
+];
+
+const totalReviews = 27;
 
 const Profile = () => {
-  const [sentConnection, setSentConnection] = useState(false);
   return (
     <SafeAreaView className={"flex-1 bg-background"}>
       <BackButton />
       <ScrollView showsHorizontalScrollIndicator={false}>
-        <View className={"mt-12 flex items-center flex-row"}>
-          <Image
-            source={require("@/assets/images/woman.jpg")}
-            className="rounded-full ml-10 h-40 w-40"
-          />
-          <View className={"ml-6 flex flex-col gap-y-2 items-center"}>
-            <Text className={" mr-auto text-left text-white text-4xl"}>
-              Jenny Liu
-            </Text>
-            <Text className={" mr-auto text-white text-xl font-thin text-left"}>
-              B. Commerce
-            </Text>
-            <View className={"flex flex-row items-center justify-center"}>
-              <Text className={" mr-auto text-white text-xl text-left"}>
-                University of Sydney
-              </Text>
-              <View className={"ml-2 mt-1 w-5 h-5 bg-lime-500 rounded-full"}>
-                <AntDesign
-                  name={"check"}
-                  color={"white"}
-                  size={12}
-                  className={"ml-auto mb-auto mr-[0.2rem] mt-[0.2rem]"}
-                />
-              </View>
-            </View>
-            <TouchableOpacity className={"mr-auto"}>
-              <Text className={" underline text-gray-500 text-md text-left"}>
-                500+ connections
-              </Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-        <View className={"flex w-[90%]  mt-4 gap-x-4 mx-auto flex-row"}>
-          <FilledButton
-            onPress={() => router.push("/messages/individual")}
-            width="w-52"
-            title={"Message"}
-            icon={
-              <Feather
-                name={"message-circle"}
-                size={28}
-                color={"black"}
-                className={"mt-[0.3rem]"}
-              />
-            }
-          />
-          <FilledButton
-            width="w-52"
-            icon={
-              sentConnection ? (
-                <Feather
-                  name={"clock"}
-                  size={28}
-                  color="black"
-                  className={"mt-[0.2rem]"}
-                />
-              ) : (
-                <IonIcons
-                  className={"mt-[0.2rem]"}
-                  name={"person-add-outline"}
-                  size={28}
-                  color={"black"}
-                />
-              )
-            }
-            onPress={() => setSentConnection(!sentConnection)}
-            title={`${sentConnection ? "Pending" : "Connect"}`}
-          />
-        </View>
+        <ProfileHeader
+          name="Jenny Liu"
+          degree="B. Commerce"
+          university="University of Sydney"
+          imageSource={require("@/assets/images/woman.jpg")} // Adjust the image path as necessary
+          connections="500+ connections"
+        />
         <View className={"w-full border-t-[6px] mt-4 border-black"} />
         <Text className={"text-white text-4xl mt-8 ml-8 mr-auto"}>
           Public Projects
@@ -109,32 +58,82 @@ const Profile = () => {
         <Text className={"text-white text-4xl mt-8 ml-8 mr-auto"}>
           Experience / Education
         </Text>
-        <View
-          className={"flex flex-col ml-8 mt-4 mr-auto justify-center gap-y-4"}
-        >
-          <View className={"flex flex-row items-center justify-center"}>
-            <Image className="w-20 h-20 rounded-xl bg-gray-500" />
-            <View className={"ml-4 flex flex-col justify-center"}>
-              <Text className={" text-white text-2xl text-left"}>
-                University of Sydney
-              </Text>
-              <Text className={"text-textGray text-lg text-left"}>
-                Jan 2021 - Present
-              </Text>
+        <View className={"flex flex-col mt-4 mr-auto justify-center gap-y-4"}>
+          <JobCard
+            title={"University of Sydney"}
+            duration={"Jan 2021 - Present ⋅ 3 years 10 months"}
+          />
+          <JobCard
+            title={"PM Intern"}
+            company={"Atlassian"}
+            duration={"Jan 2023 - Feb 2024 ⋅ 1 year 1 month"}
+          />
+        </View>
+        <View className={"w-full border-t-[6px] mt-8 border-black"} />
+        <Text className={"text-white text-4xl mt-8 ml-8 mr-auto"}>Skills</Text>
+        <View className={"flex flex-col mt-4 mr-auto justify-center gap-y-1"}>
+          {tags.map((pair, index) => (
+            <View key={index} className={"w-full flex flex-row"}>
+              <Tag
+                textSize={"text-xl"}
+                tagStyle={"ml-8 mr-auto"}
+                tag={pair[0]}
+              />
+              <Tag
+                textSize={"text-xl"}
+                tagStyle={"ml-auto mr-8"}
+                tag={pair[1]}
+              />
             </View>
-          </View>
-          <View className={"flex flex-row items-center justify-center"}>
-            <Image className="w-20 h-20 rounded-xl bg-gray-500" />
-            <View className={"ml-4 flex flex-col justify-center"}>
-              <Text className={" text-white text-2xl text-left"}>
-                Atlassian ⋅ PM Intern
-              </Text>
-              <Text className={"text-textGray text-lg text-left"}>
-                Jan 2023 - Feb 2024
-              </Text>
-            </View>
+          ))}
+        </View>
+        <View className={"w-full border-t-[6px] mt-8 border-black"} />
+        <View className={"flex flex-row mt-8 ml-8 mb-2 mr-auto w-full"}>
+          <Text className={"text-white text-4xl mr-auto"}>Reviews</Text>
+          <View className={"flex flex-col mr-10 ml-auto"}>
+            <Text className="text-white text-4xl font-bold mr-8 ml-auto">
+              4.5
+            </Text>
+            <Text className="text-gray-300 text-md mr-8 ml-auto">
+              {totalReviews} reviews
+            </Text>
           </View>
         </View>
+        <ReviewSummary totalReviews={totalReviews} reviews={reviews} />
+        <View className={"w-full border-t-[6px] mt-8 border-black"} />
+        <ReviewCard
+          name="Christian Tolentino"
+          avatar={require("@/assets/images/man.png")}
+          timestamp="2 mins ago"
+          stars={4}
+          title="Collaborated with Jenny on Inside the Box"
+          reviewText="Jenny is a great team lead. She is organised and very ambitious. She always gets the best out of her team."
+        />
+        <View
+          className={"w-9/10 mx-auto border-t mt-8 border-gray-500 opacity-50"}
+        />
+        <ReviewCard
+          name="Angela Shan"
+          avatar={require("@/assets/images/woman.jpg")}
+          timestamp="5 mins ago"
+          stars={2}
+          title="Collaborated with Jenny on Inside the Box"
+          reviewText="Jenny was very bossy and never did any work herself!"
+        />
+        <View
+          className={"w-9/10 mx-auto border-t mt-8 border-gray-500 opacity-50"}
+        />
+        <FilledButton
+          icon={
+            <Image
+              source={require("@/assets/images/edit.png")}
+              className={"w-8 h-8"}
+            />
+          }
+          otherStyles={"w-3/5 mt-4 mb-8"}
+          filled={false}
+          title={"Leave a Review"}
+        />
       </ScrollView>
     </SafeAreaView>
   );

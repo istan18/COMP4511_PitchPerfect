@@ -45,7 +45,7 @@ const Individual = () => {
         <View className="absolute top-20 z-20 w-full">
           <View className={"flex flex-row items-center ml-24"}>
             <TouchableOpacity
-              onPress={() => router.replace("/profile")}
+              onPress={() => router.navigate("/profile")}
               className={"flex flex-row items-center mr-20"}
             >
               <Image
@@ -100,7 +100,7 @@ const Individual = () => {
           <View className={"w-full mb-4 border border-gray-700 opacity-50"} />
           <View className={"flex bg-background flex-row"}>
             <CustomTextInput
-              width={`${message ? "w-[75%]" : "w-[90%]"}`}
+              width={`${message ? "w-[75%]" : "w-9/10"}`}
               leftIcon={
                 <TouchableOpacity className={"z-30"}>
                   <SimpleLineIcons

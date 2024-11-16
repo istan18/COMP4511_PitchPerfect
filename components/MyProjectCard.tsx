@@ -31,7 +31,7 @@ export default function ProjectCard({
   };
 
   return (
-    <View className="w-[90%] self-center mb-8">
+    <View className="w-9/10 self-center mb-8">
       <Text className="absolute -top-3.5 left-3 px-2 text-xl font-extralight text-white bg-[#171F20] z-10">
         {projectName}
       </Text>

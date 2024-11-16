@@ -1,5 +1,5 @@
 import ProjectListCard from "./ProjectListCard";
-import { View, Text } from "react-native";
+import { Text, View } from "react-native";
 
 interface ProjectListProps {
   searchQuery?: string;
@@ -29,22 +29,24 @@ export default function ProjectList({ searchQuery }: ProjectListProps) {
       profile: require("../assets/images/man.png"),
       manager: "Bob Thorton",
       image: require("../assets/images/bird.jpg"),
-      title:"Birdline",
+      title: "Birdline",
       description: "This is a description of project 3.",
       hours: 5,
+
       tags: ["Science", "Python"],
     },
   ];
 
   const filteredProjects = projects.filter(
-    (project) => project.title.toLowerCase().includes(searchQuery?.toLowerCase() || '') ||
-                project.manager.toLowerCase().includes(searchQuery?.toLowerCase() || '')
+    (project) =>
+      project.title.toLowerCase().includes(searchQuery?.toLowerCase() || "") ||
+      project.manager.toLowerCase().includes(searchQuery?.toLowerCase() || "")
   );
 
   return (
     <View className="flex-col gap-2">
       {filteredProjects.length > 0 ? (
-        (filteredProjects.map((project, index) => (
+        filteredProjects.map((project, index) => (
           <ProjectListCard
             key={index}
             profile={project.profile}
@@ -55,7 +57,7 @@ export default function ProjectList({ searchQuery }: ProjectListProps) {
             hours={project.hours}
             tags={project.tags}
           />
-        ))) 
+        ))
       ) : (
         <Text className="text-lg text-gray-400">
           No projects match your search.
