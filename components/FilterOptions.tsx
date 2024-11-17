@@ -27,7 +27,7 @@ export default function FilterOptions( { type, close, isVisible, addFilter, remo
         <View className="absolute bg-black opacity-50 inset-0" />
       </TouchableWithoutFeedback>
 
-      <View className="absolute bottom-0 w-full bg-gray-800 rounded-2xl p-4">
+      <View className="absolute bottom-0 w-full bg-background rounded-2xl p-4">
         <View className="flex-row items-center justify-between p-4">
           <Text className="text-2xl text-white font-bold">{type}</Text>
           <Ionicons name="close" size={24} color="white" className="" onPress={close} />
