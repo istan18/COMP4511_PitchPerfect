@@ -12,6 +12,7 @@ import Category from "@/components/Category";
 import { Ionicons } from "@expo/vector-icons";
 import RecommendedProjects from "@/components/RecommendedProjects";
 import ProjectList from "@/components/ProjectList";
+import Filters from "@/components/Filters";
 
 export default function Explore() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -57,11 +58,17 @@ export default function Explore() {
               placeholder="Search projects or people..."
               onChangeText={setSearchQuery}
               value={searchQuery}
-              style={{ margin: 24, width: "80%" }}
+              style={{ marginTop: 24, marginBottom: 8, width: "80%"}}
             />
+      
+            {searchQuery && (
+              <View className="mx-8">
+                <Filters rowStyles="mb-0 mt-2" />
+              </View>
+            )} 
 
             <View className="w-[80%]">
-              <Text className="text-2xl text-white font-bold mt-2">
+              <Text className="text-2xl text-white font-bold mt-4">
                 Search by category
               </Text>
             </View>

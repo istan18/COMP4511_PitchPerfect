@@ -4,10 +4,11 @@ import { CheckBox } from "@rneui/themed";
 
 interface CheckboxProps {
   label: string;
+  initiallyChecked?: boolean;
 }
 
-export default function Checkbox({ label }: CheckboxProps) {
-  const [isChecked, setIsChecked] = useState(false);
+export default function Checkbox({ label, initiallyChecked = false }: CheckboxProps) {
+  const [isChecked, setIsChecked] = useState(initiallyChecked || false);
 
   const toggleCheckbox = () => {
     setIsChecked(!isChecked);
@@ -25,11 +26,11 @@ export default function Checkbox({ label }: CheckboxProps) {
           backgroundColor: "transparent",
           padding: 0,
         }}
-        checkedColor="green"
+        checkedColor="white"
         uncheckedColor="#9CA3AF"
         size={24}
       />
-      <Text className={`text-xl ${isChecked ? "text-white" : "text-gray-500"}`}>
+      <Text className={`text-xl ${isChecked ? "text-white" : "text-gray-400"}`}>
         {label}
       </Text>
     </TouchableOpacity>

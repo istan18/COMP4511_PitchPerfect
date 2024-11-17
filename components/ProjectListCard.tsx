@@ -1,14 +1,16 @@
+import { useState } from "react";
+import ProjectOptions from "./ProjectOptions";
 import {
   Image,
   ImageURISource,
   Text,
   TouchableOpacity,
   View,
+  TouchableWithoutFeedback,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
 import React from "react";
-import Tag from "@/components/Tag";
 
 interface ProjectListCardProps {
   profile: ImageURISource;
@@ -29,48 +31,65 @@ export default function ProjectListCard({
   hours,
   tags,
 }: ProjectListCardProps) {
+  const [isOptionsVisible, setIsOptionsVisible] = useState(false);
+
   return (
-    <React.Fragment>
-      <View className="flex-row justify-between mb-2">
-        <TouchableOpacity
-          onPress={() => router.push("/profile")}
-          className="flex-row gap-2 items-center w-9/10"
+    <TouchableWithoutFeedback onPress={() => setIsOptionsVisible(!isOptionsVisible)}>
+      <View className="mb-8 gap-1.5">
+        <View className="flex-row justify-between mb-2">
+          <TouchableOpacity className="flex-row gap-2 items-center w-[90%]">
+            <Image
+              source={profile}
+              className="w-[10%] aspect-square rounded-full"
+              resizeMode="cover"
+            />
+            <Text className="text-white text-xl">{manager}</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => setIsOptionsVisible(!isOptionsVisible)}>
+            <Ionicons name="ellipsis-horizontal" size={24} color="white" /> 
+          </TouchableOpacity>
+        </View>
+
+        {isOptionsVisible && 
+          <ProjectOptions 
+            setIsVisible={() => setIsOptionsVisible(!isOptionsVisible)}
+          />
+        }
+
+        <TouchableOpacity 
+          onPress={() => router.push("/project/project-overview")}
+          className="gap-1.5"
+          disabled={isOptionsVisible}
         >
           <Image
-            source={profile}
-            className="w-[10%] aspect-square rounded-full"
+            source={image}
+            className="w-full h-60 mb-2 rounded-2xl"
             resizeMode="cover"
           />
-          <Text className="text-white text-xl">{manager}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Ionicons name="ellipsis-horizontal" size={24} color="white" />
+          <View className="flex-row justify-between items-center">
+            <Text className="text-white text-xl font-bold">{title}</Text>
+            <View className="flex-row gap-2 items-center">
+              <Ionicons name="time-outline" size={20} color="white" />
+              <Text className="text-white text-lg">
+                {hours} hr/week
+              </Text>
+            </View>
+          </View>
+          <Text className="text-white text-lg">{description}</Text>
+
+          <View className="flex-row gap-2 mt-2">
+            {tags.map((tag, index) => (
+              <View
+                key={index}
+                className={`bg-tagBackground px-3 py-1 rounded-2xl`}
+              >
+                <Text className="text-tagBackgroundSelected text-s">{tag}</Text>
+              </View>
+            ))}
+          </View>
         </TouchableOpacity>
       </View>
-      <TouchableOpacity
-        onPress={() => router.replace("/project/project-overview")}
-        className="mb-8 gap-1.5"
-      >
-        <Image
-          source={image}
-          className="w-full h-60 mb-2 rounded-2xl"
-          resizeMode="cover"
-        />
-        <View className="flex-row justify-between items-center">
-          <Text className="text-white text-xl font-bold">{title}</Text>
-          <View className="flex-row gap-2 items-center">
-            <Ionicons name="time-outline" size={20} color="white" />
-            <Text className="text-white text-lg">{hours} hr/week</Text>
-          </View>
-        </View>
-        <Text className="text-white text-lg">{description}</Text>
-
-        <View className="flex-row gap-2 mt-2">
-          {tags.map((tag, index) => (
-            <Tag tag={tag} key={index} />
-          ))}
-        </View>
-      </TouchableOpacity>
-    </React.Fragment>
+    </TouchableWithoutFeedback>
   );
 }
