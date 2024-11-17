@@ -39,14 +39,16 @@ const JobCard: React.FC<JobCardProps> = ({
             <Text className="flex-1 text-white text-2xl text-left">
               {title} {company ? "⋅ " + company : null}
             </Text>
-            <TouchableOpacity 
-              onPress={() => setIsOptionsVisible(!isOptionsVisible)}
-            >
-              {manageIcon}
-            </TouchableOpacity>
+            
+            {manageIcon && <TouchableOpacity 
+                onPress={() => setIsOptionsVisible(!isOptionsVisible)}
+              >
+                {manageIcon}
+              </TouchableOpacity>
+            } 
           </View>
         
-          {isOptionsVisible && 
+          {manageIcon && isOptionsVisible && 
             <ProjectOptions 
               setIsVisible={() => setIsOptionsVisible(!isOptionsVisible)}
               options={options}

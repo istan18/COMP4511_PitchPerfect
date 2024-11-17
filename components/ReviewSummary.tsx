@@ -10,7 +10,7 @@ interface ReviewSummaryProps {
 const ReviewSummary = ({ totalReviews, reviews }: ReviewSummaryProps) => {
   return (
     <React.Fragment>
-      <View className="w-full ml-4 flex flex-col gap-y-1">
+      <View className="w-9/10 items-center flex flex-col gap-y-1">
         {reviews.map(({ stars, count }, index) => (
           <StarBar
             key={index}

@@ -1,16 +1,15 @@
 import React from "react";
 import { Image, SafeAreaView, ScrollView, Text, View } from "react-native";
-import BackButton from "@/components/BackButton";
+import BackButton2 from "@/components/BackButton2";
 import JobCard from "@/components/JobCard";
 import ProfileHeader from "@/components/ProfileHeader";
 import Tag from "@/components/Tag";
-import FilledButton from "@/components/FilledButton";
-import ReviewSummary from "@/components/ReviewSummary";
-import ReviewCard from "@/components/ReviewCard";
 import { Feather } from "@expo/vector-icons";
 import { router } from "expo-router";
 import IonIcons from "@expo/vector-icons/Ionicons";
 import { useState } from "react";
+import Reviews from "@/components/Reviews";
+import FilledButton from "@/components/FilledButton";
 
 const tags = [
   ["Communicative", "Requirements Defining"],
@@ -19,16 +18,6 @@ const tags = [
   ["Financial Mathematics", "SQL"],
   ["Strategist Excel", "R"],
 ];
-
-const reviews = [
-  { stars: 5, count: 15 },
-  { stars: 4, count: 7 },
-  { stars: 3, count: 3 },
-  { stars: 2, count: 1 },
-  { stars: 1, count: 1 },
-];
-
-const totalReviews = 27;
 
 const Profile = () => {
   const [sentConnection, setSentConnection] = useState(false);
@@ -64,9 +53,9 @@ const Profile = () => {
 
   return (
     <SafeAreaView className={"flex-1 bg-background"}>
-      <BackButton />
-      <ScrollView showsHorizontalScrollIndicator={false}>
+      <ScrollView showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false}>
         <View className={"w-full items-center"}>
+          <View className="mr-auto ml-2"><BackButton2 /></View>
           <ProfileHeader
             name="Jenny Liu"
             degree="B. Commerce"
@@ -74,6 +63,7 @@ const Profile = () => {
             imageSource={require("@/assets/images/woman.jpg")}
             connections="500+ connections"
             buttons={headerButtons}
+            otherStyles="mt-0"
           />
           <View className={"w-full border-t-[6px] mt-4 border-black"} />
 
@@ -110,60 +100,31 @@ const Profile = () => {
           </View>
 
           <View className={"w-full border-t-[6px] mt-8 border-black"} />
-          
-          <Text className={"text-white text-4xl mt-8 ml-8 mr-auto"}>Skills</Text>
-          <View className={"flex flex-col mt-4 mr-auto justify-center gap-y-1"}>
+
+          <View className={"w-[90%] flex flex-col mt-8 gap-y-1"}>
+            <Text className={"w-full mb-8 text-white text-3xl"}>
+              Skills
+            </Text>
+
             {tags.map((pair, index) => (
               <View key={index} className={"w-full flex flex-row"}>
                 <Tag
                   textSize={"text-xl"}
-                  tagStyle={"ml-8 mr-auto"}
+                  tagStyle={"mr-auto"}
                   tag={pair[0]}
                 />
                 <Tag
                   textSize={"text-xl"}
-                  tagStyle={"ml-auto mr-8"}
+                  tagStyle={"ml-auto"}
                   tag={pair[1]}
                 />
               </View>
             ))}
           </View>
+
           <View className={"w-full border-t-[6px] mt-8 border-black"} />
-          <View className={"flex flex-row mt-8 ml-8 mb-2 mr-auto w-full"}>
-            <Text className={"text-white text-4xl mr-auto"}>Reviews</Text>
-            <View className={"flex flex-col mr-10 ml-auto"}>
-              <Text className="text-white text-4xl font-bold mr-8 ml-auto">
-                4.5
-              </Text>
-              <Text className="text-gray-300 text-md mr-8 ml-auto">
-                {totalReviews} reviews
-              </Text>
-            </View>
-          </View>
-          <ReviewSummary totalReviews={totalReviews} reviews={reviews} />
-          <View className={"w-full border-t-[6px] mt-8 border-black"} />
-          <ReviewCard
-            name="Christian Tolentino"
-            avatar={require("@/assets/images/man.png")}
-            timestamp="2 mins ago"
-            stars={4}
-            title="Collaborated with Jenny on Inside the Box"
-            reviewText="Jenny is a great team lead. She is organised and very ambitious. She always gets the best out of her team."
-          />
-          <View
-            className={"w-9/10 mx-auto border-t mt-8 border-gray-500 opacity-50"}
-          />
-          <ReviewCard
-            name="Angela Shan"
-            avatar={require("@/assets/images/woman.jpg")}
-            timestamp="5 mins ago"
-            stars={2}
-            title="Collaborated with Jenny on Inside the Box"
-            reviewText="Jenny was very bossy and never did any work herself!"
-          />
-          <View
-            className={"w-9/10 mx-auto border-t mt-8 border-gray-500 opacity-50"}
-          />
+          
+          <Reviews />
           <FilledButton
             icon={
               <Image
