@@ -41,7 +41,7 @@ export default function Role() {
             Add your education
           </Text>
           <CustomTextInput placeholder="Degree/Diploma/Other" />
-          <CustomDropdown options={dropdownOptions} />
+          <CustomDropdown placeholder="Institution" options={dropdownOptions} />
           <Checkbox label={"I am currently a student"} />
           <View className="absolute bottom-20 w-full items-center">
             <FilledButton
