@@ -78,7 +78,7 @@ const Collaborators = () => {
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <SafeAreaView className={"flex-1 bg-background"}>
         <BackButton />
-        <ScrollView showsHorizontalScrollIndicator={false}>
+        <ScrollView className="w-full" showsVerticalScrollIndicator={false}>
           <Text
             className={"mt-20 text-center mx-auto text-5xl mb-8 text-white"}
           >
@@ -135,10 +135,14 @@ const Collaborators = () => {
               return profile ? (
                 <View
                   key={index}
-                  className={"w-full flex flex-row items-center mx-auto"}
+                  className={"w-9/10 flex flex-row items-center mx-auto"}
                 >
-                  <CollaboratorIcon imageSource={profile.image} />
+                  <CollaboratorIcon
+                    otherStyles={"mr-4"}
+                    imageSource={profile.image}
+                  />
                   <CustomDropdown
+                    width={"70%"}
                     placeholder={"Role"}
                     options={[
                       {
@@ -159,17 +163,14 @@ const Collaborators = () => {
               ) : null;
             })}
           </View>
-          <View
-            className={
-              "w-9/10 mx-auto border-t my-8 border-gray-500 opacity-50"
-            }
-          />
+        </ScrollView>
+        <View className={" bottom-4 bg-black w-4/5 mx-auto rounded-2xl h-20 "}>
           <FilledButton
             otherStyles={"w-3/4"}
             title={"Save"}
             onPress={() => router.back()}
           />
-        </ScrollView>
+        </View>
       </SafeAreaView>
     </TouchableWithoutFeedback>
   );

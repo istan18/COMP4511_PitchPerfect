@@ -88,7 +88,11 @@ const Edit = () => {
         <FilledButton
           filled={true}
           title={"Share"}
-          onPress={() => router.push("/post/confirmation")}
+          onPress={() => {
+            // Clear router
+            router.dismissAll();
+            router.replace("/post/confirmation");
+          }}
           otherStyles={"mb-4"}
         />
         <Progress filledIndex={2} length={3} />

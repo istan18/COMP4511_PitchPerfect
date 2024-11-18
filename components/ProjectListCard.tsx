@@ -1,16 +1,15 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import ProjectOptions from "./ProjectOptions";
 import {
   Image,
   ImageURISource,
   Text,
   TouchableOpacity,
-  View,
   TouchableWithoutFeedback,
+  View,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
-import React from "react";
 
 interface ProjectListCardProps {
   profile: ImageURISource;
@@ -34,7 +33,9 @@ export default function ProjectListCard({
   const [isOptionsVisible, setIsOptionsVisible] = useState(false);
 
   return (
-    <TouchableWithoutFeedback onPress={() => setIsOptionsVisible(!isOptionsVisible)}>
+    <TouchableWithoutFeedback
+      onPress={() => setIsOptionsVisible(!isOptionsVisible)}
+    >
       <View className="mb-8 gap-1.5">
         <View className="flex-row justify-between mb-2">
           <TouchableOpacity className="flex-row gap-2 items-center w-[90%]">
@@ -46,18 +47,20 @@ export default function ProjectListCard({
             <Text className="text-white text-xl">{manager}</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={() => setIsOptionsVisible(!isOptionsVisible)}>
-            <Ionicons name="ellipsis-horizontal" size={24} color="white" /> 
+          <TouchableOpacity
+            onPress={() => setIsOptionsVisible(!isOptionsVisible)}
+          >
+            <Ionicons name="ellipsis-horizontal" size={24} color="white" />
           </TouchableOpacity>
         </View>
 
-        {isOptionsVisible && 
-          <ProjectOptions 
+        {isOptionsVisible && (
+          <ProjectOptions
             setIsVisible={() => setIsOptionsVisible(!isOptionsVisible)}
           />
-        }
+        )}
 
-        <TouchableOpacity 
+        <TouchableOpacity
           onPress={() => router.push("/project/project-overview")}
           className="gap-1.5"
           disabled={isOptionsVisible}
@@ -71,9 +74,7 @@ export default function ProjectListCard({
             <Text className="text-white text-xl font-bold">{title}</Text>
             <View className="flex-row gap-2 items-center">
               <Ionicons name="time-outline" size={20} color="white" />
-              <Text className="text-white text-lg">
-                {hours} hr/week
-              </Text>
+              <Text className="text-white text-lg">{hours} hr/week</Text>
             </View>
           </View>
           <Text className="text-white text-lg">{description}</Text>

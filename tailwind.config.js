@@ -17,6 +17,7 @@ module.exports = {
         chatGray: "#333333",
         chatLight: "#F2CD92",
         barGreen: "#3A5B5B",
+        applicationGreen: "#3e5457",
       },
       width: {
         "9/10": "90%",
