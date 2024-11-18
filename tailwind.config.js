@@ -3,6 +3,9 @@ module.exports = {
   // NOTE: Update this to include the paths to all of your component files.
   content: ["./app/**/*.{js,jsx,ts,tsx}", "./components/**/*.{js,jsx,ts,tsx}"],
   presets: [require("nativewind/preset")],
+  corePlugins: {
+    backgroundOpacity: true,
+  },
   theme: {
     extend: {
       colors: {
@@ -17,6 +20,8 @@ module.exports = {
         chatGray: "#333333",
         chatLight: "#F2CD92",
         barGreen: "#3A5B5B",
+        applicationGreen: "#3e5457",
+        disabledGray: "#444444",
       },
       width: {
         "9/10": "90%",
