@@ -97,7 +97,7 @@ const Question = ({
         {isOptionsVisible && (
           <ProjectOptions
             options={questionOptions}
-            setIsVisible={() => setIsOptionsVisible(false)}
+            close={() => setIsOptionsVisible(false)}
           />
         )}
         <TouchableWithoutFeedback

@@ -46,16 +46,13 @@ const CustomTextInput: React.FC<TitleInputProps> = ({
             {heading}
           </Text>
         ) : null}
-        <View className="relative">
-          {leftIcon && (
-            <View className={"absolute left-3 top-3"}>{leftIcon}</View>
-          )}
+        <View className={`flex-row justify-center items-center rounded-2xl border
+          ${leftIcon ? "pl-14" : "pl-4"} ${editable ? "border-gray-400" : "border-disabledGray"} ${height} ${padding}`}
+        >
+          {leftIcon}
           <TextInput
             keyboardType={keyboardType}
-            style={{ fontSize: 20, textAlignVertical: "top" }}
-            className={`${
-              leftIcon ? "pl-14" : "pl-4"
-            } border pt-4 pr-4 pb-4 text-left text-white ${editable ? "border-gray-400" : "border-disabledGray"} ${height} text-2xl rounded-2xl ${padding} w-full color-white border border-gray-400 rounded-2xl text-xl`}
+            className={`flex-1 text-xl color-white`}
             onChangeText={(newText) => {
               if (maxLength) {
                 if (newText.length >= maxLength) return;
@@ -68,13 +65,13 @@ const CustomTextInput: React.FC<TitleInputProps> = ({
             editable={editable}
             multiline
           />
+          {rightIcon && <View className="pr-4">{rightIcon}</View>}
         </View>
         {includeCounter && (
           <Text className={"text-white text-lg ml-auto"}>
             {text.length}/{maxLength}
           </Text>
         )}
-        <View className={"absolute top-3 right-3"}>{rightIcon}</View>
         {children}
       </View>
     </React.Fragment>

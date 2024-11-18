@@ -43,6 +43,7 @@ export default function ProjectListCard({
           className="p-4"
         />
       ),
+      onPress: () => router.push("/project/collaborate"),
     },
     {
       name: "Message",
@@ -54,23 +55,7 @@ export default function ProjectListCard({
           className="p-4"
         />
       ),
-    },
-    {
-      name: "Alt text",
-      icon: (
-        <Ionicons
-          name="image-outline"
-          size={20}
-          color="white"
-          className="p-4"
-        />
-      ),
-    },
-    {
-      name: "Report",
-      icon: (
-        <Ionicons name="flag-outline" size={20} color="white" className="p-4" />
-      ),
+      onPress: () => router.push("/messages/individual"),
     },
   ];
 
@@ -98,7 +83,7 @@ export default function ProjectListCard({
 
         {isOptionsVisible && (
           <ProjectOptions
-            setIsVisible={() => setIsOptionsVisible(!isOptionsVisible)}
+            close={() => setIsOptionsVisible(!isOptionsVisible)}
             options={options}
           />
         )}

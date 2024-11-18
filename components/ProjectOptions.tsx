@@ -2,24 +2,24 @@ import { Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 
 interface ProjectOptionsProps {
-  setIsVisible: () => void;
+  close: () => void;
   options: { name: string; icon: React.ReactElement; onPress?: () => void }[];
   otherStyles?: string;
 }
 
 export default function ProjectOptions({
-  setIsVisible,
+  close,
   options,
   otherStyles,
 }: ProjectOptionsProps) {
   return (
     <View
-      className={`bg-tagBackground rounded-2xl w-1/2 shadow-xl absolute mt-8 right-0 z-40 ${otherStyles}`}
+      className={`bg-tagBackground rounded-2xl w-1/2 shadow-xl absolute mt-8 right-0 z-50 ${otherStyles}`}
     >
       {options.map((option, index) => (
         <TouchableOpacity
           onPress={() => {
-            setIsVisible();
+            close();
             option.onPress && option.onPress();
           }}
           key={index}
