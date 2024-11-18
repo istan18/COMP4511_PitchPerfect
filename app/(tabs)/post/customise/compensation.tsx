@@ -58,6 +58,7 @@ const Compensation = () => {
             { label: "Year", value: "year" },
           ]}
           disable={!enabled}
+          otherStyles={{ borderColor: enabled ? "#9CA3AF" : "#444444" }}
         />
       </View>
       <View

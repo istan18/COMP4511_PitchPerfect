@@ -15,7 +15,8 @@ interface ProfileHeaderProps {
   university: string;
   imageSource: ImageSourcePropType;
   connections?: string;
-  buttons: {icon: React.ReactElement, onPress: () => void, title: string}[];
+  buttons?: {icon: React.ReactElement, onPress: () => void, title: string}[];
+  otherStyles?: string;
 }
 
 const ProfileHeader: React.FC<ProfileHeaderProps> = ({
@@ -25,14 +26,15 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   imageSource,
   connections,
   buttons,
+  otherStyles,
 }) => {
   const [sentConnection, setSentConnection] = useState(false);
   return (
     <View className="items-center">
-      <View className="mt-12 flex w-9/10 items-center justify-center flex-row gap-8">
+      <View className={`${otherStyles} mt-12 flex w-9/10 items-center justify-around flex-row gap-x-8`}>
         <Image source={imageSource} className="rounded-full h-40 w-40" />
 
-        <View className="flex flex-col gap-y-2">
+        <View className="flex flex-col gap-y-2 mx-auto">
           <Text className="mr-auto text-left text-white text-3xl mb-2">{name}</Text>
           <Text className="mr-auto text-white text-xl font-thin text-left">
             {degree}
@@ -63,7 +65,7 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
       </View>
 
       <View className={"flex flex-row justify-between items-center w-9/10 mt-4 gap-x-4"}>
-        {buttons.map((button, index) => (
+        {buttons && (buttons.map((button, index) => (
           <FilledButton
             key={index}
             onPress={button.onPress}
@@ -72,7 +74,7 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
             title={button.title}
             icon={button.icon}
           />
-        ))}
+        )))}
       </View>
     </View>
   );

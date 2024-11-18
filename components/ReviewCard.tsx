@@ -20,12 +20,11 @@ const ReviewCard: React.FC<ReviewCardProps> = ({
   reviewText,
 }) => {
   return (
-    <View className="mt-8 ml-8 mb-4">
-      {/* User Info Section */}
-      <View className="flex flex-row w-full">
+    <View className="w-9/10 mt-8 mb-4">
+      <View className="flex flex-row w-full items-center">
         <Image source={avatar} className="w-20 h-20 rounded-full" />
         <View className="ml-4 flex flex-col">
-          <Text className="text-left text-white text-3xl">{name}</Text>
+          <Text className="text-left text-white text-2xl">{name}</Text>
           <View className="flex flex-row gap-x-1 mt-1 items-center">
             {[...Array(stars)].map((_, index) => (
               <Entypo key={index} name="star" size={24} color="#FFD700" />
@@ -37,8 +36,8 @@ const ReviewCard: React.FC<ReviewCardProps> = ({
         </View>
       </View>
       <View className={"mt-2"}>
-        <Text className="text-gray-500 text-lg w-9/10">{title}</Text>
-        <Text className="text-white text-xl w-9/10">{reviewText}</Text>
+        <Text className="text-gray-500 text-lg">{title}</Text>
+        <Text className="text-white text-xl">{reviewText}</Text>
       </View>
     </View>
   );

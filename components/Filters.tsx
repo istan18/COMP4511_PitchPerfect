@@ -2,6 +2,7 @@ import { View } from "react-native";
 import FilledButton from "./FilledButton";
 import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
+import BottomModal from "./BottomModal";
 import FilterOptions from "./FilterOptions";
 
 interface FiltersProps {
@@ -84,17 +85,19 @@ export default function Filters({ rowStyles }: FiltersProps) {
           />
         ))}
       </View>
-
-      {areOptionsVisible && (
-        <FilterOptions
-          type={optionsType}
-          close={closeOptions}
-          isVisible={areOptionsVisible}
-          addFilter={() => addFilter(optionsType)}
+    
+      {areOptionsVisible && <BottomModal 
+        isVisible={areOptionsVisible} 
+        title={optionsType}
+        close={closeOptions} 
+        contents={<FilterOptions 
+          type={optionsType} 
+          close={closeOptions} 
+          addFilter={() => addFilter(optionsType)} 
           removeFilter={() => removeFilter(optionsType)}
           reset={resetFilters}
-        />
-      )}
+        />}
+      />}
     </View>
   );
 }

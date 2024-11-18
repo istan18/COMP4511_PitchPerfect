@@ -3,30 +3,43 @@ import { View, SafeAreaView, ScrollView, Text, TouchableOpacity } from "react-na
 import ProfileHeader from "@/components/ProfileHeader";
 import { Feather, Ionicons } from "@expo/vector-icons";
 import JobCard from "@/components/JobCard";
+import Tag from "@/components/Tag";
+import Reviews from "@/components/Reviews";
+import { router } from "expo-router";
+
+const tags = [
+  ["Communicative", "Requirements Defining"],
+  ["Management", "Accounting"],
+  ["Microsoft Excel", "Python"],
+  ["Financial Mathematics", "SQL"],
+  ["Strategy", "R"],
+];
 
 export default function Index(){
-  const headerButtons = [
-    {
-      icon: <Feather name="edit-2" size={16} color="black" />,
-      onPress: () => {},
-      title: "Edit profile"
-    },
-  ];
-
   return (
     <View className="flex-1 bg-background">
       <ScrollView 
         className="w-full"
         showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
       >
         <SafeAreaView className="w-full items-center">
+          <View className="mt-4 w-9/10 justify-end flex flex-row gap-x-6">
+            <TouchableOpacity onPress={() => router.push('/account/editProfile')}>
+              <Feather name="edit-2" size={24} color="white" />
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Feather name="settings" size={24} color="white" />
+            </TouchableOpacity>
+          </View>
+
           <ProfileHeader
             name="Alice Sharma"
             degree="B. Computer Science"
             university="UNSW"
             imageSource={require("@/assets/images/aliceProfile.jpg")}
             connections="500+ connections"
-            buttons={headerButtons}
+            otherStyles="mt-4"
           />
 
           <View className={"w-full border-t-[6px] mt-4 border-black"} />
@@ -54,8 +67,8 @@ export default function Index(){
           <View className={"w-full border-t-[6px] mt-8 border-black"} />
         
           <View className={"w-[90%] items-center flex flex-col mt-8 gap-y-8"}>
-            <View className="flex-row justify-between items-center">
-              <Text className={"w-[90%] text-white text-3xl"}>
+            <View className="flex-row w-full justify-between items-center">
+              <Text className={"text-white text-3xl"}>
                 Experience
               </Text>
               <TouchableOpacity>
@@ -73,6 +86,35 @@ export default function Index(){
 
           <View className={"w-full border-t-[6px] mt-8 border-black"} />
 
+          <View className={"w-[90%] flex flex-col mt-8 gap-y-1"}>
+            <View className="mb-8 flex-row w-full justify-between items-center">
+              <Text className={"text-white text-3xl"}>
+                Skills
+              </Text>
+              <TouchableOpacity>
+                <Feather name="edit-2" size={20} color="white" />
+              </TouchableOpacity>
+            </View>
+
+            {tags.map((pair, index) => (
+              <View key={index} className={"w-full flex flex-row"}>
+                <Tag
+                  textSize={"text-xl"}
+                  tagStyle={"mr-auto"}
+                  tag={pair[0]}
+                />
+                <Tag
+                  textSize={"text-xl"}
+                  tagStyle={"ml-auto"}
+                  tag={pair[1]}
+                />
+              </View>
+            ))}
+          </View>
+
+          <View className={"w-full border-t-[6px] mt-8 border-black"} />
+          
+          <Reviews />
         </SafeAreaView>
       </ScrollView>
     </View>

@@ -5,15 +5,17 @@ import { Ionicons } from "@expo/vector-icons";
 
 interface DropdownProps {
   options: { label: string; value: string }[];
-  placeholder: string;
+  otherStyles?: {};
+  placeholder?: string;
   width?: DimensionValue;
   disable?: boolean;
-  value: string;
-  setValue: (value: string) => void;
+  value?: string;
+  setValue?: (value: string) => void;
 }
 
-export default function CustomDropdown({
-  options,
+export default function CustomDropdown({ 
+  options, 
+  otherStyles,
   placeholder,
   width = "80%",
   disable = false,
@@ -24,13 +26,7 @@ export default function CustomDropdown({
 
   return (
     <Dropdown
-      style={{
-        borderWidth: 1,
-        borderColor: !disable ? "#9CA3AF" : "#444444",
-        borderRadius: 15,
-        padding: 14,
-        width,
-      }}
+      style={[styles.dropdown, otherStyles]}
       containerStyle={styles.containerStyle}
       itemContainerStyle={styles.itemContainer}
       placeholderStyle={styles.placeholder}
@@ -44,7 +40,7 @@ export default function CustomDropdown({
       onFocus={() => setIsFocus(true)}
       onBlur={() => setIsFocus(false)}
       onChange={(item) => {
-        setValue(item.value);
+        setValue && setValue(item.value);
         setIsFocus(false);
       }}
       disable={disable}
@@ -60,6 +56,13 @@ export default function CustomDropdown({
 }
 
 const styles = StyleSheet.create({
+  dropdown: {
+    borderWidth: 1,
+    borderColor: "#9CA3AF",
+    borderRadius: 15,
+    padding: 14,
+    width: "80%",
+  },
   containerStyle: {
     borderRadius: 15,
   },
