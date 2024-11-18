@@ -10,6 +10,8 @@ interface FullWidthProps {
   marginRight?: string;
   height?: string;
   onPress?: () => void;
+  pressable?: boolean;
+  textStyles?: string;
 }
 
 const FullWidthButton: React.FC<FullWidthProps> = ({
@@ -21,8 +23,10 @@ const FullWidthButton: React.FC<FullWidthProps> = ({
   marginLeft = "ml-0",
   marginRight = "mr-4",
   height = "h-[4.5rem]",
+  pressable = true,
+  textStyles,
 }) => (
-  <TouchableOpacity onPress={onPress}>
+  <TouchableOpacity onPress={onPress} disabled={!pressable}>
     <View
       className={`flex my-auto flex-row ${height} items-center border-t-hairline border-t-gray-200 ${hasBottomBorder ? "border-b-hairline border-b-gray-200" : ""}`}
     >
@@ -30,7 +34,7 @@ const FullWidthButton: React.FC<FullWidthProps> = ({
       {React.isValidElement(text) ? (
         text
       ) : (
-        <Text className="text-white text-left w-[22rem] text-2xl">{text}</Text>
+        <Text className={`${textStyles} text-white text-left w-[22rem] text-2xl`}>{text}</Text>
       )}
       <View className={`${marginRight} ml-auto`}>{rightIcon}</View>
     </View>

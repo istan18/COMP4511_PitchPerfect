@@ -5,6 +5,7 @@ import { Feather, Ionicons } from "@expo/vector-icons";
 import JobCard from "@/components/JobCard";
 import Tag from "@/components/Tag";
 import Reviews from "@/components/Reviews";
+import { router } from "expo-router";
 
 const tags = [
   ["Communicative", "Requirements Defining"],
@@ -24,7 +25,7 @@ export default function Index(){
       >
         <SafeAreaView className="w-full items-center">
           <View className="mt-4 w-9/10 justify-end flex flex-row gap-x-6">
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => router.push('/account/editProfile')}>
               <Feather name="edit-2" size={24} color="white" />
             </TouchableOpacity>
             <TouchableOpacity>
