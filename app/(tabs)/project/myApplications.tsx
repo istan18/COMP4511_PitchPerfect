@@ -10,7 +10,7 @@ export default function MyApplicationsContent() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-[#171F20]">
+    <SafeAreaView className="flex-1 bg-background">
       <View className="flex-1 mt-5">
         <ScrollView className="px-4 pt-2">
           <ApplicationCard

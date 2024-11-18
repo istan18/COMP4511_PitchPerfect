@@ -50,7 +50,8 @@ const Index = () => {
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <SafeAreaView className={"flex-1 bg-background"}>
-        <ExitButton url={"/home"} />
+        <ExitButton onPress={() => router.replace("/home")} />
+
         <Text className={"mt-20 text-center mx-auto text-5xl mb-8 text-white"}>
           New Project
         </Text>
@@ -67,7 +68,6 @@ const Index = () => {
             setText={setDescription}
             text={description}
             height={"h-36"}
-            padding={"pb-20"}
             maxLength={200}
             placeholder={"Description"}
             includeCounter={true}

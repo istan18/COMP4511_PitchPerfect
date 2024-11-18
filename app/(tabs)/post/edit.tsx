@@ -89,7 +89,6 @@ const Edit = () => {
           filled={true}
           title={"Share"}
           onPress={() => {
-            // Clear router
             router.dismissAll();
             router.replace("/post/confirmation");
           }}

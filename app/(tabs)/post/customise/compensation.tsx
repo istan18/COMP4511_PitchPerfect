@@ -10,6 +10,7 @@ import { router } from "expo-router";
 const Compensation = () => {
   const [payment, setPayment] = useState<number>();
   const [enabled, setEnabled] = useState<boolean>(false);
+  const [timePeriod, setTimePeriod] = useState<string>("");
 
   const toggle = () => {
     setEnabled((prev) => !prev);
@@ -18,7 +19,7 @@ const Compensation = () => {
   return (
     <SafeAreaView className={"flex-1 bg-background"}>
       <BackButton />
-      <Text className={"mt-20 text-center mx-auto text-5xl mb-20 text-white"}>
+      <Text className={"mt-20 text-center mx-auto text-4xl mb-20 text-white"}>
         Compensation
       </Text>
       <View className={"mx-auto w-4/5 mb-8"}>
@@ -39,9 +40,15 @@ const Compensation = () => {
           placeholder={"$"}
           editable={enabled}
         />
-        <Text className={" text-white text-2xl text-center mx-auto "}>per</Text>
+        <Text
+          className={`${enabled ? "text-white" : "text-textGray"} text-2xl text-center mx-auto `}
+        >
+          per
+        </Text>
         <CustomDropdown
           width={"40%"}
+          value={timePeriod}
+          setValue={setTimePeriod}
           placeholder={"Time period"}
           options={[
             { label: "Hour", value: "hour" },
@@ -54,9 +61,7 @@ const Compensation = () => {
         />
       </View>
       <View
-        className={
-          "absolute bottom-20 left-12 bg-black w-4/5 mx-auto rounded-2xl h-20 "
-        }
+        className={"absolute bottom-12 left-12   w-4/5 mx-auto rounded-2xl "}
       >
         <FilledButton
           otherStyles={"w-3/4"}

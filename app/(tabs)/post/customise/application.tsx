@@ -1,35 +1,39 @@
-import FilledButton from "@/components/FilledButton";
 import React, { useState } from "react";
 import {
   Alert,
-  FlatList,
-  Keyboard,
   SafeAreaView,
   Text,
-  TextInput,
   TouchableWithoutFeedback,
   View,
 } from "react-native";
+import FilledButton from "@/components/FilledButton";
 import Question from "@/components/Question";
+import BackButton from "@/components/BackButton";
+import DraggableFlatList from "react-native-draggable-flatlist";
+import ApplicationPopup from "@/components/ApplicationPopUp";
 
 const defaultQuestions = [
   {
     id: 1,
     question: "What skills do you have related to this project?",
-    maxLength: 300,
   },
-  { id: 2, question: "Describe your previous experiences.", maxLength: 300 },
+  { id: 2, question: "Describe your previous experiences." },
   {
     id: 3,
     question: "Why are you motivated to join this project?",
-    maxLength: 300,
   },
 ];
 
 const Application = () => {
   const [questions, setQuestions] = useState(defaultQuestions);
   const [newQuestion, setNewQuestion] = useState("");
-  const [newMaxLength, setNewMaxLength] = useState(300);
+  const [showHint, setShowHint] = useState(true);
+
+  const hideHint = () => {
+    setShowHint(false);
+  };
+
+  const [popupVisible, setPopupVisible] = useState(false);
 
   const addQuestion = () => {
     if (!newQuestion.trim()) {
@@ -39,61 +43,78 @@ const Application = () => {
     const nextId = questions.length
       ? Math.max(...questions.map((q) => q.id)) + 1
       : 1;
-    setQuestions([
-      ...questions,
-      { id: nextId, question: newQuestion, maxLength: newMaxLength },
-    ]);
+    setQuestions([...questions, { id: nextId, question: newQuestion }]);
     setNewQuestion("");
-    setNewMaxLength(300);
-  };
-
-  const deleteQuestion = (id: number) => {
-    setQuestions(questions.filter((q) => q.id !== id));
+    setPopupVisible(false);
   };
 
   const renderQuestion = ({
     item,
+    getIndex,
+    drag,
+    isActive,
   }: {
-    item: { id: number; question: string; maxLength: number };
+    item: { id: number; question: string };
+    getIndex: () => number | undefined;
+    drag: () => void;
+    isActive: boolean;
   }) => (
-    <Question item={item} setQuestions={setQuestions} questions={questions} />
+    <TouchableWithoutFeedback
+      className="p-4"
+      disabled={isActive}
+      onLongPress={() => {
+        hideHint();
+        drag();
+      }}
+    >
+      <Question
+        item={item}
+        drag={drag}
+        getIndex={getIndex}
+        setQuestions={setQuestions}
+        questions={questions}
+      />
+    </TouchableWithoutFeedback>
   );
 
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <SafeAreaView className="flex-1 bg-background p-4">
-        <Text className="text-center text-3xl text-white mb-6">
-          Application Questions
+    <SafeAreaView className="flex-1 bg-background">
+      <BackButton />
+      <Text className="text-center mt-20 text-4xl text-white mb-10">
+        Application Questions
+      </Text>
+      <DraggableFlatList
+        data={questions}
+        onDragEnd={({ data }) => setQuestions(data)}
+        renderItem={renderQuestion}
+        keyExtractor={(item) => item.id.toString()}
+      />
+      {showHint && (
+        <Text className="text-gray-400 mb-4 text-md text-center">
+          Hold any question card to rearrange question order
         </Text>
-
-        <FlatList
-          data={questions}
-          renderItem={renderQuestion}
-          keyExtractor={(item) => item.id.toString()}
-          className="mb-6"
+      )}
+      {popupVisible ? (
+        <ApplicationPopup
+          visible={popupVisible}
+          addQuestion={addQuestion}
+          newQuestion={newQuestion}
+          setNewQuestion={setNewQuestion}
+          onClose={() => setPopupVisible(false)}
         />
-
-        <View className="mb-6 w-4/5 mx-auto  p-2 bg-applicationGreen  rounded-lg">
-          <Text className="font-semibold text-center text-white text-2xl mb-4">
-            Add New Question
-          </Text>
-          <TextInput
-            value={newQuestion}
-            onChangeText={setNewQuestion}
-            placeholder="New Question"
-            className="p-2 mb-3 bg-gray-200 rounded-lg"
-          />
-          <TextInput
-            value={String(newMaxLength)}
-            onChangeText={(text) => setNewMaxLength(Number(text))}
-            placeholder="Max Length"
-            keyboardType="number-pad"
-            className="p-2 mb-3 bg-gray-200 rounded-lg"
-          />
-          <FilledButton title="Add Question" onPress={addQuestion} />
-        </View>
-      </SafeAreaView>
-    </TouchableWithoutFeedback>
+      ) : null}
+      <View
+        className={
+          "absolute bottom-12 left-12 bg-black w-4/5 mx-auto rounded-2xl"
+        }
+      >
+        <FilledButton
+          otherStyles="w-3/4"
+          title="Add Question"
+          onPress={() => setPopupVisible(true)}
+        />
+      </View>
+    </SafeAreaView>
   );
 };
 

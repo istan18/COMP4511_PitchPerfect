@@ -10,6 +10,7 @@ interface TitleInputProps {
   includeCounter?: boolean;
   width?: string;
   height?: string;
+  headingSize?: string;
   children?: React.ReactNode;
   heading?: string;
   leftIcon?: React.ReactNode;
@@ -24,6 +25,7 @@ const CustomTextInput: React.FC<TitleInputProps> = ({
   setText = () => {},
   placeholder,
   children,
+  headingSize = "text-3xl",
   heading,
   leftIcon,
   rightIcon,
@@ -40,7 +42,7 @@ const CustomTextInput: React.FC<TitleInputProps> = ({
     <React.Fragment>
       <View className={`${width} mx-auto ${marginBottom}`}>
         {heading ? (
-          <Text className={"text-white text-3xl mx-auto mb-3 ml-0"}>
+          <Text className={`text-white ${headingSize} mx-auto mb-4 ml-0`}>
             {heading}
           </Text>
         ) : null}
@@ -50,10 +52,10 @@ const CustomTextInput: React.FC<TitleInputProps> = ({
           )}
           <TextInput
             keyboardType={keyboardType}
-            style={{ fontSize: 20 }}
+            style={{ fontSize: 20, textAlignVertical: "top" }}
             className={`${
               leftIcon ? "pl-14" : "pl-4"
-            } border text-left text-white ${editable ? "border-gray-400" : "border-[#444444]"} ${height} text-2xl rounded-2xl ${padding} w-full color-white border border-gray-400 rounded-2xl text-xl`}
+            } border pt-4 pr-4 pb-4 text-left text-white ${editable ? "border-gray-400" : "border-disabledGray"} ${height} text-2xl rounded-2xl ${padding} w-full color-white border border-gray-400 rounded-2xl text-xl`}
             onChangeText={(newText) => {
               if (maxLength) {
                 if (newText.length >= maxLength) return;
@@ -64,6 +66,7 @@ const CustomTextInput: React.FC<TitleInputProps> = ({
             placeholder={placeholder}
             maxLength={maxLength}
             editable={editable}
+            multiline
           />
         </View>
         {includeCounter && (

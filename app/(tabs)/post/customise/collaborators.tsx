@@ -80,7 +80,7 @@ const Collaborators = () => {
         <BackButton />
         <ScrollView className="w-full" showsVerticalScrollIndicator={false}>
           <Text
-            className={"mt-20 text-center mx-auto text-5xl mb-8 text-white"}
+            className={"mt-20 text-center mx-auto text-4xl mb-8 text-white"}
           >
             Add Collaborators
           </Text>
@@ -144,6 +144,8 @@ const Collaborators = () => {
                   <CustomDropdown
                     width={"70%"}
                     placeholder={"Role"}
+                    value={selectedRole}
+                    setValue={setSelectedRole}
                     options={[
                       {
                         label: "Collaborator",
@@ -164,7 +166,11 @@ const Collaborators = () => {
             })}
           </View>
         </ScrollView>
-        <View className={" bottom-4 bg-black w-4/5 mx-auto rounded-2xl h-20 "}>
+        <View
+          className={
+            "absolute bottom-12 left-12  bg-black w-4/5 mx-auto rounded-2xl "
+          }
+        >
           <FilledButton
             otherStyles={"w-3/4"}
             title={"Save"}

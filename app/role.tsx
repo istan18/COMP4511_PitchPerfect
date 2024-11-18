@@ -13,8 +13,10 @@ import RadioGroup from "@/components/RadioGroup";
 import CustomDropdown from "@/components/CustomDropdown";
 import Checkbox from "@/components/Checkbox";
 import CustomTextInput from "@/components/CustomTextInput";
+import { useState } from "react";
 
 export default function Role() {
+  const [institution, setInstitution] = useState("");
   const radioOptions = [
     { label: "working on projects", value: "1" },
     { label: "investing/mentoring", value: "2" },
@@ -41,7 +43,12 @@ export default function Role() {
             Add your education
           </Text>
           <CustomTextInput placeholder="Degree/Diploma/Other" />
-          <CustomDropdown placeholder="Institution" options={dropdownOptions} />
+          <CustomDropdown
+            value={institution}
+            setValue={setInstitution}
+            placeholder="Institution"
+            options={dropdownOptions}
+          />
           <Checkbox label={"I am currently a student"} />
           <View className="absolute bottom-20 w-full items-center">
             <FilledButton

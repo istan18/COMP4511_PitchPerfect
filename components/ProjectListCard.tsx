@@ -8,7 +8,7 @@ import {
   TouchableWithoutFeedback,
   View,
 } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { Feather, Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
 
 interface ProjectListCardProps {
@@ -31,6 +31,48 @@ export default function ProjectListCard({
   tags,
 }: ProjectListCardProps) {
   const [isOptionsVisible, setIsOptionsVisible] = useState(false);
+
+  const options = [
+    {
+      name: "Collaborate",
+      icon: (
+        <Ionicons
+          name="people-outline"
+          size={20}
+          color="white"
+          className="p-4"
+        />
+      ),
+    },
+    {
+      name: "Message",
+      icon: (
+        <Feather
+          name="message-circle"
+          size={20}
+          color="white"
+          className="p-4"
+        />
+      ),
+    },
+    {
+      name: "Alt text",
+      icon: (
+        <Ionicons
+          name="image-outline"
+          size={20}
+          color="white"
+          className="p-4"
+        />
+      ),
+    },
+    {
+      name: "Report",
+      icon: (
+        <Ionicons name="flag-outline" size={20} color="white" className="p-4" />
+      ),
+    },
+  ];
 
   return (
     <TouchableWithoutFeedback
@@ -57,6 +99,7 @@ export default function ProjectListCard({
         {isOptionsVisible && (
           <ProjectOptions
             setIsVisible={() => setIsOptionsVisible(!isOptionsVisible)}
+            options={options}
           />
         )}
 

@@ -8,6 +8,8 @@ interface DropdownProps {
   placeholder: string;
   width?: DimensionValue;
   disable?: boolean;
+  value: string;
+  setValue: (value: string) => void;
 }
 
 export default function CustomDropdown({
@@ -15,8 +17,9 @@ export default function CustomDropdown({
   placeholder,
   width = "80%",
   disable = false,
+  value,
+  setValue,
 }: DropdownProps) {
-  const [value, setValue] = useState("");
   const [isFocus, setIsFocus] = useState(false);
 
   return (

@@ -1,19 +1,13 @@
-import { useRouter } from "expo-router";
 import { TouchableOpacity } from "react-native";
 import IonIcons from "@expo/vector-icons/Ionicons";
 
 interface ExitButtonProps {
-  url: string;
+  onPress?: () => void;
 }
 
-export default function ExitButton({ url }: ExitButtonProps) {
-  const router = useRouter();
-
+export default function ExitButton({ onPress }: ExitButtonProps) {
   return (
-    <TouchableOpacity
-      onPress={() => router.replace(url as any)}
-      className="absolute top-20 left-8 p-2"
-    >
+    <TouchableOpacity onPress={onPress} className="absolute top-20 left-8 p-2">
       <IonIcons name="close" size={36} color="white" />
     </TouchableOpacity>
   );

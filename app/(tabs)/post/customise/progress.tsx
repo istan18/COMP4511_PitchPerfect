@@ -9,33 +9,19 @@ const Progress = () => {
   const [progress, setProgress] = useState<number>(0);
 
   const handleValueChange = (value: number) => {
-    // Rounding the value to the nearest multiple of 10 for snapping
     const roundedValue = Math.round(value / 5) * 5;
     setProgress(roundedValue);
-  };
-
-  // Function to render snapping lines
-  const renderSnappingLines = (count: number) => {
-    const lines = [];
-    for (let i = 0; i <= count; i++) {
-      lines.push(<View key={i} className="w-[0.2rem] h-2.5 bg-barGreen" />);
-    }
-    return lines;
   };
 
   return (
     <SafeAreaView className="flex-1 bg-background">
       <BackButton />
-      <Text className="mt-20 text-center mx-auto text-5xl mb-20 text-white">
+      <Text className="mt-20 text-center mx-auto text-4xl mb-20 text-white">
         Project Progress
       </Text>
       <View className="w-4/5 items-center mx-auto">
         <Text className="text-3xl text-white mb-4">{`Progress: ${progress}%`}</Text>
         <View className="relative w-full">
-          <View className="absolute top-5 z-30 left-1 right-0 h-2.5 flex flex-row gap-x-[1rem]">
-            {renderSnappingLines(20)}{" "}
-            {/* Increase the count to 20 for smaller gaps */}
-          </View>
           <Slider
             style={{ width: "100%", height: 20 }}
             minimumValue={0}
@@ -49,10 +35,12 @@ const Progress = () => {
           />
         </View>
       </View>
-      <View className="absolute bottom-20 left-12 bg-black w-4/5 mx-auto rounded-2xl h-20">
+      <View
+        className={"absolute bottom-12 left-12   w-4/5 mx-auto rounded-2xl "}
+      >
         <FilledButton
-          otherStyles="w-3/4"
-          title="Save"
+          otherStyles={"w-3/4"}
+          title={"Save"}
           onPress={() => router.back()}
         />
       </View>

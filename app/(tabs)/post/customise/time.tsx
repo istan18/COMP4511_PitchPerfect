@@ -84,10 +84,14 @@ const Time = () => {
           }}
         />
       </View>
-      <View className="absolute bottom-20 left-12 bg-black w-4/5 mx-auto rounded-2xl h-20">
+      <View
+        className={
+          "absolute bottom-12 left-12  bg-black w-4/5 mx-auto rounded-2xl "
+        }
+      >
         <FilledButton
-          otherStyles="w-3/4"
-          title="Save"
+          otherStyles={"w-3/4"}
+          title={"Save"}
           onPress={() => router.back()}
         />
       </View>
