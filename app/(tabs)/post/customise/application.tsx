@@ -3,6 +3,7 @@ import {
   Alert,
   SafeAreaView,
   Text,
+  TouchableOpacity,
   TouchableWithoutFeedback,
   View,
 } from "react-native";
@@ -11,6 +12,8 @@ import Question from "@/components/Question";
 import BackButton from "@/components/BackButton";
 import DraggableFlatList from "react-native-draggable-flatlist";
 import ApplicationPopup from "@/components/ApplicationPopUp";
+import { router } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
 
 const defaultQuestions = [
   {
@@ -105,14 +108,22 @@ const Application = () => {
       ) : null}
       <View
         className={
-          "absolute bottom-12 left-12 bg-black w-4/5 mx-auto rounded-2xl"
+          "absolute flex flex-row left-8 bottom-12 w-4/5 mx-auto rounded-2xl"
         }
       >
         <FilledButton
-          otherStyles="w-3/4"
-          title="Add Question"
-          onPress={() => setPopupVisible(true)}
+          otherStyles="p-3 w-1/3"
+          title="Save"
+          onPress={() => router.back()}
         />
+        <TouchableOpacity
+          className="bg-applicationGreen  w-20 h-20 rounded-full flex items-center justify-center"
+          onPress={() => {
+            setPopupVisible(true);
+          }}
+        >
+          <Ionicons name="add" size={40} color="#fff" />
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );

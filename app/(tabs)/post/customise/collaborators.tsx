@@ -167,9 +167,7 @@ const Collaborators = () => {
           </View>
         </ScrollView>
         <View
-          className={
-            "absolute bottom-12 left-12  bg-black w-4/5 mx-auto rounded-2xl "
-          }
+          className={"absolute bottom-12 left-12  w-4/5 mx-auto rounded-2xl "}
         >
           <FilledButton
             otherStyles={"w-3/4"}
