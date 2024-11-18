@@ -123,8 +123,8 @@ export default function EditProfile() {
                   text={
                     <View className="w-full ml-6">
                       <CustomDropdown 
+                        value="1"
                         options={dropdownOptions}
-                        defaultValue="1"
                         otherStyles={{ borderWidth: 0 }}
                       />
                     </View>

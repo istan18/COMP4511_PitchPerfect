@@ -1,16 +1,27 @@
 import { Dropdown } from "react-native-element-dropdown";
 import { useState } from "react";
-import { StyleSheet } from "react-native";
+import { DimensionValue, StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 interface DropdownProps {
   options: { label: string; value: string }[];
-  defaultValue?: string;
   otherStyles?: {};
+  placeholder?: string;
+  width?: DimensionValue;
+  disable?: boolean;
+  value?: string;
+  setValue?: (value: string) => void;
 }
 
-export default function CustomDropdown({ options, defaultValue = "", otherStyles }: DropdownProps) {
-  const [value, setValue] = useState(defaultValue);
+export default function CustomDropdown({ 
+  options, 
+  otherStyles,
+  placeholder,
+  width = "80%",
+  disable = false,
+  value,
+  setValue,
+}: DropdownProps) {
   const [isFocus, setIsFocus] = useState(false);
 
   return (
@@ -24,16 +35,21 @@ export default function CustomDropdown({ options, defaultValue = "", otherStyles
       data={options}
       labelField="label"
       valueField="value"
-      placeholder="Institution"
+      placeholder={placeholder}
       value={value}
       onFocus={() => setIsFocus(true)}
       onBlur={() => setIsFocus(false)}
       onChange={(item) => {
-        setValue(item.value);
+        setValue && setValue(item.value);
         setIsFocus(false);
       }}
+      disable={disable}
       renderRightIcon={() => (
-        <Ionicons name="chevron-down" size={24} color="#9CA3AF" />
+        <Ionicons
+          name="chevron-down"
+          size={24}
+          color={!disable ? "#9CA3AF" : "#444444"}
+        />
       )}
     />
   );

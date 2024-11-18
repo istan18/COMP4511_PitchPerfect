@@ -1,11 +1,11 @@
 import {
-  View,
+  Keyboard,
   SafeAreaView,
   Text,
   TextInput,
   TouchableOpacity,
   TouchableWithoutFeedback,
-  Keyboard,
+  View,
 } from "react-native";
 import BackButton from "@/components/BackButton";
 import FilledButton from "@/components/FilledButton";

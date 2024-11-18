@@ -1,17 +1,27 @@
 import { useState } from "react";
-import { Text, View, TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 import { CheckBox } from "@rneui/themed";
 
 interface CheckboxProps {
   label: string;
   initiallyChecked?: boolean;
+  size?: number;
+  textSize?: string;
+  toggle?: () => void;
 }
 
-export default function Checkbox({ label, initiallyChecked = false }: CheckboxProps) {
+export default function Checkbox({
+  label,
+  initiallyChecked = false,
+  size = 24,
+  textSize = "text-xl",
+  toggle,
+}: CheckboxProps) {
   const [isChecked, setIsChecked] = useState(initiallyChecked || false);
 
   const toggleCheckbox = () => {
     setIsChecked(!isChecked);
+    toggle && toggle();
   };
 
   return (
@@ -24,13 +34,16 @@ export default function Checkbox({ label, initiallyChecked = false }: CheckboxPr
         onPress={toggleCheckbox}
         containerStyle={{
           backgroundColor: "transparent",
+
           padding: 0,
         }}
-        checkedColor="white"
+        checkedColor="green"
         uncheckedColor="#9CA3AF"
-        size={24}
+        size={size}
       />
-      <Text className={`text-xl ${isChecked ? "text-white" : "text-gray-400"}`}>
+      <Text
+        className={`${textSize} ${isChecked ? "text-white" : "text-gray-400"}`}
+      >
         {label}
       </Text>
     </TouchableOpacity>

@@ -28,7 +28,7 @@ const filters = [
 
 export default function Filters({ rowStyles }: FiltersProps) {
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
-  const [optionsType, setOptionsType] = useState<string>('');
+  const [optionsType, setOptionsType] = useState<string>("");
   const [areOptionsVisible, setAreOptionsVisible] = useState(false);
 
   const toggleFilter = (filter: string) => {
@@ -59,7 +59,7 @@ export default function Filters({ rowStyles }: FiltersProps) {
 
   const resetFilters = () => {
     closeOptions();
-    setOptionsType('');
+    setOptionsType("");
   };
 
   return (
@@ -72,13 +72,15 @@ export default function Filters({ rowStyles }: FiltersProps) {
             icon={filter.icon}
             otherStyles="flex-1"
             buttonStyle={`py-0 ${
-              activeFilters.includes(filter.title) && "bg-tagBackground border-b-2"
+              activeFilters.includes(filter.title) &&
+              "bg-tagBackground border-b-2"
             }`}
             textStyle="text-lg py-1"
             filled={false}
-            onPress={(filter.title === 'New' || filter.title === 'Funded') 
-              ? () => toggleFilter(filter.title) 
-              : () => handleFilterOptions(filter.title)
+            onPress={
+              filter.title === "New" || filter.title === "Funded"
+                ? () => toggleFilter(filter.title)
+                : () => handleFilterOptions(filter.title)
             }
           />
         ))}

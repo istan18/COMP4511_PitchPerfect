@@ -35,7 +35,7 @@ export default function FilledButton({
   return (
     <View className={`${otherStyles} mx-auto ${width} py-2`}>
       <TouchableOpacity
-        className={`flex-row items-center justify-center rounded-2xl gap-1.5 ${buttonStyle || 'py-4'} ${filled ? "bg-filledButton" : "bg-background border border-white"} `}
+        className={`flex-row items-center justify-center rounded-2xl gap-1.5 ${buttonStyle || "py-4"} ${filled ? "bg-filledButton" : "bg-background border border-white"} `}
         onPress={onPress}
       >
         <Text
