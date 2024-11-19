@@ -19,7 +19,7 @@ const originalProfiles = [
   {
     id: 1,
     name: "Jenny Liu",
-    image: require("@/assets/images/woman.jpg"),
+    image: require("@/assets/images/jennyProfile.png"),
   },
   {
     id: 2,
@@ -121,22 +121,23 @@ const Collaborators = () => {
           <Text className={"text-4xl text-white text-center mb-4 w-full"}>
             Collaborators
           </Text>
-          <View
-            className={"w-full ml-8 gap-y-3 items-center flex flex-col mb-8 "}
-          >
+          <View className={"w-full gap-y-3 items-center flex flex-col mb-8 "}>
             {selectedProfiles.map((id, index) => {
               const profile = profiles.find((p) => p.id === id);
               return profile ? (
                 <View
                   key={index}
-                  className={"w-9/10 flex flex-row items-center mx-auto"}
+                  className={"w-4/5  flex flex-row items-center mx-auto"}
                 >
                   <CollaboratorIcon
                     otherStyles={"mr-4"}
                     imageSource={profile.image}
                   />
                   <CustomDropdown
-                    width={"70%"}
+                    otherStyles={{
+                      width: "75%",
+                      marginLeft: 2,
+                    }}
                     placeholder={"Role"}
                     value={selectedRole}
                     setValue={setSelectedRole}

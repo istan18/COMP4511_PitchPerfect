@@ -71,7 +71,7 @@ const Index = () => {
               onPress={() => router.push("/messages/individual")}
               leftIcon={
                 <Image
-                  source={require("@/assets/images/man.png")}
+                  source={require("@/assets/images/jennyProfile.png")}
                   className={"rounded-full h-14 w-14"}
                 />
               }

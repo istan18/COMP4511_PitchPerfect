@@ -39,7 +39,7 @@ export default function ButtonSmall({
   return (
     <View className={`flex py-2 ${width}`}>
       <TouchableOpacity
-        className={`flex-row items-center rounded-2xl py-3 px-4 ${
+        className={`flex-row items-center rounded-2xl p-3 ${
           filled ? "bg-filledButton" : "bg-background border border-white"
         }`}
         onPress={() =>
@@ -50,7 +50,7 @@ export default function ButtonSmall({
         {isImageURISource(icon) && (
           <Image source={icon} className="w-5 h-5 mr-2" />
         )}
-        {React.isValidElement(icon) && <View>{icon}</View>}
+        {React.isValidElement(icon) && <View className={"mr-1"}>{icon}</View>}
         <Text className={`${textSize} ${filled || "text-white"}`}>{title}</Text>
       </TouchableOpacity>
     </View>

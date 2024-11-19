@@ -49,7 +49,7 @@ const Individual = () => {
               className={"flex flex-row items-center mr-20"}
             >
               <Image
-                source={require("@/assets/images/woman.jpg")}
+                source={require("@/assets/images/jennyProfile.png")}
                 className={"h-12 w-12 rounded-full"}
               />
               <Text className={"text-white text-center ml-4 pt-2  text-3xl"}>
