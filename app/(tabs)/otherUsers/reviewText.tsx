@@ -7,6 +7,7 @@ import Progress from "@/components/Progress";
 import { useRouter } from "expo-router";
 import Checkbox from "@/components/Checkbox";
 import CustomTextInput from "@/components/CustomTextInput";
+import Header from "@/components/Header";
 
 const ReviewTextPage = () => {
   const router = useRouter();
@@ -21,7 +22,7 @@ const ReviewTextPage = () => {
 
   return (
     <View className="flex-1 bg-[#171F20]">
-      <ProjectHeader projectName="Leave Review" />
+      <Header projectName="Leave Review" />
       <View className="flex-1 items-center">
         <ProfileHeader
           name="Jenny Liu"

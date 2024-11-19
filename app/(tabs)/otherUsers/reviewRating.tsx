@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, Text } from "react-native";
-import ProjectHeader from "@/app/(tabs)/project/projectHeader";
+import Header from "@/components/Header";
 import ProfileHeader from "@/components/ProfileHeader";
 import CustomDropdown from "@/components/CustomDropdown";
 import FilledButton from "@/components/FilledButton";
@@ -35,7 +35,7 @@ const ReviewRatingPage = () => {
 
   return (
     <View className="flex-1 bg-[#171F20]">
-      <ProjectHeader projectName="Leave Review" />
+      <Header projectName="Leave Review" />
       <View className="flex-1 items-center">
         <ProfileHeader
           name="Jenny Liu"
