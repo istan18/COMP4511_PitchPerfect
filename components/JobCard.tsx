@@ -1,69 +1,55 @@
 import React from "react";
-import { Image, TouchableWithoutFeedback, ImageSourcePropType, TouchableOpacity, Text, View } from "react-native";
-import { useState } from "react";
-import ProjectOptions from "./ProjectOptions";
-import { Ionicons } from "@expo/vector-icons";
+import { Image, ImageSourcePropType, TouchableOpacity, Text, View } from "react-native";
 
 interface JobCardProps {
   title: string;
   company?: string;
-  duration: string;
+  start: string;
+  end: string,
   durationLength: string;
-  imageSource?: ImageSourcePropType;
+  imageSource?: ImageSourcePropType | null;
   manageIcon?: React.ReactElement;
+  onPressManage?: () => void;
 }
 
 const JobCard: React.FC<JobCardProps> = ({
   title,
   company,
-  duration,
+  start,
+  end,
   durationLength,
   imageSource,
   manageIcon,
+  onPressManage,
 }) => {
-  const [isOptionsVisible, setIsOptionsVisible] = useState(false);
-
-  const options = [
-		{ name: "Hide from profile", icon: <Ionicons name="eye-off-outline" size={20} color="white" className="p-4" /> },
-	];
-
   return (
-    <TouchableWithoutFeedback onPress={() => setIsOptionsVisible(!isOptionsVisible)}>
-      <View className="w-full flex-row items-center gap-4 mb-4">
-        <Image
-          source={imageSource}
-          className="w-20 h-20 rounded-xl bg-gray-500"
-        />
-        <View className="flex-1 flex-col justify-center">
-          <View className="flex flex-row justify-between">
-            <Text className="flex-1 text-white text-2xl text-left">
-              {title} {company ? "⋅ " + company : null}
-            </Text>
-            
-            {manageIcon && <TouchableOpacity 
-                onPress={() => setIsOptionsVisible(!isOptionsVisible)}
-              >
-                {manageIcon}
-              </TouchableOpacity>
-            } 
-          </View>
-        
-          {manageIcon && isOptionsVisible && 
-            <ProjectOptions 
-              setIsVisible={() => setIsOptionsVisible(!isOptionsVisible)}
-              options={options}
-              otherStyles="w-[80%] top-0 absolute"
-            />
-          }
-
-          <View className="flex-row justify-between">
-            <Text className="text-textGray text-lg flex-1">{duration}</Text>
-            <Text className="text-textGray text-lg">{durationLength}</Text>
-          </View>
-
+    <View className="w-full flex-row items-center gap-4 mb-4">
+      {imageSource && <Image
+        source={imageSource}
+        className="w-20 h-20 rounded-xl bg-gray-500"
+      />}
+      <View className="flex-1 flex-col justify-center">
+        <View className="flex flex-row justify-between">
+          <Text className="flex-1 text-white text-2xl text-left">
+            {title} {company ? "⋅ " + company : null}
+          </Text>
+          
+          {manageIcon && <TouchableOpacity 
+              onPress={onPressManage}
+              className="ml-2"
+            >
+              {manageIcon}
+            </TouchableOpacity>
+          } 
         </View>
+
+        <View className="flex-row justify-between">
+          <Text className="text-textGray text-lg flex-1">{start} - {end}</Text>
+          <Text className="text-textGray text-lg">{durationLength}</Text>
+        </View>
+
       </View>
-    </TouchableWithoutFeedback>
+    </View>
   );
 };
 

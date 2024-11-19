@@ -19,6 +19,11 @@ const tags = [
   ["Strategist Excel", "R"],
 ];
 
+const reviewsList = [
+  "Jenny is a great team lead. She is organised and very ambitious. She always gets the best out of her team.",
+  "Jenny was very bossy and never did any work herself!"
+];
+
 const Profile = () => {
   const [sentConnection, setSentConnection] = useState(false);
 
@@ -67,42 +72,48 @@ const Profile = () => {
           />
           <View className={"w-full border-t-[6px] mt-4 border-black"} />
 
-          <View className={"items-center w-[90%] flex flex-col mt-8 gap-y-8"}>
+          <View className={"items-center w-[90%] flex flex-col mt-8 gap-y-4"}>
             <Text className={"w-full text-white text-3xl"}>
               Public Projects
             </Text>
             <JobCard
               title={"Pitcher"}
               company={"Inside the Box"}
-              duration={"July 2022 - Present"}
+              start={"Jul 2022"}
+              end={"Present"}
               durationLength="2 yrs 3 mths"
+              imageSource={require("@/assets/images/mealplanner.png")}
             />
             <JobCard
               title={"Collaborator"}
               company={"Robotic Chefs"}
-              duration={"August 2021 - June 2022"}
+              start={"Aug 2021"}
+              end={"Jun 2022"}
               durationLength="10 mths"
+              imageSource={require("@/assets/images/roboticChefs.png")}
             />
           </View>
 
           <View className={"w-full border-t-[6px] mt-8 border-black"} />
           
-          <View className={"w-[90%] items-center flex flex-col mt-8 gap-y-8"}>
+          <View className={"w-[90%] items-center flex flex-col mt-8 gap-y-4"}>
             <Text className={"w-full text-white text-3xl"}>
               Experience
             </Text>
             <JobCard
               title={"PM Intern"}
               company={"Atlassian"}
-              duration={"Jan 2023 - Feb 2024"}
+              start={"Jan 2023"}
+              end={"Feb 2024"}
               durationLength="1 yr 1 mth"
+              imageSource={require("@/assets/images/atlassian.png")}
             />
           </View>
 
           <View className={"w-full border-t-[6px] mt-8 border-black"} />
 
           <View className={"w-[90%] flex flex-col mt-8 gap-y-1"}>
-            <Text className={"w-full mb-8 text-white text-3xl"}>
+            <Text className={"w-full mb-4 text-white text-3xl"}>
               Skills
             </Text>
 
@@ -124,7 +135,7 @@ const Profile = () => {
 
           <View className={"w-full border-t-[6px] mt-8 border-black"} />
           
-          <Reviews />
+          <Reviews reviewedPerson="Jenny" reviewsList={reviewsList}/>
           <FilledButton
             icon={
               <Image
