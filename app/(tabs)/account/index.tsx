@@ -1,24 +1,22 @@
-import React from "react";
+import React, { JSXElementConstructor, ReactElement, useState } from "react";
 import {
-  View,
+  Alert,
+  ImageSourcePropType,
   SafeAreaView,
   ScrollView,
   Text,
   TouchableOpacity,
-  Alert,
   TouchableWithoutFeedback,
-  ImageSourcePropType,
+  View,
 } from "react-native";
 import ProfileHeader from "@/components/ProfileHeader";
-import { Feather, Ionicons } from "@expo/vector-icons";
+import { AntDesign, Feather, Ionicons } from "@expo/vector-icons";
 import JobCard from "@/components/JobCard";
 import Tag from "@/components/Tag";
 import Reviews from "@/components/Reviews";
 import { router } from "expo-router";
-import { useState } from "react";
 import ProjectOptions from "@/components/ProjectOptions";
 import CustomTextInput from "@/components/CustomTextInput";
-import { AntDesign } from "@expo/vector-icons";
 import FilledButton from "@/components/FilledButton";
 import ExperienceForm from "@/components/ExperienceForm";
 import {
@@ -175,12 +173,21 @@ export default function Index() {
                     {visibleOptions[project.id] && (
                       <ProjectOptions
                         close={() => setVisibleOptions({})}
-                        options={options(
-                          project.id,
-                          project.end,
-                          publicProjects,
-                          setPublicProjects
-                        )}
+                        options={
+                          options(
+                            project.id,
+                            project.end,
+                            publicProjects,
+                            setPublicProjects
+                          ) as {
+                            name: string;
+                            icon: ReactElement<
+                              any,
+                              string | JSXElementConstructor<any>
+                            >;
+                            onPress?: (() => void) | undefined;
+                          }[]
+                        }
                         otherStyles="w-[80%] top-0 absolute"
                       />
                     )}

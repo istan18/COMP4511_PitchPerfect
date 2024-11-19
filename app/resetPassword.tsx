@@ -1,23 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import {
-  View,
-  TouchableWithoutFeedback,
-  SafeAreaView,
   Keyboard,
-  Platform,
   KeyboardAvoidingView,
-  Text,
+  Platform,
+  SafeAreaView,
   ScrollView,
+  Text,
+  TouchableWithoutFeedback,
+  View,
 } from "react-native";
 import BackButton from "@/components/BackButton";
 import { Ionicons } from "@expo/vector-icons";
 import PasswordInput from "@/components/PasswordInput";
 import FilledButton from "@/components/FilledButton";
 import { router } from "expo-router";
-import { useState } from "react";
 import ErrorMessage from "@/components/ErrorMessage";
 
-export default function resetPassword() {
+const ResetPassword = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
@@ -75,4 +74,6 @@ export default function resetPassword() {
       </View>
     </TouchableWithoutFeedback>
   );
-}
+};
+
+export default ResetPassword;

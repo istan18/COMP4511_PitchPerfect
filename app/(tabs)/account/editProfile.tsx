@@ -1,19 +1,19 @@
 import BackButton from "@/components/BackButton";
 import {
-  ScrollView,
+  Alert,
+  ImageBackground,
+  Keyboard,
   KeyboardAvoidingView,
   Platform,
-  Alert,
-  View,
+  SafeAreaView,
+  ScrollView,
   Text,
   TextInput,
-  SafeAreaView,
-  TouchableWithoutFeedback,
-  Keyboard,
   TouchableOpacity,
-  ImageBackground,
+  TouchableWithoutFeedback,
+  View,
 } from "react-native";
-import { Feather, Ionicons } from "@expo/vector-icons";
+import { Feather, FontAwesome, Ionicons } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
 import { useState } from "react";
 import FilledButton from "@/components/FilledButton";
@@ -21,7 +21,6 @@ import { router } from "expo-router";
 import BottomModal from "@/components/BottomModal";
 import FullWidthButton from "@/components/FullWidthButton";
 import CustomDropdown from "@/components/CustomDropdown";
-import { FontAwesome } from "@expo/vector-icons";
 
 const profileFields = [
   {
@@ -80,7 +79,8 @@ export default function EditProfile() {
         text: "Clear",
         style: "destructive",
         onPress: () => {
-          setImage(defaultProfile), setAreOptionsVisible(false);
+          setImage(defaultProfile);
+          setAreOptionsVisible(false);
         },
       },
     ]);

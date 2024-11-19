@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Image,
   ImageSourcePropType,
@@ -28,7 +28,6 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   buttons,
   otherStyles,
 }) => {
-  const [sentConnection, setSentConnection] = useState(false);
   return (
     <View className="items-center">
       <View
