@@ -154,7 +154,7 @@ export default function EditProfile() {
                 />
               </View>
 
-              <View className="w-full my-8">
+              <View className="w-full my-16">
                 <FilledButton title="Save" onPress={() => router.back()} />
                 <FilledButton
                   title="Cancel"

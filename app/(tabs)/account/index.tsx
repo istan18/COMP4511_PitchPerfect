@@ -188,7 +188,7 @@ export default function Index() {
                             onPress?: (() => void) | undefined;
                           }[]
                         }
-                        otherStyles="w-[80%] top-0 absolute"
+                        otherStyles="w-4/5 top-0 absolute"
                       />
                     )}
                   </View>
@@ -202,7 +202,7 @@ export default function Index() {
 
             <View className={"w-full border-t-[6px] mt-8 border-black"} />
 
-            <View className={"w-[90%] items-center flex flex-col mt-8 gap-y-4"}>
+            <View className={"w-9/10 items-center flex flex-col mt-8 gap-y-4"}>
               <View className="flex-row w-full justify-between items-center">
                 <Text className={"text-white text-3xl"}>Experience</Text>
                 <TouchableOpacity
@@ -273,7 +273,6 @@ export default function Index() {
                   text={customTag}
                   placeholder={"Add more skills"}
                   marginBottom="mb-4"
-                  padding={"pb-2"}
                   rightIcon={
                     <TouchableOpacity onPress={addCustomTag}>
                       <AntDesign name="plus" color="#FFFFFF" size={24} />

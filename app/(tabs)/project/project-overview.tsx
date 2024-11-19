@@ -127,8 +127,8 @@ const ProjectOverview = () => {
           </Text>
         </View>
       </ScrollView>
-      <View className="absolute bottom-4 w-full items-center">
-        <View className="absolute bottom-0 w-9/10 bg-[#000e10] flex-row justify-around items-center px-5 py-3 rounded-full">
+      <View className="absolute bottom-0 w-full items-center">
+        <View className="absolute bottom-0 w-full border-t border-t-gray-500 rounded-tl-4xl rounded-tr-4xl  flex-row  bg-background justify-around items-center px-5 py-3">
           <Image
             source={require("@/assets/images/commentProject.png")}
             className="w-10 h-16"

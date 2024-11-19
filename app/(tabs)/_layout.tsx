@@ -10,7 +10,8 @@ export default function TabsLayout() {
     pathname === "/project/generalForm" ||
     pathname === "/project/specialisedForm" ||
     pathname === "/project/confirmation" ||
-    pathname === "/project/applicants/confirmation";
+    pathname === "/project/applicants/confirmation" ||
+    pathname === "/account/editProfile";
 
   return (
     <Tabs
