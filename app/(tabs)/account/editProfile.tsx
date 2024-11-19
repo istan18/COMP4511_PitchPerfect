@@ -93,8 +93,8 @@ export default function EditProfile() {
           <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
           >
+            <BackButton marginTop="mt-4" />
             <ScrollView contentContainerClassName="items-center">
-              <BackButton marginTop="mt-4" />
               <Text className="text-4xl text-white mt-20">Edit Profile</Text>
 
               <TouchableOpacity

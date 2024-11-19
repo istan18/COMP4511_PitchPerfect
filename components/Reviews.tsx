@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { Text, View } from "react-native";
 import ReviewSummary from "@/components/ReviewSummary";
 import ReviewCard from "@/components/ReviewCard";
 
@@ -20,7 +20,7 @@ const totalReviews = 27;
 export default function Reviews({ reviewedPerson, reviewsList }: ReviewsProps) {
   return (
     <View className="w-full items-center">
-      <View className="w-[90%]">
+      <View className="w-9/10">
         <View
           className={
             "flex flex-row items-center justify-between mt-8 mb-2 w-full"

@@ -1,26 +1,26 @@
 import {
+  Alert,
+  Image,
+  ImageSourcePropType,
   Modal,
-  View,
+  ScrollView,
+  Text,
   TextInput,
   TouchableOpacity,
-  Image,
-  Text,
-  ScrollView,
+  View,
 } from "react-native";
 import { useState } from "react";
 import { Experience } from "@/app/(tabs)/account";
-import { ImageSourcePropType } from "react-native";
 import FilledButton from "./FilledButton";
 import Checkbox from "./Checkbox";
-import { FontAwesome } from "@expo/vector-icons";
+import { Feather, FontAwesome } from "@expo/vector-icons";
 import CustomDropdown from "./CustomDropdown";
 import * as ImagePicker from "expo-image-picker";
-import { Feather } from "@expo/vector-icons";
 import {
-  monthOptions,
-  findValueByMonth,
   calculateDuration,
   findMonthByValue,
+  findValueByMonth,
+  monthOptions,
 } from "./ExperienceForm.helpers";
 
 interface ExperienceFormProps {
@@ -78,6 +78,11 @@ export default function ExperienceForm({
   };
 
   const handleSave = () => {
+    if (!title || !company || !startMonth || !startYear) {
+      Alert.alert("Please fill in the required fields");
+      return;
+    }
+
     saveForm({
       id: experienceToEdit?.id || length + 1,
       title,
@@ -119,7 +124,7 @@ export default function ExperienceForm({
             </Text>
 
             <TextInput
-              placeholder="Role"
+              placeholder="Role*"
               placeholderTextColor={"#6B7280"}
               style={{ fontSize: 18 }}
               value={title}
@@ -127,7 +132,7 @@ export default function ExperienceForm({
               className="color-white border border-gray-500 rounded-2xl p-4 mb-3"
             />
             <TextInput
-              placeholder="Company"
+              placeholder="Company*"
               placeholderTextColor={"#6B7280"}
               style={{ fontSize: 18 }}
               value={company}
@@ -137,7 +142,7 @@ export default function ExperienceForm({
 
             <View className="flex-row items-center gap-2 mb-3">
               <CustomDropdown
-                placeholder="Start month"
+                placeholder="Start month*"
                 value={startMonth}
                 setValue={setStartMonth}
                 options={monthOptions}
@@ -145,7 +150,7 @@ export default function ExperienceForm({
               />
               <TextInput
                 keyboardType="numeric"
-                placeholder="Start year"
+                placeholder="Start year*"
                 placeholderTextColor={"#6B7280"}
                 style={{ fontSize: 18, flex: 1, marginBottom: 0 }}
                 value={startYear}
@@ -175,7 +180,7 @@ export default function ExperienceForm({
                 value={endYear}
                 onChangeText={setEndYear}
                 maxLength={4}
-                className={`${disableEndDate ? "border-[#444444]" : "border-gray-500"} color-white border rounded-2xl p-4 mb-3`}
+                className={`${disableEndDate ? "border-disabledGray" : "border-gray-500"} color-white border rounded-2xl p-4 mb-3`}
                 editable={!disableEndDate}
               />
             </View>
