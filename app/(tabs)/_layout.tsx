@@ -79,25 +79,7 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
-        name="profile"
-        options={{
-          href: null,
-        }}
-      />
-      <Tabs.Screen
-        name="reviewRating"
-        options={{
-          href: null,
-        }}
-      />
-      <Tabs.Screen
-        name="reviewText"
-        options={{
-          href: null,
-        }}
-      />
-      <Tabs.Screen
-        name="confirmation"
+        name="otherUsers"
         options={{
           href: null,
         }}

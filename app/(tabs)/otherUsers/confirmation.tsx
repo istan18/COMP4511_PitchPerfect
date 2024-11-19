@@ -20,7 +20,7 @@ export default function Confirmation() {
       <FilledButton
         onPress={() => {
           router.dismissAll();
-          router.push("/profile");
+          router.push("/(tabs)/otherUsers/profile");
         }}
         title={"View User Profile"}
       />

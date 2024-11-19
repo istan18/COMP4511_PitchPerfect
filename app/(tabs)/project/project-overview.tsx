@@ -64,7 +64,7 @@ const ProjectOverview = () => {
           <View className="flex-row justify-around mt-1 px-5">
             {members.map((member, index) => (
               <TouchableOpacity
-                onPress={() => router.push("/profile")}
+                onPress={() => router.push("/(tabs)/otherUsers/profile")}
                 key={index}
                 className="items-center"
               >

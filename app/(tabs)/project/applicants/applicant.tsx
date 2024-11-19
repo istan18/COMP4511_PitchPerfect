@@ -83,7 +83,7 @@ const Applicant = () => {
                     />
                   }
                   title={"View Profile"}
-                  route={"/profile"}
+                  route={"/(tabs)/otherUsers/profile"}
                 />
                 <ButtonSmall
                   width={"w-32 h-16"}

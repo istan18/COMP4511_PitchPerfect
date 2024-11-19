@@ -30,7 +30,7 @@ const ReviewRatingPage = () => {
     setTimelinessRating(0);
 
     // Navigate to the next page
-    router.push("/(tabs)/reviewText");
+    router.push("/(tabs)/otherUsers/reviewText");
   };
 
   return (

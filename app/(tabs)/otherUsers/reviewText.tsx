@@ -16,7 +16,7 @@ const ReviewTextPage = () => {
   const handleSubmit = () => {
     setRecommendation("");
     setComment("");
-    router.push("/(tabs)/confirmation");
+    router.push("/(tabs)/otherUsers/confirmation");
   };
 
   return (
