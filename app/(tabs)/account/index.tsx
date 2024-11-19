@@ -131,7 +131,9 @@ export default function Index() {
               >
                 <Feather name="edit-2" size={24} color="white" />
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => router.push("/account/settings")}
+              >
                 <Feather name="settings" size={24} color="white" />
               </TouchableOpacity>
             </View>
