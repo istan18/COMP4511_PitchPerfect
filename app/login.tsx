@@ -26,6 +26,7 @@ export default function Login() {
     if (!email || !password) {
       setError("Email and password are required");
     } else {
+      router.dismissAll();
       router.replace("/home");
     }
   };
@@ -33,7 +34,7 @@ export default function Login() {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View className="flex-1 bg-background">
-        <SafeAreaView className="w-full items-center ">
+        <SafeAreaView className="w-full items-center">
           <BackButton />
           <Image
             source={require("../assets/images/logo.png")}
@@ -44,7 +45,7 @@ export default function Login() {
             placeholder="Email"
             value={email}
             onChangeText={setEmail}
-            className="w-[80%] color-white border border-gray-400 rounded-2xl p-4 mt-8 mb-4 text-xl"
+            className="w-4/5 color-white border border-gray-400 rounded-2xl p-4 mt-8 mb-4 text-xl"
           />
           <PasswordInput
             placeholder="Password"

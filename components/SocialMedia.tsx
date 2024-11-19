@@ -13,7 +13,10 @@ export default function SocialMediaLogin() {
       <View className="flex-row justify-center gap-8 mt-2">
         <TouchableOpacity
           className="flex-col items-center gap-2"
-          onPress={() => router.replace("/home")}
+          onPress={() => {
+            router.canDismiss() && router.dismissAll();
+            router.replace("/home");
+          }}
         >
           <Image
             source={require("../assets/images/google.png")}
@@ -23,7 +26,10 @@ export default function SocialMediaLogin() {
 
         <TouchableOpacity
           className="flex-col items-center gap-2"
-          onPress={() => router.replace("/home")}
+          onPress={() => {
+            router.canDismiss() && router.dismissAll();
+            router.replace("/home");
+          }}
         >
           <Image
             source={require("../assets/images/linkedin.png")}
@@ -33,7 +39,10 @@ export default function SocialMediaLogin() {
 
         <TouchableOpacity
           className="flex-col items-center gap-2"
-          onPress={() => router.replace("/home")}
+          onPress={() => {
+            router.canDismiss() && router.dismissAll();
+            router.replace("/home");
+          }}
         >
           <Image
             source={require("../assets/images/github.png")}

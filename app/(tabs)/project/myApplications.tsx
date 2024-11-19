@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SafeAreaView, ScrollView, View, Text } from "react-native";
+import { SafeAreaView, ScrollView, Text, View } from "react-native";
 import ApplicationCard from "@/components/MyApplicationCard";
 
 export default function MyApplicationsContent() {
@@ -10,7 +10,7 @@ export default function MyApplicationsContent() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-[#171F20]">
+    <SafeAreaView className="flex-1 bg-background">
       <View className="flex-1 mt-5">
         <ScrollView className="px-4 pt-2">
           <ApplicationCard
@@ -21,7 +21,7 @@ export default function MyApplicationsContent() {
             lead="Jenny Liu"
             projectIcon={require("@/assets/images/mealplanner.png")}
             hideHint={hideHint}
-            routePath="/(tabs)/project/project-overview"
+            routePath="/project/project-overview"
           />
           <ApplicationCard
             projectName="Project 2"
@@ -31,6 +31,7 @@ export default function MyApplicationsContent() {
             lead="Samantha Fang"
             projectIcon={require("@/assets/images/rocket.png")}
             hideHint={hideHint}
+            routePath="/project/project-overview"
           />
           <ApplicationCard
             projectName="Project 3"
@@ -40,6 +41,7 @@ export default function MyApplicationsContent() {
             lead="Bob Thorton"
             projectIcon={require("@/assets/images/bird.jpg")}
             hideHint={hideHint}
+            routePath="/project/project-overview"
           />
           {showHint && (
             <Text className="text-gray-400 text-xs text-center">

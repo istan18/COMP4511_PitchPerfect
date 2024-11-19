@@ -3,7 +3,7 @@ import { View, Text } from "react-native";
 import ProjectHeader from "@/app/(tabs)/project/projectHeader";
 import ApplicationProjectCard from "@/components/ApplicationProjectCard";
 import CustomDropdown from "@/components/CustomDropdown";
-import CustomTextInput from "@/components/CustomTextInput";
+import CustomTextInput from "@/components/CustomTextInput2";
 import FilledButton from "@/components/FilledButton";
 import Progress from "@/components/Progress";
 import { router } from "expo-router";

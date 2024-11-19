@@ -3,11 +3,15 @@ import React from "react";
 
 interface FullWidthProps {
   leftIcon: React.ReactElement;
-  rightIcon: React.ReactElement;
-  text: string;
+  rightIcon?: React.ReactElement;
+  text: string | React.ReactElement;
   hasBottomBorder?: boolean;
-  marginLeft: string;
+  marginLeft?: string;
+  marginRight?: string;
+  height?: string;
   onPress?: () => void;
+  pressable?: boolean;
+  textStyles?: string;
 }
 
 const FullWidthButton: React.FC<FullWidthProps> = ({
@@ -16,15 +20,27 @@ const FullWidthButton: React.FC<FullWidthProps> = ({
   text,
   onPress = () => {},
   hasBottomBorder = false,
-  marginLeft,
+  marginLeft = "ml-0",
+  marginRight = "mr-4",
+  height = "h-[4.5rem]",
+  pressable = true,
+  textStyles,
 }) => (
-  <TouchableOpacity onPress={onPress}>
+  <TouchableOpacity onPress={onPress} disabled={!pressable}>
     <View
-      className={`flex my-auto flex-row h-[4.5rem] items-center border-t-hairline border-t-gray-200 ${hasBottomBorder ? "border-b-hairline border-b-gray-200" : ""}`}
+      className={`flex my-auto flex-row ${height} items-center border-t-hairline border-t-gray-200 ${hasBottomBorder ? "border-b-hairline border-b-gray-200" : ""}`}
     >
       <View className={`${marginLeft} mr-auto`}>{leftIcon}</View>
-      <Text className="text-white text-left w-[22rem] text-2xl">{text}</Text>
-      <View className={"mr-4 ml-auto"}>{rightIcon}</View>
+      {React.isValidElement(text) ? (
+        text
+      ) : (
+        <Text
+          className={`${textStyles} text-white text-left w-[22rem] text-2xl`}
+        >
+          {text}
+        </Text>
+      )}
+      <View className={`${marginRight} ml-auto`}>{rightIcon}</View>
     </View>
   </TouchableOpacity>
 );

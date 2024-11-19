@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { SafeAreaView, Text, TouchableOpacity, View } from "react-native";
+import {
+  Keyboard,
+  SafeAreaView,
+  Text,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View,
+} from "react-native";
 import CustomTextInput from "@/components/CustomTextInput";
 
 import FilledButton from "@/components/FilledButton";
@@ -41,48 +48,53 @@ const Tags = () => {
   };
 
   return (
-    <SafeAreaView className={"relative flex-1 bg-background"}>
-      <BackButton />
-      <Text className={"mt-20 text-center mx-auto text-5xl mb-12 text-white"}>
-        Add Tags
-      </Text>
-      <Grid
-        setSelectedTags={setSelectedTags}
-        selectedTags={selectedTags}
-        tags={tags}
-        maxTags={maxTags}
-      />
-      <View className={"mx-auto w-full absolute bottom-12"}>
-        <CustomTextInput
-          setText={setCustomTag}
-          text={customTag}
-          placeholder={"Add your own"}
-          marginBottom={"mb-4"}
-          rightIcon={
-            <TouchableOpacity onPress={addCustomTag}>
-              <AntDesign name="plus" color="#FFFFFF" size={32} />
-            </TouchableOpacity>
-          }
-          children={
-            <Text className={"ml-2 text-gray-400 mt-2 mr-auto"}>
-              {maxTags - selectedTags.length} tags remaining
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      <SafeAreaView className={"relative flex-1 bg-background"}>
+        <BackButton />
+        <Text className={"mt-20 text-center mx-auto text-5xl mb-12 text-white"}>
+          Add Tags
+        </Text>
+        <Grid
+          setSelectedTags={setSelectedTags}
+          selectedTags={selectedTags}
+          tags={tags}
+          maxTags={maxTags}
+        />
+        <View className={"mx-auto w-full absolute bottom-12"}>
+          <CustomTextInput
+            setText={setCustomTag}
+            text={customTag}
+            placeholder={"Add your own"}
+            marginBottom={"mb-4"}
+            padding={"pb-2"}
+            rightIcon={
+              <TouchableOpacity className="mt-2" onPress={addCustomTag}>
+                <AntDesign name="plus" color="#FFFFFF" size={32} />
+              </TouchableOpacity>
+            }
+            children={
+              <Text className={"ml-2 text-gray-400 mt-2 mr-auto"}>
+                {maxTags - selectedTags.length} tags remaining
+              </Text>
+            }
+          />
+          <FilledButton
+            filled={true}
+            title={"Next"}
+            onPress={() => router.push("/post/edit")}
+          />
+          <TouchableOpacity
+            className="w-full mx-auto my-4"
+            onPress={() => router.push("/post/edit")}
+          >
+            <Text className={"text-white mx-auto text-2xl underline"}>
+              Skip
             </Text>
-          }
-        />
-        <FilledButton
-          filled={true}
-          title={"Next"}
-          onPress={() => router.push("/post/edit")}
-        />
-        <TouchableOpacity
-          className="w-full mx-auto my-4"
-          onPress={() => router.push("/post/edit")}
-        >
-          <Text className={"text-white mx-auto text-2xl underline"}>Skip</Text>
-        </TouchableOpacity>
-        <Progress filledIndex={1} length={3} />
-      </View>
-    </SafeAreaView>
+          </TouchableOpacity>
+          <Progress filledIndex={1} length={3} />
+        </View>
+      </SafeAreaView>
+    </TouchableWithoutFeedback>
   );
 };
 
