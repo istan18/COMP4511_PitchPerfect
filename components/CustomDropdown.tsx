@@ -5,9 +5,13 @@ import { Ionicons } from "@expo/vector-icons";
 
 interface DropdownProps {
   options: { label: string; value: string }[];
+  placeholder?: string;
 }
 
-export default function CustomDropdown({ options }: DropdownProps) {
+export default function CustomDropdown({
+  options,
+  placeholder = "Institution",
+}: DropdownProps) {
   const [value, setValue] = useState("");
   const [isFocus, setIsFocus] = useState(false);
 
@@ -22,7 +26,7 @@ export default function CustomDropdown({ options }: DropdownProps) {
       data={options}
       labelField="label"
       valueField="value"
-      placeholder="Institution"
+      placeholder={placeholder}
       value={value}
       onFocus={() => setIsFocus(true)}
       onBlur={() => setIsFocus(false)}
