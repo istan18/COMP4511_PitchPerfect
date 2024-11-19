@@ -17,7 +17,7 @@ export default function AccountLayout() {
         }}
       />
       <Stack.Screen name="editProfile" />
-      {/* <Stack.Screen name="settings" options={{ title: "Settings" }} /> */}
+      <Stack.Screen name="settings" />
     </Stack>
   );
 }
