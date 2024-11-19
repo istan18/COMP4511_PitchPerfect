@@ -50,14 +50,6 @@ const SpecialisedFormPage = () => {
           JavaScript Experience
         </Text>
         <RadioGroup options={radioOptions} multiple={true} />
-        <View className={"mx-auto w-full absolute bottom-2.5"}>
-          <FilledButton
-            filled={true}
-            title={"Submit Application"}
-            onPress={() => router.push("/(tabs)/project/specialisedForm")}
-          />
-          <Progress filledIndex={1} length={2} />
-        </View>
         <Text className="text-white text-2xl mt-4 mb-2">
           <Text className="font-bold">Resume: </Text>
           <Text className="font-light">Existing_Resume_123.pdf</Text>
@@ -82,6 +74,14 @@ const SpecialisedFormPage = () => {
             </View>
           </View>
         </View>
+      </View>
+      <View className={"mx-auto w-full absolute bottom-2.5"}>
+        <FilledButton
+          filled={true}
+          title={"Submit Application"}
+          onPress={() => router.replace("/(tabs)/project")}
+        />
+        <Progress filledIndex={1} length={2} />
       </View>
     </View>
   );
