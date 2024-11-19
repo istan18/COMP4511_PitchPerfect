@@ -12,7 +12,7 @@ const ProjectOverview = () => {
   };
 
   const handleCollaboratePress = () => {
-    router.push("/(tabs)/project/collaborate");
+    router.push("/(tabs)/project/generalForm");
   };
 
   const images = [
@@ -107,13 +107,13 @@ const ProjectOverview = () => {
             Skills Required
           </Text>
           <View className="flex-row justify-around mt-4 px-5">
-            <View className="bg-[#46AAAC] px-3 py-2 rounded-full">
+            <View className="px-3 py-2 rounded-full border border-white">
               <Text className="text-white">Software Engineer</Text>
             </View>
-            <View className="bg-[#46AAAC] px-3 py-2 rounded-full">
+            <View className="px-3 py-2 rounded-full border border-white">
               <Text className="text-white">UI/UX Design</Text>
             </View>
-            <View className="bg-[#46AAAC] px-3 py-2 rounded-full">
+            <View className="px-3 py-2 rounded-full border border-white">
               <Text className="text-white">Photographer</Text>
             </View>
           </View>
@@ -134,7 +134,7 @@ const ProjectOverview = () => {
             className="w-10 h-16"
           />
           <TouchableOpacity
-            className="bg-[#F5E5C9] px-20 py-4 rounded-full items-center"
+            className="bg-[#46AAAC] px-20 py-4 rounded-full items-center"
             onPress={handleCollaboratePress}
           >
             <Text className="text-black text-xl">Collaborate</Text>

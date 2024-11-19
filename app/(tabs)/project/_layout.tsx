@@ -11,7 +11,8 @@ export default function ProjectLayout() {
       <Stack.Screen name="myProjects" />
       <Stack.Screen name="myApplications" />
       <Stack.Screen name="project-overview" />
-      <Stack.Screen name="collaborate" />
+      <Stack.Screen name="generalForm" />
+      <Stack.Screen name="specialisedForm" />
       <Stack.Screen name="applicants" />
     </Stack>
   );
