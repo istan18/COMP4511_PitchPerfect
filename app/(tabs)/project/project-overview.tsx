@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import {
+  Image,
+  SafeAreaView,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import ImageSlider from "@/components/ImageSlider";
 import ProjectHeader from "@/app/(tabs)/project/projectHeader";
 import { router } from "expo-router";
@@ -45,9 +52,9 @@ const ProjectOverview = () => {
   ];
 
   return (
-    <View className="flex-1 bg-[#171F20]">
-      <ProjectHeader projectName="Inside the Box" />
-      <ScrollView className="flex-1">
+    <SafeAreaView className="flex-1 bg-background">
+      <ProjectHeader projectName="Inside the Box" edit={true} />
+      <ScrollView className="flex-1 -z-10">
         <View className="mt-5 pb-28">
           <ImageSlider images={images} height={250} />
           <Text className="px-5 pt-5 text-xl text-white">
@@ -151,7 +158,7 @@ const ProjectOverview = () => {
           </TouchableOpacity>
         </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
