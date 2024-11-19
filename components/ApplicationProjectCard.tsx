@@ -19,7 +19,7 @@ const ApplicationProjectCard: React.FC<ApplicationProjectCardProps> = ({
       <Text className="absolute -top-3.5 left-1/2 transform -translate-x-1/2 px-2 text-xl font text-white bg-[#171F20] z-10">
         {projectName}
       </Text>
-      <View className="h-32 rounded-lg border border-white p-4">
+      <View className="h-24 rounded-lg border border-white p-4">
         <View className="flex-1 flex-row items-center">
           <View className="flex-1 items-start">
             <Text className="text-lg font-bold text-white mb-2">
@@ -32,7 +32,7 @@ const ApplicationProjectCard: React.FC<ApplicationProjectCardProps> = ({
           <View className="w-[1px] h-[80%] bg-white mx-4" />
           <Image
             source={projectIcon}
-            className="w-[20%] h-[85%] ml-5 mr-5 rounded-3xl"
+            className="w-[15%] h-[90%] ml-5 mr-5 rounded-3xl"
           />
         </View>
       </View>

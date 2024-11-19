@@ -1,5 +1,5 @@
 import { Text, TextInput, View } from "react-native";
-import React from "react";
+import React, { useRef } from "react";
 
 interface TitleInputProps {
   text?: string;
@@ -32,6 +32,8 @@ const TitleInput: React.FC<TitleInputProps> = ({
   height = "h-16",
   marginBottom = "",
 }) => {
+  const textInputRef = useRef<TextInput>(null);
+
   return (
     <React.Fragment>
       <View className={`${width} mx-auto ${marginBottom}`}>
@@ -41,7 +43,8 @@ const TitleInput: React.FC<TitleInputProps> = ({
           </Text>
         ) : null}
         <TextInput
-          className={`border text-left text-white border-gray-400 ${height} text-2xl p-4 rounded-2xl ${padding}w-full color-white border border-gray-400 rounded-2xl p-4 text-xl`}
+          ref={textInputRef}
+          className={`border text-left text-white border-gray-400 ${height} text-2xl p-4 rounded-2xl ${padding} w-full color-white border border-gray-400 rounded-2xl p-4 text-xl`}
           onChangeText={(newText) => {
             if (maxLength) {
               if (newText.length >= maxLength) return;
@@ -51,6 +54,10 @@ const TitleInput: React.FC<TitleInputProps> = ({
           value={text}
           placeholder={placeholder}
           maxLength={maxLength}
+          multiline={true} // Allow multiline input
+          textAlignVertical="top" // Start text from the top
+          onSubmitEditing={() => textInputRef.current?.blur()} // Exit the text box on return key press
+          blurOnSubmit={true} // Ensure the text box loses focus on return key press
         />
         {includeCounter && (
           <Text className={"text-white text-lg ml-auto"}>
