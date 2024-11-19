@@ -100,7 +100,7 @@ const Individual = () => {
           <View className={"w-full mb-4 border border-gray-700 opacity-50"} />
           <View className={"flex bg-background flex-row"}>
             <CustomTextInput
-              width={`${message ? "w-[75%]" : "w-9/10"}`}
+              width={`${message ? "w-3/4" : "w-9/10"}`}
               leftIcon={
                 <TouchableOpacity className={"z-30"}>
                   <SimpleLineIcons

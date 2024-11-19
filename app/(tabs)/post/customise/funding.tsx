@@ -52,7 +52,6 @@ const Funding = () => {
           </Text>
           <CustomTextInput
             placeholder="$"
-            padding={"pb-2"}
             text={requiredAmount}
             setText={setRequiredAmount}
             editable={fundingSource !== "No Funding Required"}

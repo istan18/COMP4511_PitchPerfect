@@ -84,7 +84,6 @@ const Collaborators = () => {
             text={collaborator}
             placeholder={"Search for names"}
             marginBottom={"mb-4"}
-            padding={"pb-2"}
           />
           <View
             className={

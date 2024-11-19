@@ -38,7 +38,6 @@ const Compensation = () => {
           width={"w-1/3"}
           keyboardType={"numeric"}
           placeholder={"$"}
-          padding={"pb-2"}
           editable={enabled}
         />
         <Text

@@ -7,6 +7,9 @@ export default function TabsLayout() {
   const hideTab =
     pathname.startsWith("/post") ||
     pathname === "/messages/individual" ||
+    pathname === "/project/generalForm" ||
+    pathname === "/project/specialisedForm" ||
+    pathname === "/project/confirmation" ||
     pathname === "/project/applicants/confirmation";
 
   return (

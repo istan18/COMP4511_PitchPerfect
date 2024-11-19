@@ -12,7 +12,7 @@ const ProjectOverview = () => {
   };
 
   const handleCollaboratePress = () => {
-    router.push("/(tabs)/project/generalForm");
+    router.push("/project/generalForm");
   };
 
   const images = [

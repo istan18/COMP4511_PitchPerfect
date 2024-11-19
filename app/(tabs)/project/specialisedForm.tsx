@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { View, Text, Image } from "react-native";
+import React from "react";
+import { Image, SafeAreaView, Text, View } from "react-native";
 import ProjectHeader from "@/app/(tabs)/project/projectHeader";
 import ApplicationProjectCard from "@/components/ApplicationProjectCard";
 import CustomDropdown from "@/components/CustomDropdown";
@@ -27,16 +27,16 @@ const SpecialisedFormPage = () => {
   ];
 
   return (
-    <View className="flex-1 bg-[#171F20]">
+    <SafeAreaView className="flex-1 bg-background">
       <ProjectHeader projectName="Application Form" />
-      <View className="flex-1 mt-7 items-center">
+      <View className="flex-1 mt-8 items-center">
         <ApplicationProjectCard
           projectName="Inside the Box"
           lead="Jenny Liu"
           dateCreated="23/07/2024"
           projectIcon={require("@/assets/images/mealplanner.png")}
         />
-        <View className="w-full border-t border-gray-500 m-5" />
+        <View className="w-full border-t border-gray-500 mx-5 mt-8 mb-8" />
         <CustomDropdown
           options={dropdownOptionsAvailibility}
           placeholder="Availability"
@@ -46,17 +46,20 @@ const SpecialisedFormPage = () => {
           options={dropdownOptionsProficiency}
           placeholder="Proficiency in JavaScript"
         />
-        <Text className="text-white font-light text-2xl mt-4 mb-2">
+        <View className="w-full py-2" />
+        <Text className="text-white text-left w-4/5 mx-auto  font-light text-2xl mt-2 mb-2">
           JavaScript Experience
         </Text>
+        <View className="w-full py-1" />
         <RadioGroup options={radioOptions} multiple={true} />
-        <Text className="text-white text-2xl mt-4 mb-2">
+        <View className="w-full py-2" />
+        <Text className="text-white text-2xl mt-4 mb-1">
           <Text className="font-bold">Resume: </Text>
           <Text className="font-light">Existing_Resume_123.pdf</Text>
         </Text>
-        <View className="flex-row justify-between w-full">
+        <View className="mt-3 flex-row justify-between w-9/10 mx-auto">
           <View className="flex-1 mx-5">
-            <View className="flex-row border border-white rounded-full py-2 items-center justify-center">
+            <View className="flex-row border border-white rounded-full p-3 items-center justify-center">
               <Text className="text-white mr-2">Upload Resume</Text>
               <Image
                 source={require("@/assets/images/uploadResume.png")}
@@ -65,7 +68,7 @@ const SpecialisedFormPage = () => {
             </View>
           </View>
           <View className="flex-1 mx-5">
-            <View className="flex-row border border-white rounded-full py-2 items-center justify-center">
+            <View className="flex-row border border-white rounded-full p-3 items-center justify-center">
               <Text className="text-white mr-2">Link LinkedIn</Text>
               <Image
                 source={require("@/assets/images/Linkedln.png")}
@@ -75,15 +78,15 @@ const SpecialisedFormPage = () => {
           </View>
         </View>
       </View>
-      <View className={"mx-auto w-full absolute bottom-2.5"}>
+      <View className={"mx-auto w-full absolute bottom-12"}>
         <FilledButton
           filled={true}
-          title={"Submit Application"}
-          onPress={() => router.replace("/(tabs)/project/confirmation")}
+          title={"Next"}
+          onPress={() => router.replace("/project/confirmation")}
         />
         <Progress filledIndex={1} length={2} />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
