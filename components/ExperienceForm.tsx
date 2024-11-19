@@ -8,6 +8,7 @@ import { FontAwesome } from "@expo/vector-icons";
 import CustomDropdown from "./CustomDropdown";
 import * as ImagePicker from "expo-image-picker";
 import { Feather } from "@expo/vector-icons";
+import { monthOptions, findValueByMonth, calculateDuration, findMonthByValue } from "./ExperienceForm.helpers";
 
 interface ExperienceFormProps {
   visible: boolean;
@@ -17,21 +18,6 @@ interface ExperienceFormProps {
   length: number;
   close: () => void;
 }
-
-const monthOptions = [
-  {label: "Jan", value: "1"},
-  {label: "Feb", value: "2"},
-  {label: "Mar", value: "3"},
-  {label: "Apr", value: "4"},
-  {label: "May", value: "5"},
-  {label: "Jun", value: "6"},
-  {label: "Jul", value: "7"},
-  {label: "Aug", value: "8"},
-  {label: "Sep", value: "9"},
-  {label: "Oct", value: "10"},
-  {label: "Nov", value: "11"},
-  {label: "Dec", value: "12"},
-];
 
 export default function ExperienceForm({
   visible,
@@ -43,17 +29,20 @@ export default function ExperienceForm({
 }: ExperienceFormProps) {
   let start = ["", ""];
   let end = ["", ""];
+
   if (experienceToEdit) {
     start = experienceToEdit.start.split(" ");
-    end = experienceToEdit.end.split(" ");
+    if (experienceToEdit.end !== "Present") {
+      end = experienceToEdit.end.split(" ");
+    }
   }
 
-  const [disableEndDate, setDisableEndDate] = useState(false);
+  const [disableEndDate, setDisableEndDate] = useState(experienceToEdit?.end === 'Present' || false);
   const [title, setTitle] = useState(experienceToEdit?.title ?? "");
   const [company, setCompany] = useState(experienceToEdit?.company ?? "");
-  const [startMonth, setStartMonth] = useState(start[0] ?? "");
+  const [startMonth, setStartMonth] = useState(findValueByMonth(start[0]) ?? "");
   const [startYear, setStartYear] = useState(start[1] ?? "");
-  const [endMonth, setEndMonth] = useState(end[0] ?? "");
+  const [endMonth, setEndMonth] = useState(findValueByMonth(end[0]) ?? "");
   const [endYear, setEndYear] = useState(end[1] ?? "");
   const [image, setImage] = useState<ImageSourcePropType | null>(experienceToEdit?.imageSource ?? null);
 
@@ -69,6 +58,19 @@ export default function ExperienceForm({
     }
   };
 
+  const handleSave = () => {
+    saveForm({
+      id: experienceToEdit?.id || length + 1,
+      title,
+      company,
+      start: findMonthByValue(startMonth) + " " + startYear,
+      end: disableEndDate ? 'Present' : findMonthByValue(endMonth) + " " + endYear,
+      durationLength: calculateDuration(disableEndDate, endYear, startYear, endMonth, startMonth),
+      imageSource: image,
+    });
+    resetForm();
+  };
+
   const resetForm = () => {
     setTitle("");
     setCompany("");
@@ -77,35 +79,9 @@ export default function ExperienceForm({
     setEndMonth("");
     setEndYear("");
     setImage(null);
+    setDisableEndDate(false);
   };
-
-  const handleSave = () => {
-    saveForm({
-      id: experienceToEdit?.id || length,
-      title,
-      company,
-      start: findMonthByValue(startMonth) + " " + startYear,
-      end: findMonthByValue(endMonth) + " " + endYear,
-      durationLength: calculateDuration(endYear, startYear, endMonth, startMonth),
-      imageSource: image,
-    });
-    resetForm();
-  };
-
-  const calculateDuration = (endYear: string, startYear: string, endMonth: string, startMonth: string) => {
-    const totalMonths = (parseInt(endYear) - parseInt(startYear)) * 12 + (parseInt(endMonth) - parseInt(startMonth));
-
-    const years = Math.floor(totalMonths / 12);
-    const months = totalMonths % 12;
   
-    return `${years > 0 ? `${years} yrs` : ''} ${months} mths`;
-  }
-
-  const findMonthByValue = (value: string) => {
-    const month = monthOptions.find(option => option.value === value);
-    return month ? month.label : null;
-  }
-
   return (
     <Modal 
       visible={visible}
@@ -151,6 +127,7 @@ export default function ExperienceForm({
                 style={{ fontSize: 18, flex: 1, marginBottom: 0 }}
                 value={startYear}
                 onChangeText={setStartYear}
+                maxLength={4}
                 className="color-white border border-gray-500 rounded-2xl p-4 mb-3"
               />
             </View>
@@ -171,6 +148,7 @@ export default function ExperienceForm({
                 style={{ fontSize: 18, flex: 1, marginBottom: 0 }}
                 value={endYear}
                 onChangeText={setEndYear}
+                maxLength={4}
                 className={`${disableEndDate ? 'border-[#444444]' : 'border-gray-500'} color-white border rounded-2xl p-4 mb-3`}
                 editable={!disableEndDate}
               />
@@ -178,6 +156,7 @@ export default function ExperienceForm({
             <Checkbox 
               label="I currently work here"
               toggle={() => setDisableEndDate(!disableEndDate)}
+              initiallyChecked={disableEndDate}
             />
 
             <TouchableOpacity

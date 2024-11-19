@@ -19,6 +19,11 @@ const tags = [
   ["Strategist Excel", "R"],
 ];
 
+const reviewsList = [
+  "Jenny is a great team lead. She is organised and very ambitious. She always gets the best out of her team.",
+  "Jenny was very bossy and never did any work herself!"
+];
+
 const Profile = () => {
   const [sentConnection, setSentConnection] = useState(false);
 
@@ -130,7 +135,7 @@ const Profile = () => {
 
           <View className={"w-full border-t-[6px] mt-8 border-black"} />
           
-          <Reviews />
+          <Reviews reviewedPerson="Jenny" reviewsList={reviewsList}/>
           <FilledButton
             icon={
               <Image

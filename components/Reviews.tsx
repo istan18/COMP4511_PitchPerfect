@@ -2,6 +2,11 @@ import { View, Text } from "react-native";
 import ReviewSummary from "@/components/ReviewSummary";
 import ReviewCard from "@/components/ReviewCard";
 
+interface ReviewsProps {
+  reviewedPerson: string;
+  reviewsList: string[];
+};
+
 const reviews = [
   { stars: 5, count: 15 },
   { stars: 4, count: 7 },
@@ -12,7 +17,7 @@ const reviews = [
 
 const totalReviews = 27;
 
-export default function Reviews() {
+export default function Reviews({ reviewedPerson, reviewsList }: ReviewsProps) {
   return (
     <View className="w-full items-center">
       <View className="w-[90%]">
@@ -39,8 +44,8 @@ export default function Reviews() {
         avatar={require("@/assets/images/man.png")}
         timestamp="2 mins ago"
         stars={4}
-        title="Collaborated with Jenny on Inside the Box"
-        reviewText="Jenny is a great team lead. She is organised and very ambitious. She always gets the best out of her team."
+        title={`Collaborated with ${reviewedPerson} on Inside the Box`}
+        reviewText={reviewsList[0]}
       />
       <View
         className={"w-9/10 mx-auto border-t mt-8 border-gray-500 opacity-50"}
@@ -50,8 +55,8 @@ export default function Reviews() {
         avatar={require("@/assets/images/woman.jpg")}
         timestamp="5 mins ago"
         stars={2}
-        title="Collaborated with Jenny on Inside the Box"
-        reviewText="Jenny was very bossy and never did any work herself!"
+        title={`Collaborated with ${reviewedPerson} on Inside the Box`}
+        reviewText={reviewsList[1]}
       />
       <View
         className={"w-9/10 mx-auto border-t mt-8 border-gray-500 opacity-50"}

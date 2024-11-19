@@ -7,7 +7,7 @@ interface JobCardProps {
   start: string;
   end: string,
   durationLength: string;
-  imageSource?: ImageSourcePropType;
+  imageSource?: ImageSourcePropType | null;
   manageIcon?: React.ReactElement;
   onPressManage?: () => void;
 }
@@ -24,10 +24,10 @@ const JobCard: React.FC<JobCardProps> = ({
 }) => {
   return (
     <View className="w-full flex-row items-center gap-4 mb-4">
-      <Image
+      {imageSource && <Image
         source={imageSource}
         className="w-20 h-20 rounded-xl bg-gray-500"
-      />
+      />}
       <View className="flex-1 flex-col justify-center">
         <View className="flex flex-row justify-between">
           <Text className="flex-1 text-white text-2xl text-left">

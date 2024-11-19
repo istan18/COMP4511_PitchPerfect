@@ -12,6 +12,7 @@ import CustomTextInput from "@/components/CustomTextInput";
 import { AntDesign } from "@expo/vector-icons";
 import FilledButton from "@/components/FilledButton";
 import ExperienceForm from "@/components/ExperienceForm";
+import { exampleExperience, exampleProjects, exampleTags, groupTags, options, reviewsList } from "./helpers";
 
 export interface Experience {
   id: number; 
@@ -21,6 +22,7 @@ export interface Experience {
   end: string; 
   durationLength: string; 
   imageSource: ImageSourcePropType | null; 
+  manageIcon?: React.JSX.Element;
 };
 
 export default function Index(){
@@ -29,99 +31,15 @@ export default function Index(){
   const [editingExperience, setEditingExperience] = useState(false);
   const [showExperienceForm, setShowExperienceForm] = useState(false);
   const [experienceToEdit, setExperienceToEdit] = useState<Experience | null>(null);
-
-  const [publicProjects, setPublicProjects] = useState([
-    {
-      id: 1,
-      title: "Software Developer",
-      company: "Inside the Box",
-      start: "Jul 2022",
-      end: "Present",
-      durationLength: "2 yrs 3 mths",
-      imageSource: require("@/assets/images/mealplanner.png"),
-      manageIcon: <Ionicons name="ellipsis-horizontal" size={20} color="white" />,
-    },
-    {
-      id: 2,
-      title: "Collaborator",
-      company: "Robotic Chefs",
-      start: "Aug 2021",
-      end: "Jun 2022",
-      durationLength: "10 mths",
-      imageSource: require("@/assets/images/roboticChefs.png"),
-      manageIcon: <Ionicons name="ellipsis-horizontal" size={20} color="white" />,
-    }
-  ]);
-
-  const [experiences, setExperiences] = useState([
-    {
-      id: 1,
-      title: "Software Intern",
-      company: "Atlassian",
-      start: "Jan 2023",
-      end: "Feb 2024",
-      durationLength: "1 yr 1 mth",
-      imageSource: require("@/assets/images/atlassian.png"),
-    }
-  ]);
-
-  const hideProject = (id: number) => {
-    Alert.alert("Hide project", "Others will no longer see this project on your profile.", [
-      { text: "Cancel", style: "cancel" },
-      {
-        text: "Hide",
-        style: "destructive",
-        onPress: () => setPublicProjects(publicProjects.filter((p) => p.id !== id)),
-      },
-    ]);
-  };
-
-  const getCurrentDate = `${new Date().toLocaleString('default', { month: 'short' })} ${new Date().getFullYear()}`;
-
-  const leaveProject = (id: number) => {
-    Alert.alert("Leave project", "Are you sure you want to leave this project?", [
-      { text: "Cancel", style: "cancel" },
-      {
-        text: "Leave",
-        style: "destructive",
-        onPress: () => {
-          const projects = publicProjects.map((p) =>
-            p.id === id
-              ? { ...p, end: getCurrentDate }
-              : p
-          );
-          setPublicProjects(projects);
-        }
-      },
-    ]);
-  };
-
-  const options = (id: number, end: string) => [
-    { 
-      name: "Hide from profile",
-      icon: <Ionicons name="eye-off-outline" size={20} color="white" className="p-4" />, 
-      onPress: () => hideProject(id),
-    },
-    end === "Present" ? { 
-      name: "Leave project",
-      icon: <Ionicons name="exit-outline" size={20} color="white" className="p-4" />,
-      onPress: () => leaveProject(id),
-    } : null,
-  ].filter(option => option !== null);
+  const [publicProjects, setPublicProjects] = useState<Experience[]>(exampleProjects);
+  const [experiences, setExperiences] = useState(exampleExperience);
+  const [tags, setTags] = useState(exampleTags);
+  const [customTag, setCustomTag] = useState("");
 
   const openOptions = (id: number) => {
     setVisibleOptions((prev) => ({ ...prev, [id]: true }));
   };
 
-  const [tags, setTags] = useState([
-    "Communicative", "Accounting",
-    "Management", "Leadership",
-    "Microsoft Excel", "Python",
-    "Finance", "SQL",
-    "Strategy", "R",
-  ]);
-  const [customTag, setCustomTag] = useState("");
-  
   const addCustomTag = () => {
     if (customTag.trim()) {
       setTags([...tags, customTag.trim()]);
@@ -131,11 +49,6 @@ export default function Index(){
 
   const removeTag = (tag: string) => {
     setTags(tags.filter((t) => t !== tag));
-  }
-
-  const groupedTags = [];
-  for (let i = 0; i < tags.length; i += 2) {
-    groupedTags.push(tags.slice(i, i + 2));
   }
 
   const handleAddExperience = () => {
@@ -151,7 +64,9 @@ export default function Index(){
   const handleSaveExperience = (experience: Experience) => {
     if (experienceToEdit) {
       const updated = [...experiences];
-      updated[experienceToEdit.id] = experience;
+      const index = updated.findIndex((exp) => exp.id === experienceToEdit.id);
+      updated[index] = experience;
+      
       setExperiences(updated);
     } else {
       setExperiences((prev) => [...prev, experience]);
@@ -227,7 +142,7 @@ export default function Index(){
                   {visibleOptions[project.id] && 
                     <ProjectOptions 
                       close={() => setVisibleOptions({})}
-                      options={options(project.id, project.end)}
+                      options={options(project.id, project.end, publicProjects, setPublicProjects)}
                       otherStyles="w-[80%] top-0 absolute"
                     />
                   }
@@ -305,7 +220,7 @@ export default function Index(){
                 }
               />}
 
-              {groupedTags.map((pair, index) => (
+              {groupTags(tags).map((pair, index) => (
                 <View key={index} className={"w-full flex flex-row"}>
                   <Tag
                     textSize={"text-xl"}
@@ -327,15 +242,15 @@ export default function Index(){
 
             <View className={"w-full border-t-[6px] mt-8 border-black"} />
             
-            <Reviews />
-            <ExperienceForm 
+            <Reviews reviewedPerson="Alice" reviewsList={reviewsList} />
+            {showExperienceForm && <ExperienceForm 
               visible={showExperienceForm}
               experienceToEdit={experienceToEdit}
               removeExperience={() => handleRemoveExperience(experienceToEdit?.id)}
               saveForm={handleSaveExperience}  
               length={experiences.length}
               close={() => setShowExperienceForm(false)}
-            />
+            />}
           </SafeAreaView>
         </TouchableWithoutFeedback>
       </ScrollView>
