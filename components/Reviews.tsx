@@ -5,7 +5,7 @@ import ReviewCard from "@/components/ReviewCard";
 interface ReviewsProps {
   reviewedPerson: string;
   reviewsList: string[];
-};
+}
 
 const reviews = [
   { stars: 5, count: 15 },
@@ -21,9 +21,13 @@ export default function Reviews({ reviewedPerson, reviewsList }: ReviewsProps) {
   return (
     <View className="w-full items-center">
       <View className="w-[90%]">
-        <View className={"flex flex-row items-center justify-between mt-8 mb-2 w-full"}>
+        <View
+          className={
+            "flex flex-row items-center justify-between mt-8 mb-2 w-full"
+          }
+        >
           <Text className={"text-white text-3xl"}>Reviews</Text>
-          
+
           <View className={"flex flex-col"}>
             <Text className="text-white text-4xl font-bold mr-0 ml-auto">
               4.5
@@ -61,6 +65,6 @@ export default function Reviews({ reviewedPerson, reviewsList }: ReviewsProps) {
       <View
         className={"w-9/10 mx-auto border-t mt-8 border-gray-500 opacity-50"}
       />
-    </View> 
+    </View>
   );
-};
+}

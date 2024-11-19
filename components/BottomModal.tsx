@@ -8,7 +8,12 @@ interface BottomModalProps {
   contents: React.ReactElement;
 }
 
-export default function BottomModal( { isVisible, title, contents, close }: BottomModalProps) {
+export default function BottomModal({
+  isVisible,
+  title,
+  contents,
+  close,
+}: BottomModalProps) {
   return (
     <Modal
       visible={isVisible}
@@ -23,7 +28,13 @@ export default function BottomModal( { isVisible, title, contents, close }: Bott
       <View className="absolute bottom-0 w-full bg-background rounded-2xl p-4">
         <View className="flex-row items-center justify-between p-4">
           <Text className="text-2xl text-white font-bold">{title}</Text>
-          <Ionicons name="close" size={24} color="white" className="" onPress={close} />
+          <Ionicons
+            name="close"
+            size={24}
+            color="white"
+            className=""
+            onPress={close}
+          />
         </View>
 
         {contents}

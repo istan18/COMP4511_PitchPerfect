@@ -21,7 +21,7 @@ const tags = [
 
 const reviewsList = [
   "Jenny is a great team lead. She is organised and very ambitious. She always gets the best out of her team.",
-  "Jenny was very bossy and never did any work herself!"
+  "Jenny was very bossy and never did any work herself!",
 ];
 
 const Profile = () => {
@@ -29,38 +29,31 @@ const Profile = () => {
 
   const headerButtons = [
     {
-      icon: <Feather
-        name={"message-circle"}
-        size={20}
-        color={"black"}
-      />,
+      icon: <Feather name={"message-circle"} size={20} color={"black"} />,
       onPress: () => router.push("/messages/individual"),
       title: "Message",
     },
     {
       icon: sentConnection ? (
-        <Feather
-          name="clock"
-          size={20}
-          color="black"
-        />
+        <Feather name="clock" size={20} color="black" />
       ) : (
-        <IonIcons
-          name="person-add-outline"
-          size={20}
-          color="black"
-        />
+        <IonIcons name="person-add-outline" size={20} color="black" />
       ),
       onPress: () => setSentConnection(!sentConnection),
-      title: `${sentConnection ? "Pending" : "Connect"}`
+      title: `${sentConnection ? "Pending" : "Connect"}`,
     },
   ];
 
   return (
     <SafeAreaView className={"flex-1 bg-background"}>
-      <ScrollView showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false}>
+      <ScrollView
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+      >
         <View className={"w-full items-center"}>
-          <View className="mr-auto ml-2"><BackButton2 /></View>
+          <View className="mr-auto ml-2">
+            <BackButton2 />
+          </View>
           <ProfileHeader
             name="Jenny Liu"
             degree="B. Commerce"
@@ -95,11 +88,9 @@ const Profile = () => {
           </View>
 
           <View className={"w-full border-t-[6px] mt-8 border-black"} />
-          
+
           <View className={"w-[90%] items-center flex flex-col mt-8 gap-y-4"}>
-            <Text className={"w-full text-white text-3xl"}>
-              Experience
-            </Text>
+            <Text className={"w-full text-white text-3xl"}>Experience</Text>
             <JobCard
               title={"PM Intern"}
               company={"Atlassian"}
@@ -113,29 +104,19 @@ const Profile = () => {
           <View className={"w-full border-t-[6px] mt-8 border-black"} />
 
           <View className={"w-[90%] flex flex-col mt-8 gap-y-1"}>
-            <Text className={"w-full mb-4 text-white text-3xl"}>
-              Skills
-            </Text>
+            <Text className={"w-full mb-4 text-white text-3xl"}>Skills</Text>
 
             {tags.map((pair, index) => (
               <View key={index} className={"w-full flex flex-row"}>
-                <Tag
-                  textSize={"text-xl"}
-                  tagStyle={"mr-auto"}
-                  tag={pair[0]}
-                />
-                <Tag
-                  textSize={"text-xl"}
-                  tagStyle={"ml-auto"}
-                  tag={pair[1]}
-                />
+                <Tag textSize={"text-xl"} tagStyle={"mr-auto"} tag={pair[0]} />
+                <Tag textSize={"text-xl"} tagStyle={"ml-auto"} tag={pair[1]} />
               </View>
             ))}
           </View>
 
           <View className={"w-full border-t-[6px] mt-8 border-black"} />
-          
-          <Reviews reviewedPerson="Jenny" reviewsList={reviewsList}/>
+
+          <Reviews reviewedPerson="Jenny" reviewsList={reviewsList} />
           <FilledButton
             icon={
               <Image

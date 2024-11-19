@@ -85,19 +85,23 @@ export default function Filters({ rowStyles }: FiltersProps) {
           />
         ))}
       </View>
-    
-      {areOptionsVisible && <BottomModal 
-        isVisible={areOptionsVisible} 
-        title={optionsType}
-        close={closeOptions} 
-        contents={<FilterOptions 
-          type={optionsType} 
-          close={closeOptions} 
-          addFilter={() => addFilter(optionsType)} 
-          removeFilter={() => removeFilter(optionsType)}
-          reset={resetFilters}
-        />}
-      />}
+
+      {areOptionsVisible && (
+        <BottomModal
+          isVisible={areOptionsVisible}
+          title={optionsType}
+          close={closeOptions}
+          contents={
+            <FilterOptions
+              type={optionsType}
+              close={closeOptions}
+              addFilter={() => addFilter(optionsType)}
+              removeFilter={() => removeFilter(optionsType)}
+              reset={resetFilters}
+            />
+          }
+        />
+      )}
     </View>
   );
 }

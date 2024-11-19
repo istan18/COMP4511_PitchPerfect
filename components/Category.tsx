@@ -8,13 +8,22 @@ interface CategoryProps {
   setIsSelected: () => void;
 }
 
-export default function Category({ category, icon, isSelected, setIsSelected }: CategoryProps) {
+export default function Category({
+  category,
+  icon,
+  isSelected,
+  setIsSelected,
+}: CategoryProps) {
   return (
     <TouchableOpacity className="flex-col items-center" onPress={setIsSelected}>
-      <View className={`items-center justify-center rounded-2xl bg-gray-500 w-16 h-16 ${isSelected && 'bg-tagBackground'}`}>
+      <View
+        className={`items-center justify-center rounded-2xl bg-gray-500 w-16 h-16 ${isSelected && "bg-tagBackground"}`}
+      >
         {icon}
       </View>
-      <Text className={`text-white text-lg ${isSelected && 'font-bold'}`}>{category}</Text>
+      <Text className={`text-white text-lg ${isSelected && "font-bold"}`}>
+        {category}
+      </Text>
     </TouchableOpacity>
   );
 }

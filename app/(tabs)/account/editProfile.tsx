@@ -1,5 +1,18 @@
 import BackButton from "@/components/BackButton";
-import { ScrollView, KeyboardAvoidingView, Platform, Alert, View, Text, TextInput, SafeAreaView, TouchableWithoutFeedback, Keyboard, TouchableOpacity, ImageBackground} from "react-native";
+import {
+  ScrollView,
+  KeyboardAvoidingView,
+  Platform,
+  Alert,
+  View,
+  Text,
+  TextInput,
+  SafeAreaView,
+  TouchableWithoutFeedback,
+  Keyboard,
+  TouchableOpacity,
+  ImageBackground,
+} from "react-native";
 import { Feather, Ionicons } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
 import { useState } from "react";
@@ -41,7 +54,9 @@ const dropdownOptions = [
 
 export default function EditProfile() {
   const defaultProfile = require("@/assets/images/defaultProfile.jpg");
-  const [image, setImage] = useState(require("@/assets/images/aliceProfile.jpg"));
+  const [image, setImage] = useState(
+    require("@/assets/images/aliceProfile.jpg")
+  );
   const [areOptionsVisible, setAreOptionsVisible] = useState(false);
 
   const selectImage = async () => {
@@ -65,9 +80,8 @@ export default function EditProfile() {
         text: "Clear",
         style: "destructive",
         onPress: () => {
-          setImage(defaultProfile),
-          setAreOptionsVisible(false);
-        }
+          setImage(defaultProfile), setAreOptionsVisible(false);
+        },
       },
     ]);
   };
@@ -80,25 +94,28 @@ export default function EditProfile() {
             behavior={Platform.OS === "ios" ? "padding" : "height"}
           >
             <ScrollView contentContainerClassName="items-center">
-              <BackButton marginTop="mt-4"/>
+              <BackButton marginTop="mt-4" />
               <Text className="text-4xl text-white mt-20">Edit Profile</Text>
 
               <TouchableOpacity
                 onPress={() => setAreOptionsVisible(!areOptionsVisible)}
                 className="w-40 h-40 my-8 rounded-full overflow-hidden bg-gray-800 border-2 border-dashed border-gray-300 items-center justify-center"
               >
-                <ImageBackground 
-                  source={image} 
+                <ImageBackground
+                  source={image}
                   className="w-40 h-40"
                   resizeMode="cover"
                 >
-                  <View className="flex-1 items-center justify-center" style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
+                  <View
+                    className="flex-1 items-center justify-center"
+                    style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
+                  >
                     <Feather name="edit-2" size={30} color="white" />
                   </View>
                 </ImageBackground>
               </TouchableOpacity>
 
-              {profileFields.map((field, index) => ( 
+              {profileFields.map((field, index) => (
                 <View className="w-full" key={index}>
                   <FullWidthButton
                     leftIcon={field.icon}
@@ -116,13 +133,15 @@ export default function EditProfile() {
                   />
                 </View>
               ))}
-              
+
               <View className="w-full">
                 <FullWidthButton
-                  leftIcon={<FontAwesome name={"university"} size={24} color="white" />}
+                  leftIcon={
+                    <FontAwesome name={"university"} size={24} color="white" />
+                  }
                   text={
                     <View className="w-full ml-6">
-                      <CustomDropdown 
+                      <CustomDropdown
                         value="1"
                         options={dropdownOptions}
                         otherStyles={{ borderWidth: 0 }}
@@ -134,31 +153,37 @@ export default function EditProfile() {
                   hasBottomBorder={true}
                 />
               </View>
-              
+
               <View className="w-full my-8">
                 <FilledButton title="Save" onPress={() => router.back()} />
-                <FilledButton title="Cancel" filled={false} onPress={() => router.back()} />
+                <FilledButton
+                  title="Cancel"
+                  filled={false}
+                  onPress={() => router.back()}
+                />
               </View>
 
               {areOptionsVisible && (
-                <BottomModal 
+                <BottomModal
                   title="Edit image"
                   isVisible={areOptionsVisible}
                   close={() => setAreOptionsVisible(false)}
                   contents={
                     <View className="flex flex-col items-center">
-                      <FilledButton 
-                        title="Select Image" 
-                        onPress={selectImage} 
+                      <FilledButton
+                        title="Select Image"
+                        onPress={selectImage}
                         icon={<Feather name="upload" size={18} color="black" />}
                         otherStyles="w-[90%]"
                         buttonStyle="p-2"
                       />
-                      <FilledButton 
-                        title="Clear Image" 
-                        filled={false} 
-                        onPress={clearImage} 
-                        icon={<Feather name="trash-2" size={18} color="white" />}
+                      <FilledButton
+                        title="Clear Image"
+                        filled={false}
+                        onPress={clearImage}
+                        icon={
+                          <Feather name="trash-2" size={18} color="white" />
+                        }
                         otherStyles="w-[90%] mb-8"
                         buttonStyle="p-2"
                       />

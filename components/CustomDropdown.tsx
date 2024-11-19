@@ -13,8 +13,8 @@ interface DropdownProps {
   setValue?: (value: string) => void;
 }
 
-export default function CustomDropdown({ 
-  options, 
+export default function CustomDropdown({
+  options,
   otherStyles,
   placeholder,
   width = "80%",

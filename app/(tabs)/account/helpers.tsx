@@ -22,7 +22,7 @@ export const exampleProjects = [
     durationLength: "10 mths",
     imageSource: require("@/assets/images/roboticChefs.png"),
     manageIcon: <Ionicons name="ellipsis-horizontal" size={20} color="white" />,
-  }
+  },
 ];
 
 export const exampleExperience = [
@@ -34,15 +34,20 @@ export const exampleExperience = [
     end: "Feb 2024",
     durationLength: "1 yr 1 mth",
     imageSource: require("@/assets/images/atlassian.png"),
-  }
+  },
 ];
 
 export const exampleTags = [
-  "Communicative", "Accounting",
-  "Management", "Leadership",
-  "Microsoft Excel", "Python",
-  "Finance", "SQL",
-  "Strategy", "R",
+  "Communicative",
+  "Accounting",
+  "Management",
+  "Leadership",
+  "Microsoft Excel",
+  "Python",
+  "Finance",
+  "SQL",
+  "Strategy",
+  "R",
 ];
 
 export const reviewsList = [
@@ -50,7 +55,7 @@ export const reviewsList = [
   "Could be more present, but overall a good experience working with Alice.",
 ];
 
-export const getCurrentDate = `${new Date().toLocaleString('default', { month: 'short' })} ${new Date().getFullYear()}`;
+export const getCurrentDate = `${new Date().toLocaleString("default", { month: "short" })} ${new Date().getFullYear()}`;
 
 export const groupTags = (tags: string[]) => {
   const groupedTags = [];
@@ -60,18 +65,31 @@ export const groupTags = (tags: string[]) => {
   return groupedTags;
 };
 
-export const hideProject = (id: number, publicProjects: Experience[], setPublicProjects: (projects: Experience[]) => void) => {
-  Alert.alert("Hide project", "Others will no longer see this project on your profile.", [
-    { text: "Cancel", style: "cancel" },
-    {
-      text: "Hide",
-      style: "destructive",
-      onPress: () => setPublicProjects(publicProjects.filter((p) => p.id !== id)),
-    },
-  ]);
+export const hideProject = (
+  id: number,
+  publicProjects: Experience[],
+  setPublicProjects: (projects: Experience[]) => void
+) => {
+  Alert.alert(
+    "Hide project",
+    "Others will no longer see this project on your profile.",
+    [
+      { text: "Cancel", style: "cancel" },
+      {
+        text: "Hide",
+        style: "destructive",
+        onPress: () =>
+          setPublicProjects(publicProjects.filter((p) => p.id !== id)),
+      },
+    ]
+  );
 };
 
-export const leaveProject = (id: number, publicProjects: Experience[], setPublicProjects: (projects: Experience[]) => void) => {
+export const leaveProject = (
+  id: number,
+  publicProjects: Experience[],
+  setPublicProjects: (projects: Experience[]) => void
+) => {
   Alert.alert("Leave project", "Are you sure you want to leave this project?", [
     { text: "Cancel", style: "cancel" },
     {
@@ -79,25 +97,45 @@ export const leaveProject = (id: number, publicProjects: Experience[], setPublic
       style: "destructive",
       onPress: () => {
         const projects = publicProjects.map((p) =>
-          p.id === id
-            ? { ...p, end: getCurrentDate }
-            : p
+          p.id === id ? { ...p, end: getCurrentDate } : p
         );
         setPublicProjects(projects);
-      }
+      },
     },
   ]);
 };
 
-export const options = (id: number, end: string, publicProjects: Experience[], setPublicProjects: (projects: Experience[]) => void) => [
-  { 
-    name: "Hide from profile",
-    icon: <Ionicons name="eye-off-outline" size={20} color="white" className="p-4" />, 
-    onPress: () => hideProject(id, publicProjects, setPublicProjects),
-  },
-  end === "Present" ? { 
-    name: "Leave project",
-    icon: <Ionicons name="exit-outline" size={20} color="white" className="p-4" />,
-    onPress: () => leaveProject(id, publicProjects, setPublicProjects),
-  } : null,
-].filter(option => option !== null);
+export const options = (
+  id: number,
+  end: string,
+  publicProjects: Experience[],
+  setPublicProjects: (projects: Experience[]) => void
+) =>
+  [
+    {
+      name: "Hide from profile",
+      icon: (
+        <Ionicons
+          name="eye-off-outline"
+          size={20}
+          color="white"
+          className="p-4"
+        />
+      ),
+      onPress: () => hideProject(id, publicProjects, setPublicProjects),
+    },
+    end === "Present"
+      ? {
+          name: "Leave project",
+          icon: (
+            <Ionicons
+              name="exit-outline"
+              size={20}
+              color="white"
+              className="p-4"
+            />
+          ),
+          onPress: () => leaveProject(id, publicProjects, setPublicProjects),
+        }
+      : null,
+  ].filter((option) => option !== null);

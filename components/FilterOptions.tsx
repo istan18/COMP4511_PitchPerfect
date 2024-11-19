@@ -30,7 +30,13 @@ const tags = [
   "UI/UX",
 ];
 
-export default function FilterOptions({ type, close, addFilter, removeFilter, reset }: FilterOptionsProps) {
+export default function FilterOptions({
+  type,
+  close,
+  addFilter,
+  removeFilter,
+  reset,
+}: FilterOptionsProps) {
   return (
     <View>
       {type === "Hours" && (
