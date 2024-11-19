@@ -273,6 +273,7 @@ export default function Index() {
                   text={customTag}
                   placeholder={"Add more skills"}
                   marginBottom="mb-4"
+                  padding={"pb-2"}
                   rightIcon={
                     <TouchableOpacity onPress={addCustomTag}>
                       <AntDesign name="plus" color="#FFFFFF" size={24} />
