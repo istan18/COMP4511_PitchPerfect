@@ -14,6 +14,7 @@ export default function ProjectLayout() {
       <Stack.Screen name="generalForm" />
       <Stack.Screen name="specialisedForm" />
       <Stack.Screen name="applicants" />
+      <Stack.Screen name="confirmation" />
     </Stack>
   );
 }

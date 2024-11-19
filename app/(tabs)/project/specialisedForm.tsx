@@ -79,7 +79,7 @@ const SpecialisedFormPage = () => {
         <FilledButton
           filled={true}
           title={"Submit Application"}
-          onPress={() => router.replace("/(tabs)/project")}
+          onPress={() => router.replace("/(tabs)/project/confirmation")}
         />
         <Progress filledIndex={1} length={2} />
       </View>
