@@ -163,7 +163,7 @@ export default function Index(){
     Alert.alert("Delete experience", "Are you sure you want to delete this experience?", [
       { text: "Cancel", style: "cancel" },
       {
-        text: "Remove",
+        text: "Delete",
         style: "destructive",
         onPress: () => {
           setExperiences(experiences.filter((exp) => exp.id !== id));

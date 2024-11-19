@@ -41,13 +41,20 @@ export default function ExperienceForm({
   length,
   close,
 }: ExperienceFormProps) {
+  let start = ["", ""];
+  let end = ["", ""];
+  if (experienceToEdit) {
+    start = experienceToEdit.start.split(" ");
+    end = experienceToEdit.end.split(" ");
+  }
+
+  const [disableEndDate, setDisableEndDate] = useState(false);
   const [title, setTitle] = useState(experienceToEdit?.title ?? "");
   const [company, setCompany] = useState(experienceToEdit?.company ?? "");
-  const [startMonth, setStartMonth] = useState(experienceToEdit?.start ?? "");
-  const [startYear, setStartYear] = useState(experienceToEdit?.start ?? "");
-  const [endMonth, setEndMonth] = useState(experienceToEdit?.end ?? "");
-  const [endYear, setEndYear] = useState(experienceToEdit?.end ?? "");
-  const [duration, setDuration] = useState(experienceToEdit?.durationLength ?? "");
+  const [startMonth, setStartMonth] = useState(start[0] ?? "");
+  const [startYear, setStartYear] = useState(start[1] ?? "");
+  const [endMonth, setEndMonth] = useState(end[0] ?? "");
+  const [endYear, setEndYear] = useState(end[1] ?? "");
   const [image, setImage] = useState<ImageSourcePropType | null>(experienceToEdit?.imageSource ?? null);
 
   const selectImage = async () => {
@@ -69,7 +76,6 @@ export default function ExperienceForm({
     setStartYear("");
     setEndMonth("");
     setEndYear("");
-    setDuration("");
     setImage(null);
   };
 
@@ -78,13 +84,27 @@ export default function ExperienceForm({
       id: experienceToEdit?.id || length,
       title,
       company,
-      start: startMonth + " " + startYear,
-      end: endMonth + " " + endYear,
-      durationLength: duration,
+      start: findMonthByValue(startMonth) + " " + startYear,
+      end: findMonthByValue(endMonth) + " " + endYear,
+      durationLength: calculateDuration(endYear, startYear, endMonth, startMonth),
       imageSource: image,
     });
     resetForm();
   };
+
+  const calculateDuration = (endYear: string, startYear: string, endMonth: string, startMonth: string) => {
+    const totalMonths = (parseInt(endYear) - parseInt(startYear)) * 12 + (parseInt(endMonth) - parseInt(startMonth));
+
+    const years = Math.floor(totalMonths / 12);
+    const months = totalMonths % 12;
+  
+    return `${years > 0 ? `${years} yrs` : ''} ${months} mths`;
+  }
+
+  const findMonthByValue = (value: string) => {
+    const month = monthOptions.find(option => option.value === value);
+    return month ? month.label : null;
+  }
 
   return (
     <Modal 
@@ -101,6 +121,7 @@ export default function ExperienceForm({
 
             <TextInput
               placeholder="Role"
+              placeholderTextColor={"#6B7280"}
               style={{ fontSize: 18 }}
               value={title}
               onChangeText={setTitle}
@@ -108,6 +129,7 @@ export default function ExperienceForm({
             />
             <TextInput
               placeholder="Company"
+              placeholderTextColor={"#6B7280"}
               style={{ fontSize: 18 }}
               value={company}
               onChangeText={setCompany}
@@ -120,15 +142,16 @@ export default function ExperienceForm({
                 value={startMonth}
                 setValue={setStartMonth}
                 options={monthOptions}
-                otherStyles={{ flex: 1, borderColor: "gray" }}
+                otherStyles={{ flex: 1, borderColor: "#6B7280"}}
               />
               <TextInput
                 keyboardType="numeric"
                 placeholder="Start year"
+                placeholderTextColor={"#6B7280"}
                 style={{ fontSize: 18, flex: 1, marginBottom: 0 }}
-                value={startMonth}
-                onChangeText={setStartMonth}
-                className="border border-gray-500 rounded-2xl p-4 mb-3"
+                value={startYear}
+                onChangeText={setStartYear}
+                className="color-white border border-gray-500 rounded-2xl p-4 mb-3"
               />
             </View>
 
@@ -138,19 +161,23 @@ export default function ExperienceForm({
                 value={endMonth}
                 setValue={setEndMonth}
                 options={monthOptions}
-                otherStyles={{ flex: 1, borderColor: "gray" }}
+                otherStyles={{ flex: 1, borderColor: disableEndDate ? "#444444" : "#6B7280"}}
+                disable={disableEndDate}
               />
               <TextInput
                 keyboardType="numeric"
                 placeholder="End year"
+                placeholderTextColor={"#6B7280"}
                 style={{ fontSize: 18, flex: 1, marginBottom: 0 }}
                 value={endYear}
                 onChangeText={setEndYear}
-                className="color-white border border-gray-500 rounded-2xl p-4 mb-3"
+                className={`${disableEndDate ? 'border-[#444444]' : 'border-gray-500'} color-white border rounded-2xl p-4 mb-3`}
+                editable={!disableEndDate}
               />
             </View>
             <Checkbox 
               label="I currently work here"
+              toggle={() => setDisableEndDate(!disableEndDate)}
             />
 
             <TouchableOpacity
@@ -163,8 +190,8 @@ export default function ExperienceForm({
                 resizeMode="cover"
               />}
               <View className="flex-1 items-center justify-center">
-                <Feather name="upload" size={48} color="white" />
-                <Text className="text-gray-300 text-2xl mt-4">Upload image</Text>
+                <Feather name="upload" size={48} color="#6B7280" />
+                <Text className="text-gray-400 text-2xl mt-4">Upload image</Text>
               </View>
             </TouchableOpacity>
 
