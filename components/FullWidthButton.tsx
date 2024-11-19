@@ -34,7 +34,11 @@ const FullWidthButton: React.FC<FullWidthProps> = ({
       {React.isValidElement(text) ? (
         text
       ) : (
-        <Text className={`${textStyles} text-white text-left w-[22rem] text-2xl`}>{text}</Text>
+        <Text
+          className={`${textStyles} text-white text-left w-[22rem] text-2xl`}
+        >
+          {text}
+        </Text>
       )}
       <View className={`${marginRight} ml-auto`}>{rightIcon}</View>
     </View>

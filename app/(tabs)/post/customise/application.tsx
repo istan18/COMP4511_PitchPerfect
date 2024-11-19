@@ -108,7 +108,7 @@ const Application = () => {
       ) : null}
       <View
         className={
-          "absolute flex flex-row left-8 bottom-12 w-4/5 mx-auto rounded-2xl"
+          "absolute flex flex-row left-12 bottom-12 w-4/5 mx-auto rounded-2xl"
         }
       >
         <FilledButton

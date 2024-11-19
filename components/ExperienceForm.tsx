@@ -1,4 +1,12 @@
-import { Modal, View, TextInput, TouchableOpacity, Image, Text, ScrollView } from "react-native";
+import {
+  Modal,
+  View,
+  TextInput,
+  TouchableOpacity,
+  Image,
+  Text,
+  ScrollView,
+} from "react-native";
 import { useState } from "react";
 import { Experience } from "@/app/(tabs)/account";
 import { ImageSourcePropType } from "react-native";
@@ -8,7 +16,12 @@ import { FontAwesome } from "@expo/vector-icons";
 import CustomDropdown from "./CustomDropdown";
 import * as ImagePicker from "expo-image-picker";
 import { Feather } from "@expo/vector-icons";
-import { monthOptions, findValueByMonth, calculateDuration, findMonthByValue } from "./ExperienceForm.helpers";
+import {
+  monthOptions,
+  findValueByMonth,
+  calculateDuration,
+  findMonthByValue,
+} from "./ExperienceForm.helpers";
 
 interface ExperienceFormProps {
   visible: boolean;
@@ -37,14 +50,20 @@ export default function ExperienceForm({
     }
   }
 
-  const [disableEndDate, setDisableEndDate] = useState(experienceToEdit?.end === 'Present' || false);
+  const [disableEndDate, setDisableEndDate] = useState(
+    experienceToEdit?.end === "Present" || false
+  );
   const [title, setTitle] = useState(experienceToEdit?.title ?? "");
   const [company, setCompany] = useState(experienceToEdit?.company ?? "");
-  const [startMonth, setStartMonth] = useState(findValueByMonth(start[0]) ?? "");
+  const [startMonth, setStartMonth] = useState(
+    findValueByMonth(start[0]) ?? ""
+  );
   const [startYear, setStartYear] = useState(start[1] ?? "");
   const [endMonth, setEndMonth] = useState(findValueByMonth(end[0]) ?? "");
   const [endYear, setEndYear] = useState(end[1] ?? "");
-  const [image, setImage] = useState<ImageSourcePropType | null>(experienceToEdit?.imageSource ?? null);
+  const [image, setImage] = useState<ImageSourcePropType | null>(
+    experienceToEdit?.imageSource ?? null
+  );
 
   const selectImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -64,8 +83,16 @@ export default function ExperienceForm({
       title,
       company,
       start: findMonthByValue(startMonth) + " " + startYear,
-      end: disableEndDate ? 'Present' : findMonthByValue(endMonth) + " " + endYear,
-      durationLength: calculateDuration(disableEndDate, endYear, startYear, endMonth, startMonth),
+      end: disableEndDate
+        ? "Present"
+        : findMonthByValue(endMonth) + " " + endYear,
+      durationLength: calculateDuration(
+        disableEndDate,
+        endYear,
+        startYear,
+        endMonth,
+        startMonth
+      ),
       imageSource: image,
     });
     resetForm();
@@ -81,16 +108,12 @@ export default function ExperienceForm({
     setImage(null);
     setDisableEndDate(false);
   };
-  
+
   return (
-    <Modal 
-      visible={visible}
-      animationType="none"
-      transparent={true}
-    >
+    <Modal visible={visible} animationType="none" transparent={true}>
       <View className="flex-1 items-center justify-center bg-black/50 px-4">
         <View className="w-full h-[80%] bg-background rounded-2xl p-4 px-8">
-          <ScrollView showsVerticalScrollIndicator={false}> 
+          <ScrollView showsVerticalScrollIndicator={false}>
             <Text className="text-white text-center text-3xl mt-4 mb-8">
               Add an experience
             </Text>
@@ -118,7 +141,7 @@ export default function ExperienceForm({
                 value={startMonth}
                 setValue={setStartMonth}
                 options={monthOptions}
-                otherStyles={{ flex: 1, borderColor: "#6B7280"}}
+                otherStyles={{ flex: 1, borderColor: "#6B7280" }}
               />
               <TextInput
                 keyboardType="numeric"
@@ -138,7 +161,10 @@ export default function ExperienceForm({
                 value={endMonth}
                 setValue={setEndMonth}
                 options={monthOptions}
-                otherStyles={{ flex: 1, borderColor: disableEndDate ? "#444444" : "#6B7280"}}
+                otherStyles={{
+                  flex: 1,
+                  borderColor: disableEndDate ? "#444444" : "#6B7280",
+                }}
                 disable={disableEndDate}
               />
               <TextInput
@@ -149,11 +175,11 @@ export default function ExperienceForm({
                 value={endYear}
                 onChangeText={setEndYear}
                 maxLength={4}
-                className={`${disableEndDate ? 'border-[#444444]' : 'border-gray-500'} color-white border rounded-2xl p-4 mb-3`}
+                className={`${disableEndDate ? "border-[#444444]" : "border-gray-500"} color-white border rounded-2xl p-4 mb-3`}
                 editable={!disableEndDate}
               />
             </View>
-            <Checkbox 
+            <Checkbox
               label="I currently work here"
               toggle={() => setDisableEndDate(!disableEndDate)}
               initiallyChecked={disableEndDate}
@@ -163,34 +189,36 @@ export default function ExperienceForm({
               onPress={selectImage}
               className="w-auto h-60 my-4 bg-gray-800 rounded-2xl overflow-hidden border-2 border-dashed border-gray-500 items-center justify-center"
             >
-              {image && <Image
-                source={image} 
-                className="w-full h-full"
-                resizeMode="cover"
-              />}
+              {image && (
+                <Image
+                  source={image}
+                  className="w-full h-full"
+                  resizeMode="cover"
+                />
+              )}
               <View className="flex-1 items-center justify-center">
                 <Feather name="upload" size={48} color="#6B7280" />
-                <Text className="text-gray-400 text-2xl mt-4">Upload image</Text>
+                <Text className="text-gray-400 text-2xl mt-4">
+                  Upload image
+                </Text>
               </View>
             </TouchableOpacity>
 
-            {experienceToEdit && <FilledButton
-              width="w-full"
-              title="Delete experience"
-              icon={<FontAwesome name="trash-o" size={18} color="white" />}
-              filled={false}
-              onPress={() => {
-                removeExperience();
-              }}
-            />}
+            {experienceToEdit && (
+              <FilledButton
+                width="w-full"
+                title="Delete experience"
+                icon={<FontAwesome name="trash-o" size={18} color="white" />}
+                filled={false}
+                onPress={() => {
+                  removeExperience();
+                }}
+              />
+            )}
           </ScrollView>
           <View className="flex-col mt-4">
+            <FilledButton width="w-full" title="Save" onPress={handleSave} />
             <FilledButton
-              width="w-full"
-              title="Save"
-              onPress={handleSave}
-            />
-            <FilledButton 
               width="w-full"
               title="Cancel"
               onPress={close}

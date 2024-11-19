@@ -14,7 +14,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
 import ErrorMessage from "@/components/ErrorMessage";
 
-export default function forgotPassword() {
+const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [resendConfirmation, setResendConfirmation] = useState("");
@@ -76,4 +76,6 @@ export default function forgotPassword() {
       </View>
     </TouchableWithoutFeedback>
   );
-}
+};
+
+export default ForgotPassword;

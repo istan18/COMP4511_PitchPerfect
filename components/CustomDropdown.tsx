@@ -5,7 +5,7 @@ import { Ionicons } from "@expo/vector-icons";
 
 interface DropdownProps {
   options: { label: string; value: string }[];
-  otherStyles?: {};
+  otherStyles?: object;
   placeholder?: string;
   width?: DimensionValue;
   disable?: boolean;
@@ -13,15 +13,15 @@ interface DropdownProps {
   setValue?: (value: string) => void;
 }
 
-export default function CustomDropdown({ 
-  options, 
+export default function CustomDropdown({
+  options,
   otherStyles,
   placeholder,
-  width = "80%",
   disable = false,
   value,
   setValue,
 }: DropdownProps) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isFocus, setIsFocus] = useState(false);
 
   return (

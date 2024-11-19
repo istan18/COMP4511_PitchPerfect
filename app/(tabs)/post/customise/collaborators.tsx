@@ -43,12 +43,6 @@ const originalProfiles = [
   },
 ];
 
-const roleOptions = [
-  { label: "Collaborator", value: "Collaborator" },
-  { label: "Admin", value: "Admin" },
-  { label: "Investor", value: "Investor" },
-];
-
 const Collaborators = () => {
   const [collaborator, setCollaborator] = useState("");
   const [profiles, setProfiles] = useState(originalProfiles);
@@ -90,6 +84,7 @@ const Collaborators = () => {
             text={collaborator}
             placeholder={"Search for names"}
             marginBottom={"mb-4"}
+            padding={"pb-2"}
           />
           <View
             className={

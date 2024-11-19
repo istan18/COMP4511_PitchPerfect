@@ -15,11 +15,7 @@ export default function Index() {
         tab1Name="Explore"
         tab2Name="Connected"
       />
-      {activeTab === "Explore" ? (
-        <Explore />
-      ) : (
-        <Connected />
-      )}
+      {activeTab === "Explore" ? <Explore /> : <Connected />}
     </SafeAreaView>
   );
-};
+}

@@ -31,13 +31,14 @@ const Compensation = () => {
           textSize={"text-3xl"}
         />
       </View>
-      <View className={"w-9/10 items-center mx-auto flex flex-row"}>
+      <View className={"w-9/10 items-center mx-auto flex flex-row gap-x-2"}>
         <CustomTextInput
           text={payment}
           setText={setPayment}
           width={"w-1/3"}
           keyboardType={"numeric"}
           placeholder={"$"}
+          padding={"pb-2"}
           editable={enabled}
         />
         <Text
@@ -46,7 +47,6 @@ const Compensation = () => {
           per
         </Text>
         <CustomDropdown
-          width={"40%"}
           value={timePeriod}
           setValue={setTimePeriod}
           placeholder={"Time period"}
@@ -58,7 +58,10 @@ const Compensation = () => {
             { label: "Year", value: "year" },
           ]}
           disable={!enabled}
-          otherStyles={{ borderColor: enabled ? "#9CA3AF" : "#444444" }}
+          otherStyles={{
+            width: "50%",
+            borderColor: enabled ? "#9CA3AF" : "#444444",
+          }}
         />
       </View>
       <View

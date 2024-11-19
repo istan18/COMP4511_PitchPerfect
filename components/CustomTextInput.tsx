@@ -46,7 +46,8 @@ const CustomTextInput: React.FC<TitleInputProps> = ({
             {heading}
           </Text>
         ) : null}
-        <View className={`flex-row justify-center items-center rounded-2xl border
+        <View
+          className={`flex-row justify-center items-center rounded-2xl border
           ${leftIcon ? "pl-14" : "pl-4"} ${editable ? "border-gray-400" : "border-disabledGray"} ${height} ${padding}`}
         >
           {leftIcon}
