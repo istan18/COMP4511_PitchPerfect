@@ -1,30 +1,22 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text } from "react-native";
+import ProjectHeader from "@/app/(tabs)/project/projectHeader";
+import ApplicationProjectCard from "@/components/ApplicationProjectCard";
 
-const CollaborateForm = () => {
+const collaborate = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Collaborate</Text>
-      <Text style={styles.description}>This is the Collaborate page.</Text>
+    <View className="flex-1 bg-[#171F20]">
+      <ProjectHeader projectName="Application Form" />
+      <View className="flex-1 mt-7">
+        <ApplicationProjectCard
+          projectName="Inside the Box"
+          lead="John Doe"
+          dateCreated="01/01/2023"
+          projectIcon={require("@/assets/images/mealplanner.png")}
+        />
+      </View>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#fff",
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-  },
-  description: {
-    fontSize: 16,
-    color: "#666",
-  },
-});
-
-export default CollaborateForm;
+export default collaborate;
