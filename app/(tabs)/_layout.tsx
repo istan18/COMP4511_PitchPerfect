@@ -84,6 +84,24 @@ export default function TabsLayout() {
           href: null,
         }}
       />
+      <Tabs.Screen
+        name="reviewRating"
+        options={{
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="reviewText"
+        options={{
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="confirmation"
+        options={{
+          href: null,
+        }}
+      />
     </Tabs>
   );
 }

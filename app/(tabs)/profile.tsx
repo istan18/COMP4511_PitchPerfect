@@ -127,6 +127,7 @@ const Profile = () => {
             otherStyles={"w-3/5 mt-4 mb-8"}
             filled={false}
             title={"Leave a Review"}
+            onPress={() => router.push("/reviewRating")}
           />
         </View>
       </ScrollView>
