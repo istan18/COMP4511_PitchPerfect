@@ -19,15 +19,31 @@ interface ProjectHeaderProps {
 const options = [
   {
     name: "Edit Project",
-    icon: <Ionicons name="create-outline" size={24} color="white" />,
+    icon: (
+      <Ionicons
+        className="mr-2"
+        name="create-outline"
+        size={24}
+        color="white"
+      />
+    ),
   },
   {
     name: "Delete Project",
-    icon: <Ionicons name="trash-outline" size={24} color="white" />,
+    icon: (
+      <Ionicons className="mr-2" name="trash-outline" size={24} color="white" />
+    ),
   },
   {
     name: "Share Project",
-    icon: <Ionicons name="share-social-outline" size={24} color="white" />,
+    icon: (
+      <Ionicons
+        className="mr-2"
+        name="share-social-outline"
+        size={24}
+        color="white"
+      />
+    ),
   },
 ];
 
@@ -61,7 +77,7 @@ export default function ProjectHeader({
         {showOptions && (
           <ProjectOptions
             options={options}
-            otherStyles="z-[100] w-1/2 p-2 top-0 right-8 absolute"
+            otherStyles="z-[100] w-1/2 pl-4 py-2 pr-2 top-0 right-8 absolute"
             close={() => setShowOptions(!showOptions)}
           />
         )}
