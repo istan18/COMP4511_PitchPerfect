@@ -55,7 +55,7 @@ const ReviewTextPage = () => {
           height={"h-32"}
           padding={""}
           maxLength={150}
-          placeholder={"Jenny, you should try learning more Figma"}
+          placeholder={"you should try learning more Figma"}
           includeCounter={true}
         />
       </View>

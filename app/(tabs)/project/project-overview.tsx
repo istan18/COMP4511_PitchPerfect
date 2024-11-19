@@ -131,7 +131,7 @@ const ProjectOverview = () => {
         <View className="absolute bottom-0 w-9/10 bg-[#000e10] flex-row justify-around items-center px-5 py-3 rounded-full">
           <Image
             source={require("@/assets/images/commentProject.png")}
-            className="w-10 h-16"
+            className="w-8 h-14 mt-1"
           />
           <TouchableOpacity
             className="bg-[#46AAAC] px-20 py-4 rounded-full items-center"
@@ -146,7 +146,7 @@ const ProjectOverview = () => {
                   ? require("@/assets/images/likedProject.png")
                   : require("@/assets/images/likeProject.png")
               }
-              className="w-10 h-16"
+              className="w-8 h-14 mt-1"
             />
           </TouchableOpacity>
         </View>

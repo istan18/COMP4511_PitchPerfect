@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import ProjectHeader from "@/app/(tabs)/project/projectHeader";
 import ApplicationProjectCard from "@/components/ApplicationProjectCard";
 import CustomDropdown from "@/components/CustomDropdown";
@@ -56,22 +56,22 @@ const SpecialisedFormPage = () => {
         </Text>
         <View className="flex-row justify-between w-full">
           <View className="flex-1 mx-5">
-            <View className="flex-row border border-white rounded-full py-2 items-center justify-center">
+            <TouchableOpacity className="flex-row border border-white rounded-full py-2 items-center justify-center">
               <Text className="text-white mr-2">Upload Resume</Text>
               <Image
                 source={require("@/assets/images/uploadResume.png")}
                 style={{ width: 30, height: 24 }}
               />
-            </View>
+            </TouchableOpacity>
           </View>
           <View className="flex-1 mx-5">
-            <View className="flex-row border border-white rounded-full py-2 items-center justify-center">
+            <TouchableOpacity className="flex-row border border-white rounded-full py-2 items-center justify-center">
               <Text className="text-white mr-2">Link LinkedIn</Text>
               <Image
                 source={require("@/assets/images/Linkedln.png")}
                 style={{ width: 30, height: 24 }}
               />
-            </View>
+            </TouchableOpacity>
           </View>
         </View>
       </View>
