@@ -1,13 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Image,
   ImageSourcePropType,
-  Modal,
   Text,
   TouchableOpacity,
   View,
 } from "react-native";
-import * as Haptics from "expo-haptics";
 import { router } from "expo-router";
 
 interface ApplicationCardProps {
@@ -18,7 +16,7 @@ interface ApplicationCardProps {
   projectName: string;
   projectIcon: ImageSourcePropType;
   routePath?: string;
-  hideHint: () => void;
+  handleLongPress: () => void;
 }
 
 export default function ApplicationCard({
@@ -29,16 +27,8 @@ export default function ApplicationCard({
   projectName,
   projectIcon,
   routePath,
-  hideHint,
+  handleLongPress,
 }: ApplicationCardProps) {
-  const [isModalVisible, setIsModalVisible] = useState(false);
-
-  const handleLongPress = async () => {
-    await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-    setIsModalVisible(true);
-    hideHint();
-  };
-
   const handlePress = () => {
     if (routePath) {
       router.push(routePath as any);
@@ -47,7 +37,7 @@ export default function ApplicationCard({
 
   return (
     <View className="w-9/10 self-center mb-8">
-      <Text className="absolute -top-3.5 left-3 px-2 text-xl font-extralight text-white bg-[#171F20] z-10">
+      <Text className="absolute -top-3.5 left-3 px-2 text-xl font-extralight text-white bg-background z-10">
         {projectName}
       </Text>
       <TouchableOpacity
@@ -78,32 +68,6 @@ export default function ApplicationCard({
           />
         </View>
       </TouchableOpacity>
-
-      <Modal
-        transparent
-        visible={isModalVisible}
-        animationType="fade"
-        onRequestClose={() => setIsModalVisible(false)}
-      >
-        <TouchableOpacity
-          className="flex-1 bg-black/50 justify-center items-center"
-          activeOpacity={1}
-          onPress={() => setIsModalVisible(false)}
-        >
-          <View className="bg-[#171F20] w-72 rounded-lg border border-white">
-            <TouchableOpacity className="p-4 border-b border-white">
-              <Text className="text-white text-center">
-                Message Project Lead
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity className="p-4">
-              <Text className="text-red-600 text-center">
-                Withdraw Application
-              </Text>
-            </TouchableOpacity>
-          </View>
-        </TouchableOpacity>
-      </Modal>
     </View>
   );
 }

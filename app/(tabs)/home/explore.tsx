@@ -53,6 +53,8 @@ export default function Explore() {
           <ScrollView
             className="w-full"
             contentContainerClassName="items-center"
+            showsVerticalScrollIndicator={false}
+            showsHorizontalScrollIndicator={false}
           >
             <Searchbar
               placeholder="Search projects or people..."

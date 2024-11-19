@@ -5,7 +5,7 @@ import { router } from "expo-router";
 
 export default function confirmation() {
   return (
-    <View className="flex-1 bg-[#171F20]">
+    <View className="flex-1 bg-background">
       <SafeAreaView
         className="flex-1 items-center w-f
       ull"

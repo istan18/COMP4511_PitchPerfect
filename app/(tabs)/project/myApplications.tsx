@@ -1,8 +1,40 @@
 import React, { useState } from "react";
-import { SafeAreaView, ScrollView, Text, View } from "react-native";
+import {
+  Alert,
+  Modal,
+  SafeAreaView,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import ApplicationCard from "@/components/MyApplicationCard";
+import * as Haptics from "expo-haptics";
+import { router } from "expo-router";
 
-export default function MyApplicationsContent() {
+const MyApplicationsContent = () => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const handleWithdraw = () => {
+    setIsModalVisible(false);
+    Alert.alert(
+      "Withdraw Application",
+      "Are you sure you want to withdraw your application? This action cannot be undone.",
+      [
+        { text: "Cancel", style: "cancel" },
+        {
+          text: "Withdraw",
+          style: "destructive",
+        },
+      ]
+    );
+  };
+
+  const handleLongPress = async () => {
+    await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+    setIsModalVisible(true);
+    hideHint();
+  };
   const [showHint, setShowHint] = useState(true);
 
   const hideHint = () => {
@@ -20,7 +52,7 @@ export default function MyApplicationsContent() {
             applied="23/10/24"
             lead="Jenny Liu"
             projectIcon={require("@/assets/images/mealplanner.png")}
-            hideHint={hideHint}
+            handleLongPress={handleLongPress}
             routePath="/project/project-overview"
           />
           <ApplicationCard
@@ -30,7 +62,7 @@ export default function MyApplicationsContent() {
             applied="10/09/24"
             lead="Samantha Fang"
             projectIcon={require("@/assets/images/rocket.png")}
-            hideHint={hideHint}
+            handleLongPress={handleLongPress}
             routePath="/project/project-overview"
           />
           <ApplicationCard
@@ -40,7 +72,7 @@ export default function MyApplicationsContent() {
             applied="13/02/24"
             lead="Bob Thorton"
             projectIcon={require("@/assets/images/bird.jpg")}
-            hideHint={hideHint}
+            handleLongPress={handleLongPress}
             routePath="/project/project-overview"
           />
           {showHint && (
@@ -50,6 +82,39 @@ export default function MyApplicationsContent() {
           )}
         </ScrollView>
       </View>
+      <Modal
+        transparent
+        visible={isModalVisible}
+        animationType="fade"
+        onRequestClose={() => setIsModalVisible(false)}
+      >
+        <TouchableOpacity
+          className="flex-1 bg-black/50 justify-center items-center"
+          activeOpacity={1}
+          onPress={() => setIsModalVisible(false)}
+        >
+          <View className="bg-background w-72 rounded-lg border border-white">
+            <TouchableOpacity
+              onPress={() => {
+                setIsModalVisible(false);
+                router.replace("/messages/individual");
+              }}
+              className="p-4 border-b border-white"
+            >
+              <Text className="text-white text-center">
+                Message Project Lead
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity className="p-4" onPress={() => handleWithdraw()}>
+              <Text className="text-red-600 text-center">
+                Withdraw Application
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </TouchableOpacity>
+      </Modal>
     </SafeAreaView>
   );
-}
+};
+
+export default MyApplicationsContent;

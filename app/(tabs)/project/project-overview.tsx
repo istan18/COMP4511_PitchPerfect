@@ -94,7 +94,7 @@ const ProjectOverview = () => {
             <Text className="text-2xl text-white mr-2 font-extralight">
               Progress:
             </Text>
-            <View className="bg-[#46AAAC] h-2 w-20 mx-1 rounded-full" />
+            <View className="bg-filledButton h-2 w-20 mx-1 rounded-full" />
             <View className="bg-white h-2 w-44 rounded-full" />
             <Text className="text-2xl ml-5 text-white font-extralight">
               30%
@@ -104,7 +104,7 @@ const ProjectOverview = () => {
             <Text className="text-2xl text-white mr-3.5 font-extralight">
               Funding:
             </Text>
-            <View className="bg-[#46AAAC] h-2 w-10 mx-1 rounded-full" />
+            <View className="bg-filledButton h-2 w-10 mx-1 rounded-full" />
             <View className="bg-white h-2 w-[190px] rounded-full" />
             <Text className="text-2xl ml-5 text-white font-extralight">
               $125
@@ -141,7 +141,7 @@ const ProjectOverview = () => {
             className="w-10 h-16"
           />
           <TouchableOpacity
-            className="bg-[#46AAAC] px-20 py-4 rounded-full items-center"
+            className="bg-filledButton px-20 py-4 rounded-full items-center"
             onPress={handleCollaboratePress}
           >
             <Text className="text-black text-xl">Collaborate</Text>

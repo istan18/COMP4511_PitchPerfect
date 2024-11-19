@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { Image, Text, View } from "react-native";
 
 interface ApplicationProjectCardProps {
   projectName: string;
@@ -16,7 +16,7 @@ const ApplicationProjectCard: React.FC<ApplicationProjectCardProps> = ({
 }) => {
   return (
     <View className="w-[90%] self-center">
-      <Text className="absolute -top-3.5 left-1/2 transform -translate-x-1/2 px-2 text-xl font text-white bg-[#171F20] z-10">
+      <Text className="absolute -top-3.5 left-1/2 transform -translate-x-1/2 px-2 text-xl font text-white bg-background z-10">
         {projectName}
       </Text>
       <View className="h-24 rounded-lg border border-white p-4">
