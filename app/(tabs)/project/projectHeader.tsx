@@ -16,7 +16,7 @@ export default function ProjectHeader({ projectName }: ProjectHeaderProps) {
         </Text>
         <Image
           source={require("@/assets/images/mealplanner.png")}
-          className="w-14 h-14 s rounded-full"
+          className="w-14 h-14 rounded-full"
         />
       </View>
     </SafeAreaView>

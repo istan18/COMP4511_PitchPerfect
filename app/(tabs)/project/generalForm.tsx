@@ -26,7 +26,7 @@ const GeneralFormPage = () => {
           projectName="Inside the Box"
           lead="Jenny Liu"
           dateCreated="23/07/2024"
-          projectIcon={require("@/assets/images/mealplanner.png")}
+          projectIcon={require("@/assets/images/woman.jpg")}
         />
         <View className="w-full border-t border-gray-500 m-5" />
         <CustomDropdown
