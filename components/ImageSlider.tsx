@@ -26,6 +26,8 @@ export default function ImageSlider({ images, height }: ImageSliderProps) {
         width: "100%",
         height: height,
         alignSelf: "center",
+        marginTop: 24,
+        marginLeft: 30,
       }}
     >
       <FlatList

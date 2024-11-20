@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   TouchableWithoutFeedback,
   View,
+  ScrollView,
 } from "react-native";
 import CustomTextInput from "@/components/CustomTextInput";
 
@@ -51,16 +52,18 @@ const Tags = () => {
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <SafeAreaView className={"relative flex-1 bg-background"}>
         <BackButton />
-        <Text className={"mt-20 text-center mx-auto text-5xl mb-12 text-white"}>
+        <Text className={"mt-20 text-center mx-auto text-4xl mb-12 text-white"}>
           Add Tags
         </Text>
-        <Grid
-          setSelectedTags={setSelectedTags}
-          selectedTags={selectedTags}
-          tags={tags}
-          maxTags={maxTags}
-        />
-        <View className={"mx-auto w-full absolute bottom-12"}>
+        <ScrollView className={"flex-1"} contentContainerStyle={{paddingBottom: 250}} showsVerticalScrollIndicator={false}>
+          <Grid
+            setSelectedTags={setSelectedTags}
+            selectedTags={selectedTags}
+            tags={tags}
+            maxTags={maxTags}
+          />
+        </ScrollView>
+        <View className={"mx-auto w-full absolute bottom-12 bg-background"}>
           <CustomTextInput
             setText={setCustomTag}
             text={customTag}

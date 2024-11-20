@@ -16,7 +16,7 @@ import Tag from "@/components/Tag";
 import Reviews from "@/components/Reviews";
 import { router } from "expo-router";
 import ProjectOptions from "@/components/ProjectOptions";
-import CustomTextInput from "@/components/CustomTextInput";
+import CustomTextInput from "@/components/CustomTextInputOther";
 import FilledButton from "@/components/FilledButton";
 import ExperienceForm from "@/components/ExperienceForm";
 import {

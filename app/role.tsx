@@ -38,16 +38,19 @@ export default function Role() {
           <Text className="text-4xl text-white mt-20 mb-2">
             I'm interested in...
           </Text>
-          <RadioGroup options={radioOptions} />
+          <View className="w-[85%]">
+            <RadioGroup options={radioOptions} />
+          </View>
           <Text className="text-4xl text-white mt-4 mb-2">
             Add your education
           </Text>
-          <CustomTextInput placeholder="Degree/Diploma/Other" />
+          <CustomTextInput placeholder="Degree/Diploma/Other" width="w-[85%]" />
           <CustomDropdown
             value={institution}
             setValue={setInstitution}
             placeholder="Institution"
             options={dropdownOptions}
+            otherStyles={{ width: "85%" }}
           />
           <Checkbox label={"I am currently a student"} />
           <View className="absolute bottom-20 w-full items-center">

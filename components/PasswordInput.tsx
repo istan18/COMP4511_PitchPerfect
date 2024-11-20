@@ -6,12 +6,14 @@ interface PasswordInputProps {
   placeholder: string;
   value?: string;
   setPassword?: (text: string) => void;
+  otherStyles?: string;
 }
 
 export default function PasswordInput({
   placeholder,
   value,
   setPassword,
+  otherStyles,
 }: PasswordInputProps) {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -20,7 +22,7 @@ export default function PasswordInput({
   };
 
   return (
-    <View className="w-[80%] flex-row border border-gray-400 rounded-2xl p-4 mb-4">
+    <View className={`${otherStyles ?? 'w-full'} flex-row border border-gray-400 rounded-2xl p-4 mb-4`}>
       <TextInput
         value={value}
         onChangeText={setPassword}

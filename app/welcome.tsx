@@ -36,8 +36,9 @@ export default function Welcome() {
         <SafeAreaView className="w-full items-center">
           <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
+            className="w-[85%]"
           >
-            <ScrollView contentContainerClassName="items-center">
+            <ScrollView contentContainerClassName="items-center w-full">
               <Image
                 source={require("../assets/images/logo.png")}
                 className="w-40 h-40 mt-20"
@@ -69,13 +70,13 @@ export default function Welcome() {
               />
             </ScrollView>
           </KeyboardAvoidingView>
-
-          <View className="absolute bottom-20 w-full items-center">
-            {error && <ErrorMessage error={error} />}
-            <FilledButton title="Next" onPress={handleNext} />
-            <Progress filledIndex={0} length={3} />
-          </View>
         </SafeAreaView>
+        
+        <View className="absolute bottom-20 w-full items-center">
+          {error && <ErrorMessage error={error} />}
+          <FilledButton title="Next" onPress={handleNext} />
+          <Progress filledIndex={0} length={3} />
+        </View>
       </View>
     </TouchableWithoutFeedback>
   );

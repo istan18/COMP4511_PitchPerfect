@@ -24,7 +24,7 @@ export default function FilledButton({
   title,
   onPress = () => {},
   otherStyles = "",
-  width = "w-4/5",
+  width = "w-[85%]",
   buttonStyle = "",
   textStyle = "",
 }: FilledButtonProps) {

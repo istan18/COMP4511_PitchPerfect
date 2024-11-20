@@ -12,7 +12,7 @@ export default function BackButton({ marginTop }: BackButtonProps) {
   return (
     <TouchableOpacity
       onPress={() => router.back()}
-      className={`absolute ${marginTop || "top-20"} left-8 p-2 z-50 bg-background rounded-full`}
+      className={`absolute ${marginTop || "mt-16"} left-4 p-2 z-50 bg-background rounded-full`}
     >
       <Ionicons name="arrow-back" size={24} color="white" />
     </TouchableOpacity>

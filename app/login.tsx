@@ -45,12 +45,13 @@ export default function Login() {
             placeholder="Email"
             value={email}
             onChangeText={setEmail}
-            className="w-4/5 color-white border border-gray-400 rounded-2xl p-4 mt-8 mb-4 text-xl"
+            className="w-[85%] color-white border border-gray-400 rounded-2xl p-4 mt-8 mb-4 text-xl"
           />
           <PasswordInput
             placeholder="Password"
             value={password}
             setPassword={setPassword}
+            otherStyles="w-[85%]"
           />
           {error && <ErrorMessage error={error} />}
 

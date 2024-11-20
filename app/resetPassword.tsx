@@ -57,11 +57,13 @@ const ResetPassword = () => {
                 placeholder="New password"
                 value={password}
                 setPassword={setPassword}
+                otherStyles="w-[85%]"
               />
               <PasswordInput
                 placeholder="Confirm password"
                 value={confirmPassword}
                 setPassword={setConfirmPassword}
+                otherStyles="w-[85%]"
               />
             </ScrollView>
           </KeyboardAvoidingView>

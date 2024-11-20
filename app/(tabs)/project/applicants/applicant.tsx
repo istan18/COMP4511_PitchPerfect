@@ -60,19 +60,19 @@ const Applicant = () => {
   };
 
   return (
-    <React.Fragment>
-      <SafeAreaView className={"flex-1 bg-background"}>
+    <View className="flex-1 bg-background">
+      <SafeAreaView className={"flex-1 w-full"}>
         <BackButton />
-        <ScrollView showsVerticalScrollIndicator={false}>
+        <ScrollView contentContainerClassName="items-center" showsVerticalScrollIndicator={false}>
           <View
-            className={"mt-14 flex flex-row justify-center gap-x-4 items-start"}
+            className={"mt-12 w-[90%] flex-row items-center justify-between gap-x-4 items-start"}
           >
             <Image source={Man} className="w-24 h-24 rounded-full" />
-            <View className={"flex flex-col gap-y-2 w-72"}>
-              <Text className={"mx-auto text-center text-4xl text-white"}>
+            <View className={"flex flex-col gap-y-2 px-2"}>
+              <Text className={"text-3xl text-white"}>
                 Christian Tolentino
               </Text>
-              <View className={"ml-4 flex mx-auto flex-row gap-x-4"}>
+              <View className={"flex-1 mx-auto flex-row gap-x-4"}>
                 <ButtonSmall
                   width={"w-32 h-16"}
                   icon={
@@ -102,8 +102,10 @@ const Applicant = () => {
               </View>
             </View>
           </View>
+          
           <View className={"border-white border-t mt-4 w-full"} />
-          <View className={"my-8 flex w-full flex-col px-16 gap-y-8"}>
+
+          <View className={"my-8 flex w-[85%] flex-col gap-y-8"}>
             <View className={"w-full h-fit"}>
               <Text className={"text-left font-bold text-white text-2xl"}>
                 Preferred Role
@@ -112,7 +114,7 @@ const Applicant = () => {
                 Javascript Developer
               </Text>
             </View>
-            <View className={"h-fit"}>
+            <View className={" h-fit"}>
               <Text className={"text-left font-bold text-white text-2xl"}>
                 Motivations for applying
               </Text>
@@ -129,11 +131,11 @@ const Applicant = () => {
                 I have done lots of JavaScript
               </Text>
             </View>
-            <View className={" flex flex-row gap-x-48"}>
-              <Text className={"text-left font-bold text-white text-2xl"}>
+            <View className={"flex flex-row items-center justify-between"}>
+              <Text className={"font-bold text-white text-2xl"}>
                 Availability
               </Text>
-              <Text className={"text-left text-white text-xl"}>Weekly</Text>
+              <Text className={"text-white text-xl"}>Weekly</Text>
             </View>
           </View>
 
@@ -155,16 +157,17 @@ const Applicant = () => {
             icon={<FontAwesome5 name={"linkedin"} size={28} color={"white"} />}
           />
           <View className={"border-white border-t my-4 w-full"} />
-          <FilledButton onPress={handleAccept} title={"Accept"} />
-          <FilledButton
-            onPress={handleDecline}
-            title={"Decline"}
-            filled={false}
-            otherStyles={"mb-4"}
-          />
         </ScrollView>
+
+        <FilledButton onPress={handleAccept} title={"Accept"} />
+        <FilledButton
+          onPress={handleDecline}
+          title={"Decline"}
+          filled={false}
+          otherStyles={"mb-4"}
+        />
       </SafeAreaView>
-    </React.Fragment>
+    </View>
   );
 };
 
