@@ -22,7 +22,9 @@ export default function PasswordInput({
   };
 
   return (
-    <View className={`${otherStyles ?? 'w-full'} flex-row border border-gray-400 rounded-2xl p-4 mb-4`}>
+    <View
+      className={`${otherStyles ?? "w-full"} flex-row border border-gray-400 rounded-2xl p-4 mb-4`}
+    >
       <TextInput
         value={value}
         onChangeText={setPassword}

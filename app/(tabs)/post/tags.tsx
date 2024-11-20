@@ -55,7 +55,11 @@ const Tags = () => {
         <Text className={"mt-20 text-center mx-auto text-4xl mb-12 text-white"}>
           Add Tags
         </Text>
-        <ScrollView className={"flex-1"} contentContainerStyle={{paddingBottom: 250}} showsVerticalScrollIndicator={false}>
+        <ScrollView
+          className={"flex-1"}
+          contentContainerStyle={{ paddingBottom: 250 }}
+          showsVerticalScrollIndicator={false}
+        >
           <Grid
             setSelectedTags={setSelectedTags}
             selectedTags={selectedTags}

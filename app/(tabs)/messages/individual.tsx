@@ -57,9 +57,7 @@ const Individual = () => {
               </Text>
             </TouchableOpacity>
             <View
-              className={
-                "flex gap-x-4 flex-row justify-center items-center"
-              }
+              className={"flex gap-x-4 flex-row justify-center items-center"}
             >
               <TouchableOpacity>
                 <Feather name="phone" size={28} color="white" />

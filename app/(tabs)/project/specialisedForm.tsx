@@ -29,9 +29,13 @@ const SpecialisedFormPage = () => {
   return (
     <SafeAreaView className="flex-1 bg-background">
       <ProjectHeader projectName="Application Form" />
-      <ScrollView 
+      <ScrollView
         className="flex-1"
-        contentContainerStyle={{ flexGrow: 1,  paddingBottom: 120, alignItems: 'center' }}
+        contentContainerStyle={{
+          flexGrow: 1,
+          paddingBottom: 120,
+          alignItems: "center",
+        }}
         showsVerticalScrollIndicator={false}
       >
         <View className="w-[85%] flex-1 mt-8 items-center">

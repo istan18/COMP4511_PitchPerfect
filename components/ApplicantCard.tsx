@@ -16,9 +16,7 @@ const ApplicantCard = ({ name, location, time, image }: ApplicantCardProps) => {
       className={"w-[85%] border border-white rounded-2xl h-28"}
       onPress={() => router.push("/project/applicants/applicant")}
     >
-      <View
-        className={"flex h-full flex-row justify-between items-center p-4"}
-      >
+      <View className={"flex h-full flex-row justify-between items-center p-4"}>
         {image}
         <View className={"flex max-w-72 flex-col pl-4 mr-2 flex-1"}>
           <Text className={"text-white text-2xl text-left"}>{name}</Text>

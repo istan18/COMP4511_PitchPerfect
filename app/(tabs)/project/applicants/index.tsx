@@ -16,18 +16,13 @@ const Index = () => {
       <Text className={"mt-20 text-center mx-auto text-4xl mb-8 text-white"}>
         Applicants Summary
       </Text>
-      <View
-        className={"flex flex-col justify-center items-center gap-y-8"}
-      >
+      <View className={"flex flex-col justify-center items-center gap-y-8"}>
         <ApplicantCard
           name="Christian Tolentino"
           location="SYDNEY, AU"
           time="11:59 PM"
           image={
-            <Image
-              className={"rounded-full h-20 w-20 "}
-              source={images.man}
-            />
+            <Image className={"rounded-full h-20 w-20 "} source={images.man} />
           }
         />
         <ApplicantCard
@@ -46,10 +41,7 @@ const Index = () => {
           location="SYDNEY, AU"
           time="2:23 PM"
           image={
-            <Image
-              className={"rounded-full h-20 w-20 "}
-              source={images.man2}
-            />
+            <Image className={"rounded-full h-20 w-20 "} source={images.man2} />
           }
         />
       </View>

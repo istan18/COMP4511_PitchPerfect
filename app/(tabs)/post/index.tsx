@@ -52,8 +52,14 @@ const Index = () => {
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <SafeAreaView className={"flex-1 bg-background"}>
         <ExitButton onPress={() => router.replace("/home")} />
-        <ScrollView className={"flex-1"} contentContainerStyle={{paddingBottom: 120}} showsVerticalScrollIndicator={false}>
-          <Text className={"mt-20 text-center mx-auto text-4xl mb-8 text-white"}>
+        <ScrollView
+          className={"flex-1"}
+          contentContainerStyle={{ paddingBottom: 120 }}
+          showsVerticalScrollIndicator={false}
+        >
+          <Text
+            className={"mt-20 text-center mx-auto text-4xl mb-8 text-white"}
+          >
             New Project
           </Text>
           <View className={"items-center flex flex-col gap-y-2"}>
@@ -133,14 +139,14 @@ const Index = () => {
           </View>
         </ScrollView>
 
-      <View className={"mx-auto w-full absolute bottom-12"}>
-        <FilledButton
-          filled={true}
-          title={"Next"}
-          onPress={() => router.push("/post/tags")}
-        />
-        <Progress filledIndex={0} length={3} />
-      </View>
+        <View className={"mx-auto w-full absolute bottom-12"}>
+          <FilledButton
+            filled={true}
+            title={"Next"}
+            onPress={() => router.push("/post/tags")}
+          />
+          <Progress filledIndex={0} length={3} />
+        </View>
       </SafeAreaView>
     </TouchableWithoutFeedback>
   );

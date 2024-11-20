@@ -21,7 +21,7 @@ const Index = () => {
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <SafeAreaView className={"flex-1 bg-background"}>
-        <BackButton marginTop="mt-12"/>
+        <BackButton marginTop="mt-12" />
         <ScrollView showsVerticalScrollIndicator={false}>
           <View
             className={

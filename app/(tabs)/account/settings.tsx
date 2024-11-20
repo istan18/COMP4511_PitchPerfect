@@ -8,12 +8,14 @@ export default function Settings() {
     <SafeAreaView className="flex-1 bg-background w-full items-center">
       <BackButton marginTop="mt-16" />
       <View className="w-[85%]">
-        <ScrollView 
+        <ScrollView
           contentContainerClassName="w-full"
-          contentContainerStyle={{ paddingBottom: 120 }} 
+          contentContainerStyle={{ paddingBottom: 120 }}
           showsVerticalScrollIndicator={false}
         >
-          <Text className="text-4xl text-center font-light text-white mt-16">Settings</Text>
+          <Text className="text-4xl text-center font-light text-white mt-16">
+            Settings
+          </Text>
           <Text className="text-3xl font-bold text-white self-start ml-2 mt-6">
             General
           </Text>

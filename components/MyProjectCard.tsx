@@ -32,10 +32,7 @@ export default function ProjectCard({
         onPress={() => router.push("/project/project-overview")}
       >
         <View className="flex-1 flex-row items-center gap-2">
-          <Image
-            source={projectIcon}
-            className="w-[32%] h-[92%] rounded-3xl"
-          />
+          <Image source={projectIcon} className="w-[32%] h-[92%] rounded-3xl" />
           <View className="w-[1px] h-[80%] bg-white mx-4" />
           <View className="flex-col flex-1">
             <ButtonSmall

@@ -7,7 +7,10 @@ interface ExitButtonProps {
 
 export default function ExitButton({ onPress }: ExitButtonProps) {
   return (
-    <TouchableOpacity onPress={onPress} className="absolute top-20 left-8 p-2">
+    <TouchableOpacity
+      onPress={onPress}
+      className="z-50 absolute top-20 left-8 p-2"
+    >
       <IonIcons name="close" size={36} color="white" />
     </TouchableOpacity>
   );

@@ -63,15 +63,18 @@ const Applicant = () => {
     <View className="flex-1 bg-background">
       <SafeAreaView className={"flex-1 w-full"}>
         <BackButton />
-        <ScrollView contentContainerClassName="items-center" showsVerticalScrollIndicator={false}>
+        <ScrollView
+          contentContainerClassName="items-center"
+          showsVerticalScrollIndicator={false}
+        >
           <View
-            className={"mt-12 w-[90%] flex-row items-center justify-between gap-x-4 items-start"}
+            className={
+              "mt-12 w-[90%] flex-row items-center justify-between gap-x-4 items-start"
+            }
           >
             <Image source={Man} className="w-24 h-24 rounded-full" />
             <View className={"flex flex-col gap-y-2 px-2"}>
-              <Text className={"text-3xl text-white"}>
-                Christian Tolentino
-              </Text>
+              <Text className={"text-3xl text-white"}>Christian Tolentino</Text>
               <View className={"flex-1 mx-auto flex-row gap-x-4"}>
                 <ButtonSmall
                   width={"w-32 h-16"}
@@ -102,7 +105,7 @@ const Applicant = () => {
               </View>
             </View>
           </View>
-          
+
           <View className={"border-white border-t mt-4 w-full"} />
 
           <View className={"my-8 flex w-[85%] flex-col gap-y-8"}>

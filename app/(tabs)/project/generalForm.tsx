@@ -32,8 +32,12 @@ const GeneralFormPage = () => {
         className="flex-1"
         behavior={Platform.OS === "ios" ? "padding" : "height"}
       >
-        <ScrollView 
-          contentContainerStyle={{ flexGrow: 1, paddingBottom: 120, alignItems: 'center' }}
+        <ScrollView
+          contentContainerStyle={{
+            flexGrow: 1,
+            paddingBottom: 120,
+            alignItems: "center",
+          }}
           showsVerticalScrollIndicator={false}
         >
           <View className="w-[85%] mt-8 flex-col items-center">
@@ -80,13 +84,13 @@ const GeneralFormPage = () => {
       </KeyboardAvoidingView>
 
       <View className={"mx-auto w-full absolute bottom-12"}>
-          <FilledButton
-            filled={true}
-            title={"Next"}
-            onPress={() => router.push("/project/specialisedForm")}
-          />
-          <Progress filledIndex={0} length={2} />
-        </View>
+        <FilledButton
+          filled={true}
+          title={"Next"}
+          onPress={() => router.push("/project/specialisedForm")}
+        />
+        <Progress filledIndex={0} length={2} />
+      </View>
     </SafeAreaView>
   );
 };

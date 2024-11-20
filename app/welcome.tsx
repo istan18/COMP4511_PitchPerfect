@@ -71,7 +71,7 @@ export default function Welcome() {
             </ScrollView>
           </KeyboardAvoidingView>
         </SafeAreaView>
-        
+
         <View className="absolute bottom-20 w-full items-center">
           {error && <ErrorMessage error={error} />}
           <FilledButton title="Next" onPress={handleNext} />
