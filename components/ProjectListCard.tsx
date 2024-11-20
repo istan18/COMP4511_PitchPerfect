@@ -43,7 +43,7 @@ export default function ProjectListCard({
           className="p-4"
         />
       ),
-      onPress: () => router.push("/project/collaborate"),
+      onPress: () => router.push("/project/generalForm"),
     },
     {
       name: "Message",
