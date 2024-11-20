@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text } from "react-native";
+import { Text, View } from "react-native";
 import Header from "@/components/Header";
 import ProfileHeader from "@/components/ProfileHeader";
 import CustomDropdown from "@/components/CustomDropdown";
@@ -76,7 +76,7 @@ const ReviewRatingPage = () => {
         </Text>
         <StarRating rating={timelinessRating} setRating={setTimelinessRating} />
       </View>
-      <View className={"mx-auto w-full absolute bottom-2.5"}>
+      <View className={"mx-auto w-full absolute bottom-12"}>
         <FilledButton filled={true} title={"Next"} onPress={handleSubmit} />
         <Progress filledIndex={0} length={2} />
       </View>

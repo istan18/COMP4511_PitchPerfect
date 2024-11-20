@@ -66,9 +66,8 @@ const Tags = () => {
             text={customTag}
             placeholder={"Add your own"}
             marginBottom={"mb-4"}
-            padding={"pb-2"}
             rightIcon={
-              <TouchableOpacity className="mt-2" onPress={addCustomTag}>
+              <TouchableOpacity onPress={addCustomTag}>
                 <AntDesign name="plus" color="#FFFFFF" size={32} />
               </TouchableOpacity>
             }

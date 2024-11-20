@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import {
+  Image,
+  SafeAreaView,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import ImageSlider from "@/components/ImageSlider";
 import ProjectHeader from "@/app/(tabs)/project/projectHeader";
 import { router } from "expo-router";
@@ -12,7 +19,7 @@ const ProjectOverview = () => {
   };
 
   const handleCollaboratePress = () => {
-    router.push("/(tabs)/project/generalForm");
+    router.push("/project/generalForm");
   };
 
   const images = [
@@ -45,9 +52,9 @@ const ProjectOverview = () => {
   ];
 
   return (
-    <View className="flex-1 bg-[#171F20]">
-      <ProjectHeader projectName="Inside the Box" />
-      <ScrollView className="flex-1">
+    <SafeAreaView className="flex-1 bg-background">
+      <ProjectHeader projectName="Inside the Box" edit={true} />
+      <ScrollView className="flex-1 -z-10">
         <View className="mt-5 pb-28">
           <ImageSlider images={images} height={250} />
           <Text className="text-2xl text-white mr-2 text-center font-bold mt-6">
@@ -60,7 +67,7 @@ const ProjectOverview = () => {
             <Text className="text-2xl text-white mr-2 font-extralight">
               Progress:
             </Text>
-            <View className="bg-[#46AAAC] h-2 w-20 mx-1 rounded-full" />
+            <View className="bg-filledButton h-2 w-20 mx-1 rounded-full" />
             <View className="bg-white h-2 w-44 rounded-full" />
             <Text className="text-2xl ml-5 text-white font-extralight">
               30%
@@ -70,7 +77,7 @@ const ProjectOverview = () => {
             <Text className="text-2xl text-white mr-3.5 font-extralight">
               Funding:
             </Text>
-            <View className="bg-[#46AAAC] h-2 w-10 mx-1 rounded-full" />
+            <View className="bg-filledButton h-2 w-10 mx-1 rounded-full" />
             <View className="bg-white h-2 w-[190px] rounded-full" />
             <Text className="text-2xl ml-5 text-white font-extralight">
               $125
@@ -129,14 +136,14 @@ const ProjectOverview = () => {
           </Text>
         </View>
       </ScrollView>
-      <View className="absolute bottom-4 w-full items-center">
-        <View className="absolute bottom-0 w-9/10 bg-[#000e10] flex-row justify-around items-center px-5 py-3 rounded-full">
+      <View className="absolute bottom-0 w-full items-center">
+        <View className="absolute bottom-0 w-full border-t border-t-gray-500 rounded-tl-4xl rounded-tr-4xl  flex-row  bg-background justify-around items-center px-5 py-3">
           <Image
             source={require("@/assets/images/commentProject.png")}
             className="w-8 h-14 mt-1"
           />
           <TouchableOpacity
-            className="bg-[#46AAAC] px-20 py-4 rounded-full items-center"
+            className="bg-filledButton px-20 py-4 rounded-full items-center"
             onPress={handleCollaboratePress}
           >
             <Text className="text-black text-xl">Collaborate</Text>
@@ -153,7 +160,7 @@ const ProjectOverview = () => {
           </TouchableOpacity>
         </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

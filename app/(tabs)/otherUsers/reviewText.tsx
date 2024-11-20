@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { View, Text } from "react-native";
-import ProjectHeader from "@/app/(tabs)/project/projectHeader";
+import { SafeAreaView, Text, View } from "react-native";
 import ProfileHeader from "@/components/ProfileHeader";
 import FilledButton from "@/components/FilledButton";
 import Progress from "@/components/Progress";
@@ -11,17 +10,19 @@ import Header from "@/components/Header";
 
 const ReviewTextPage = () => {
   const router = useRouter();
-  const [recommendation, setRecommendation] = useState("");
-  const [comment, setComment] = useState("");
+  const [recommendation, setRecommendation] = useState(
+    "Amazing to work with, very detail orientated."
+  );
+  const [comment, setComment] = useState("You should try learning more Figma.");
 
   const handleSubmit = () => {
     setRecommendation("");
     setComment("");
-    router.push("/(tabs)/otherUsers/confirmation");
+    router.push("/otherUsers/confirmation");
   };
 
   return (
-    <View className="flex-1 bg-[#171F20]">
+    <SafeAreaView className="flex-1 bg-background">
       <Header projectName="Leave Review" />
       <View className="flex-1 items-center">
         <ProfileHeader
@@ -41,9 +42,9 @@ const ReviewTextPage = () => {
           setText={setRecommendation}
           text={recommendation}
           height={"h-32"}
-          padding={""}
+          padding={"pb-12"}
           maxLength={150}
-          placeholder={"Amazing to work with, very detail orientated."}
+          placeholder={""}
           includeCounter={true}
         />
         <Text className="text-white font-light text-2xl mt-2 mb-2">
@@ -53,13 +54,13 @@ const ReviewTextPage = () => {
           setText={setComment}
           text={comment}
           height={"h-32"}
-          padding={""}
+          padding={"pb-16"}
           maxLength={150}
-          placeholder={"you should try learning more Figma"}
+          placeholder={""}
           includeCounter={true}
         />
       </View>
-      <View className={"mx-auto w-full absolute bottom-2.5"}>
+      <View className={"mx-auto w-full absolute bottom-12"}>
         <FilledButton
           filled={true}
           title={"Submit Review"}
@@ -67,7 +68,7 @@ const ReviewTextPage = () => {
         />
         <Progress filledIndex={1} length={2} />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

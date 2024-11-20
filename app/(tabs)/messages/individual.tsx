@@ -49,7 +49,7 @@ const Individual = () => {
               className={"flex flex-row items-center mr-20"}
             >
               <Image
-                source={require("@/assets/images/woman.jpg")}
+                source={require("@/assets/images/jennyProfile.png")}
                 className={"h-12 w-12 rounded-full"}
               />
               <Text className={"text-white text-center ml-4 pt-2  text-3xl"}>
@@ -100,7 +100,7 @@ const Individual = () => {
           <View className={"w-full mb-4 border border-gray-700 opacity-50"} />
           <View className={"flex bg-background flex-row"}>
             <CustomTextInput
-              width={`${message ? "w-[75%]" : "w-9/10"}`}
+              width={`${message ? "w-3/4" : "w-9/10"}`}
               leftIcon={
                 <TouchableOpacity className={"z-30"}>
                   <SimpleLineIcons

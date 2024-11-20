@@ -72,7 +72,7 @@ const Applicant = () => {
               <Text className={"mx-auto text-center text-4xl text-white"}>
                 Christian Tolentino
               </Text>
-              <View className={"ml-4 flex mx-auto flex-row gap-x-4 "}>
+              <View className={"ml-4 flex mx-auto flex-row gap-x-4"}>
                 <ButtonSmall
                   width={"w-32 h-16"}
                   icon={
@@ -142,7 +142,7 @@ const Applicant = () => {
               <MaterialCommunityIcons
                 color="white"
                 name="clipboard-text-outline"
-                size={32}
+                size={28}
               />
             }
             title={"View Resume"}
@@ -152,7 +152,7 @@ const Applicant = () => {
             onPress={handleLinkedIn}
             title={"LinkedIn Profile"}
             filled={false}
-            icon={<FontAwesome5 name={"linkedin"} size={32} color={"white"} />}
+            icon={<FontAwesome5 name={"linkedin"} size={28} color={"white"} />}
           />
           <View className={"border-white border-t my-4 w-full"} />
           <FilledButton onPress={handleAccept} title={"Accept"} />

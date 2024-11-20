@@ -60,7 +60,6 @@ const Index = () => {
             heading={"What is your project about?"}
             setText={setTitle}
             text={title}
-            padding={"pb-3"}
             placeholder={"Title"}
             maxLength={50}
             includeCounter={true}
@@ -69,7 +68,7 @@ const Index = () => {
             setText={setDescription}
             text={description}
             height={"h-36"}
-            padding={"pb-24"}
+            padding={"pb-20"}
             maxLength={200}
             placeholder={"Description"}
             includeCounter={true}

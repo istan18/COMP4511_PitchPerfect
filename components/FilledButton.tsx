@@ -47,7 +47,7 @@ export default function FilledButton({
           <Image source={icon} className="w-10 h-10 absolute left-4" />
         )}
         {icon && React.isValidElement(icon) && (
-          <View className="w-5 h-5 justify-center">{icon}</View>
+          <View className="w-8 h-8 items-center justify-center">{icon}</View>
         )}
       </TouchableOpacity>
     </View>

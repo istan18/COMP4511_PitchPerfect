@@ -29,7 +29,7 @@ export default function Photo() {
   };
 
   return (
-    <View className="flex-1 bg-[#171F20]">
+    <View className="flex-1 bg-background">
       <SafeAreaView className="flex-1 w-full items-center">
         <BackButton />
         <Image
