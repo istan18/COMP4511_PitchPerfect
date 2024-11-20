@@ -34,7 +34,7 @@ const SpecialisedFormPage = () => {
           projectName="Inside the Box"
           lead="Jenny Liu"
           dateCreated="23/07/2024"
-          projectIcon={require("@/assets/images/mealplanner.png")}
+          projectIcon={require("@/assets/images/woman.jpg")}
         />
         <View className="w-full border-t border-gray-500 mx-5 mt-8 mb-8" />
         <CustomDropdown

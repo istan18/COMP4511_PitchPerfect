@@ -31,7 +31,7 @@ const ReviewCard: React.FC<ReviewCardProps> = ({
       <View className="flex flex-row w-full items-center">
         <TouchableOpacity
           className="w-20 h-20 rounded-full"
-          onPress={() => router.replace("/profile")}
+          onPress={() => router.replace("/(tabs)/otherUsers/profile")}
         >
           <Image source={avatar} className="w-20 h-20 rounded-full" />
         </TouchableOpacity>

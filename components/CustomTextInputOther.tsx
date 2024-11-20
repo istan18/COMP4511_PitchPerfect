@@ -38,8 +38,6 @@ const CustomTextInput: React.FC<TitleInputProps> = ({
   keyboardType = "default",
   editable = true,
 }) => {
-  const textInputRef = useRef<TextInput>(null);
-
   return (
     <React.Fragment>
       <View className={`${width} mx-auto ${marginBottom}`}>

@@ -11,7 +11,9 @@ export default function TabsLayout() {
     pathname === "/project/specialisedForm" ||
     pathname === "/project/confirmation" ||
     pathname === "/project/applicants/confirmation" ||
-    pathname === "/account/editProfile";
+    pathname === "/account/editProfile" ||
+    pathname === "/otherUsers/reviewRating" ||
+    pathname === "/otherUsers/reviewText";
 
   return (
     <Tabs
@@ -83,7 +85,7 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
-        name="profile"
+        name="otherUsers"
         options={{
           href: null,
         }}

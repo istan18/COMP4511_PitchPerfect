@@ -1,5 +1,6 @@
 import React from "react";
-import { Image, Text, View } from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
+import { useRouter } from "expo-router";
 
 interface ApplicationProjectCardProps {
   projectName: string;
@@ -14,6 +15,8 @@ const ApplicationProjectCard: React.FC<ApplicationProjectCardProps> = ({
   dateCreated,
   projectIcon,
 }) => {
+  const router = useRouter();
+
   return (
     <View className="w-[90%] self-center">
       <Text className="absolute -top-3.5 left-1/2 transform -translate-x-1/2 px-2 text-xl font text-white bg-background z-10">
@@ -22,7 +25,7 @@ const ApplicationProjectCard: React.FC<ApplicationProjectCardProps> = ({
       <View className="h-24 rounded-lg border border-white p-4">
         <View className="flex-1 flex-row items-center">
           <View className="flex-1 items-start">
-            <Text className="text-lg font-bold text-white mb-2">
+            <Text className="text-lg font-bold text-white mb-4">
               Lead: <Text className="font-normal">{lead}</Text>
             </Text>
             <Text className="text-lg font-bold text-white">
@@ -30,10 +33,18 @@ const ApplicationProjectCard: React.FC<ApplicationProjectCardProps> = ({
             </Text>
           </View>
           <View className="w-[1px] h-[80%] bg-white mx-4" />
-          <Image
-            source={projectIcon}
-            className="w-[15%] h-[90%] ml-5 mr-5 rounded-3xl"
-          />
+          <TouchableOpacity onPress={() => router.push("/otherUsers/profile")}>
+            <Image
+              source={projectIcon}
+              style={{
+                width: 50,
+                height: 50,
+                borderRadius: 50,
+                resizeMode: "cover",
+              }}
+              className="ml-5 mr-5"
+            />
+          </TouchableOpacity>
         </View>
       </View>
     </View>

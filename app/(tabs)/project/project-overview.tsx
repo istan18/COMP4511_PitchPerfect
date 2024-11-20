@@ -57,33 +57,6 @@ const ProjectOverview = () => {
       <ScrollView className="flex-1 -z-10">
         <View className="mt-5 pb-28">
           <ImageSlider images={images} height={250} />
-          <Text className="px-5 pt-5 text-xl text-white">
-            This app is designed to help students coordinate meal plans, form
-            dining groups, and discover the best on-campus dining spots. Whether
-            students are looking for a quick meal between classes or a chance to
-            socialise over lunch, this app provides a seamless experience for
-            organising group meals on campus.
-          </Text>
-          <View className="border-b border-gray-500 mt-5" />
-          <Text className="px-5 pt-4 text-2xl text-white text-center font-extrabold">
-            Members
-          </Text>
-          <View className="flex-row justify-around mt-1 px-5">
-            {members.map((member, index) => (
-              <TouchableOpacity
-                onPress={() => router.push("/profile")}
-                key={index}
-                className="items-center"
-              >
-                <Image
-                  source={member.icon}
-                  className="w-16 h-16 rounded-full"
-                />
-                <Text className="text-white mt-2">{member.role}</Text>
-              </TouchableOpacity>
-            ))}
-          </View>
-          <View className="border-b border-gray-500 mt-7" />
           <Text className="text-2xl text-white mr-2 text-center font-bold mt-6">
             Project Details
           </Text>
@@ -110,10 +83,38 @@ const ProjectOverview = () => {
               $125
             </Text>
           </View>
-          <Text className="px-5 pt-8 text-2xl text-white text-center font-bold">
+          <Text className="px-5 pt-5 text-xl text-white">
+            This app is designed to help students coordinate meal plans, form
+            dining groups, and discover the best on-campus dining spots. Whether
+            students are looking for a quick meal between classes or a chance to
+            socialise over lunch, this app provides a seamless experience for
+            organising group meals on campus.
+          </Text>
+          <View className="border-b border-gray-500 mt-5" />
+          <Text className="px-5 pt-4 text-2xl text-white text-center font-extrabold">
+            Members
+          </Text>
+          <View className="flex-row justify-around mt-1 px-5">
+            {members.map((member, index) => (
+              <TouchableOpacity
+                onPress={() => router.push("/(tabs)/otherUsers/profile")}
+                key={index}
+                className="items-center"
+              >
+                <Image
+                  source={member.icon}
+                  className="w-16 h-16 rounded-full"
+                />
+                <Text className="text-white mt-2">{member.role}</Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+          <View className="border-b border-gray-500 mt-7" />
+
+          <Text className="px-5 pt-5 text-2xl text-white text-center font-bold">
             Skills Required
           </Text>
-          <View className="flex-row justify-around mt-4 px-5">
+          <View className="flex-row justify-around mt-2 px-5">
             <View className="px-3 py-2 rounded-full border border-white">
               <Text className="text-white">Software Engineer</Text>
             </View>
@@ -124,10 +125,11 @@ const ProjectOverview = () => {
               <Text className="text-white">Photographer</Text>
             </View>
           </View>
-          <Text className="px-5 pt-10 text-2xl text-white text-center font-bold">
+          <View className="border-b border-gray-500 mt-7" />
+          <Text className="px-5 pt-5 text-2xl text-white text-center font-bold">
             Project Updates
           </Text>
-          <Text className="px-5 text-xl text-gray-400">
+          <Text className="px-5 pb-5 text-xl text-gray-400">
             As the user base grows, we’ve added new features to our community
             forums: the ability to create private groups, share photos, and...
             <Text className="text-blue-500"> more</Text>
@@ -138,7 +140,7 @@ const ProjectOverview = () => {
         <View className="absolute bottom-0 w-full border-t border-t-gray-500 rounded-tl-4xl rounded-tr-4xl  flex-row  bg-background justify-around items-center px-5 py-3">
           <Image
             source={require("@/assets/images/commentProject.png")}
-            className="w-10 h-16"
+            className="w-8 h-14 mt-1"
           />
           <TouchableOpacity
             className="bg-filledButton px-20 py-4 rounded-full items-center"
@@ -153,7 +155,7 @@ const ProjectOverview = () => {
                   ? require("@/assets/images/likedProject.png")
                   : require("@/assets/images/likeProject.png")
               }
-              className="w-10 h-16"
+              className="w-8 h-14 mt-1"
             />
           </TouchableOpacity>
         </View>
