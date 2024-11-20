@@ -26,7 +26,7 @@ export default function RadioGroup({
   };
 
   return (
-    <View className="flex flex-col gap-4 w-[80%]">
+    <View className="flex flex-col gap-4 w-full">
       {options.map((option) => (
         <RadioButton
           key={option.value}

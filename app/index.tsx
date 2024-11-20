@@ -13,10 +13,10 @@ export default function Index() {
         />
         <Image
           source={require("../assets/images/title.png")}
-          className="mt-8 w-[80%]"
+          className="mt-8 w-[85%]"
           resizeMode="contain"
         />
-        <Text className="text-2xl w-[80%] color-white py-4">
+        <Text className="text-2xl w-[85%] color-white py-4">
           Insert very cool slogan here about pitching projects
         </Text>
         <FilledButton title="Log in" onPress={() => router.push("/login")} />

@@ -18,14 +18,14 @@ const ApplicationProjectCard: React.FC<ApplicationProjectCardProps> = ({
   const router = useRouter();
 
   return (
-    <View className="w-[90%] self-center">
+    <View className="w-full self-center">
       <Text className="absolute -top-3.5 left-1/2 transform -translate-x-1/2 px-2 text-xl font text-white bg-background z-10">
         {projectName}
       </Text>
-      <View className="h-24 rounded-lg border border-white p-4">
-        <View className="flex-1 flex-row items-center">
+      <View className="h-24 rounded-lg border border-white">
+        <View className="flex-1 flex-row items-center p-4 justify-between">
           <View className="flex-1 items-start">
-            <Text className="text-lg font-bold text-white mb-4">
+            <Text className="text-lg font-bold text-white">
               Lead: <Text className="font-normal">{lead}</Text>
             </Text>
             <Text className="text-lg font-bold text-white">
@@ -42,7 +42,7 @@ const ApplicationProjectCard: React.FC<ApplicationProjectCardProps> = ({
                 borderRadius: 50,
                 resizeMode: "cover",
               }}
-              className="ml-5 mr-5"
+              // className="ml-5 mr-5"
             />
           </TouchableOpacity>
         </View>

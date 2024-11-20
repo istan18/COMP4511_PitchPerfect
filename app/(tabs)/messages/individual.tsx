@@ -41,9 +41,9 @@ const Individual = () => {
       onPress={() => Keyboard.dismiss()}
     >
       <SafeAreaView className={"flex-1 bg-background"}>
-        <BackButton />
+        <BackButton marginTop="mt-10" />
         <View className="absolute top-20 z-20 w-full">
-          <View className={"flex flex-row items-center ml-24"}>
+          <View className={"flex flex-row items-center justify-center"}>
             <TouchableOpacity
               onPress={() => router.navigate("/(tabs)/otherUsers/profile")}
               className={"flex flex-row items-center mr-20"}
@@ -58,7 +58,7 @@ const Individual = () => {
             </TouchableOpacity>
             <View
               className={
-                "mr-8 flex gap-x-4 flex-row justify-center items-center"
+                "flex gap-x-4 flex-row justify-center items-center"
               }
             >
               <TouchableOpacity>
@@ -77,6 +77,7 @@ const Individual = () => {
           </View>
           <View className={"w-full mt-3 border border-gray-700 opacity-50"} />
         </View>
+
         <ScrollView
           showsVerticalScrollIndicator={false}
           className={"mt-24 mr-0"}

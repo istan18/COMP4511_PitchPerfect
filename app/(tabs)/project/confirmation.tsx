@@ -12,7 +12,7 @@ export default function Confirmation() {
       >
         <Image className="h-60 w-60" source={ConfirmationIcon} />
         <Text
-          className={"text-4xl font-semibold text-center w-[26rem] text-white"}
+          className={"text-3xl font-semibold text-center w-[26rem] text-white"}
         >
           You’ve Successfully applied to collaborate on “Meal Planner”! The
           project owner will be in touch soon.

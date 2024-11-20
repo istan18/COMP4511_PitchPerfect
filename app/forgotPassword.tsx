@@ -47,14 +47,14 @@ const ForgotPassword = () => {
           />
 
           <Text className="text-4xl text-white mt-20">Forgot password?</Text>
-          <Text className="w-[80%] text-xl text-white mt-4">
+          <Text className="w-[85%] text-xl text-center text-white mt-4">
             Enter the email linked to your account.
           </Text>
           <TextInput
             placeholder="Email"
             value={email}
             onChangeText={setEmail}
-            className="w-[80%] color-white border border-gray-400 rounded-2xl p-4 mt-8 mb-4 text-xl"
+            className="w-[85%] color-white border border-gray-400 rounded-2xl p-4 mt-8 mb-4 text-xl"
           />
 
           <View className="absolute bottom-20 w-full items-center">

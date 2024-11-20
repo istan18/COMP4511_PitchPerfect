@@ -21,14 +21,14 @@ const Index = () => {
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <SafeAreaView className={"flex-1 bg-background"}>
-        <BackButton />
+        <BackButton marginTop="mt-12"/>
         <ScrollView showsVerticalScrollIndicator={false}>
           <View
             className={
-              "w-full flex ml-24 mt-4 flex-row  justify-start items-center"
+              "w-full flex mt-12 flex-row justify-between px-8 items-center"
             }
           >
-            <Text className={"text-4xl mb-2 text-white text-left mr-44"}>
+            <Text className={"text-4xl mb-2 text-white text-left"}>
               Messages
             </Text>
             <MaterialCommunityIcons
@@ -92,8 +92,8 @@ const Index = () => {
                 </View>
               }
               height={"h-[5.5rem]"}
-              marginLeft={"ml-6"}
-              marginRight={"mr-8"}
+              marginLeft={"ml-4"}
+              marginRight={"mr-4"}
               rightIcon={
                 <View className={"bg-notification rounded-full h-1 w-1"} />
               }
@@ -123,8 +123,8 @@ const Index = () => {
                 </View>
               }
               height={"h-[5.5rem]"}
-              marginLeft={"ml-6"}
-              marginRight={"mr-8"}
+              marginLeft={"ml-4"}
+              marginRight={"mr-4"}
               rightIcon={
                 <View className={"bg-notification rounded-full h-1 w-1"} />
               }
@@ -147,15 +147,15 @@ const Index = () => {
                       numberOfLines={1}
                       className={"text-white text-left max-w-[21rem] text-lg"}
                     >
-                      How's the work on the frontend going?
+                      How's the work on the frontend goi...
                     </Text>
                     <Text className={"text-gray-400 text-md mt-1"}>⋅ 3h</Text>
                   </View>
                 </View>
               }
               height={"h-[5.5rem]"}
-              marginLeft={"ml-6"}
-              marginRight={"mr-8"}
+              marginLeft={"ml-4"}
+              marginRight={"mr-4"}
             />
             <FullWidthButton
               onPress={() => router.push("/messages/individual")}
@@ -183,8 +183,8 @@ const Index = () => {
               }
               hasBottomBorder={true}
               height={"h-[5.5rem]"}
-              marginLeft={"ml-6"}
-              marginRight={"mr-8"}
+              marginLeft={"ml-4"}
+              marginRight={"mr-4"}
             />
           </View>
         </ScrollView>

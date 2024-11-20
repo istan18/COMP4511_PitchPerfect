@@ -7,13 +7,13 @@ import { router } from "expo-router";
 
 export default function Confirmation() {
   return (
-    <View className={"w-full flex-1 bg-background"}>
+    <View className={"flex-1 bg-background"}>
       <View
-        className={"mt-60 mb-24 mx-auto items-center flex flex-col gap-y-16"}
+        className={"mt-60 mb-20 mx-auto items-center flex flex-col gap-y-16"}
       >
         <Image className="h-60 w-60" source={ConfirmationIcon} />
         <Text
-          className={"text-4xl font-semibold text-center w-[26rem] text-white"}
+          className={"text-3xl font-semibold text-center w-[26rem] text-white"}
         >
           Christian Tolentino has been accepted into your project!
         </Text>

@@ -40,7 +40,7 @@ export default function Photo() {
 
         <TouchableOpacity
           onPress={selectImage}
-          className="w-64 h-64 mt-12 rounded-full overflow-hidden bg-gray-800 border-2 border-dashed border-gray-200 items-center justify-center"
+          className="w-64 aspect-square mt-12 rounded-full overflow-hidden bg-gray-800 border-2 border-dashed border-gray-200 items-center justify-center"
         >
           {image ? (
             <Image

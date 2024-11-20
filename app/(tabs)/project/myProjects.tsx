@@ -58,25 +58,25 @@ export default function MyProjectsContent() {
 
   return (
     <SafeAreaView className="flex-1 bg-background">
-      <View className="flex-1 mt-5">
-        <ScrollView className="px-4 pt-2">
+      <View className="flex-1 mt-5 items-center">
+        <ScrollView className="w-full pt-2">
           <ProjectCard
             projectName="Skill Swap"
             projectIcon={require("@/assets/images/skill-swap.png")}
             handleLongPress={handleLongPress}
           />
           <ProjectCard
-            projectName="Second Project"
+            projectName="Herb Up"
             projectIcon={require("@/assets/images/second-project.png")}
             handleLongPress={handleLongPress}
           />
           <ProjectCard
-            projectName="Third Project"
+            projectName="Aerolife"
             projectIcon={require("@/assets/images/project-3.png")}
             handleLongPress={handleLongPress}
           />
           {showHint && (
-            <Text className="text-gray-400 text-xs text-center">
+            <Text className="text-gray-400 text-base text-center">
               Hold any project card to manage project
             </Text>
           )}
