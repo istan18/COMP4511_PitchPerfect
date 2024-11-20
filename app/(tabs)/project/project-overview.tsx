@@ -50,6 +50,32 @@ const ProjectOverview = () => {
       <ScrollView className="flex-1">
         <View className="mt-5 pb-28">
           <ImageSlider images={images} height={250} />
+          <Text className="text-2xl text-white mr-2 text-center font-bold mt-6">
+            Project Details
+          </Text>
+          <Text className="px-5 pt-2 text-2xl text-white font-extralight">
+            Estimated Release: 23/03/25
+          </Text>
+          <View className="flex-row items-center px-5 pt-2">
+            <Text className="text-2xl text-white mr-2 font-extralight">
+              Progress:
+            </Text>
+            <View className="bg-[#46AAAC] h-2 w-20 mx-1 rounded-full" />
+            <View className="bg-white h-2 w-44 rounded-full" />
+            <Text className="text-2xl ml-5 text-white font-extralight">
+              30%
+            </Text>
+          </View>
+          <View className="flex-row items-center px-5 pt-2">
+            <Text className="text-2xl text-white mr-3.5 font-extralight">
+              Funding:
+            </Text>
+            <View className="bg-[#46AAAC] h-2 w-10 mx-1 rounded-full" />
+            <View className="bg-white h-2 w-[190px] rounded-full" />
+            <Text className="text-2xl ml-5 text-white font-extralight">
+              $125
+            </Text>
+          </View>
           <Text className="px-5 pt-5 text-xl text-white">
             This app is designed to help students coordinate meal plans, form
             dining groups, and discover the best on-campus dining spots. Whether
@@ -77,36 +103,11 @@ const ProjectOverview = () => {
             ))}
           </View>
           <View className="border-b border-gray-500 mt-7" />
-          <Text className="text-2xl text-white mr-2 text-center font-bold mt-6">
-            Project Details
-          </Text>
-          <Text className="px-5 pt-2 text-2xl text-white font-extralight">
-            Estimated Release: 23/03/25
-          </Text>
-          <View className="flex-row items-center px-5 pt-2">
-            <Text className="text-2xl text-white mr-2 font-extralight">
-              Progress:
-            </Text>
-            <View className="bg-[#46AAAC] h-2 w-20 mx-1 rounded-full" />
-            <View className="bg-white h-2 w-44 rounded-full" />
-            <Text className="text-2xl ml-5 text-white font-extralight">
-              30%
-            </Text>
-          </View>
-          <View className="flex-row items-center px-5 pt-2">
-            <Text className="text-2xl text-white mr-3.5 font-extralight">
-              Funding:
-            </Text>
-            <View className="bg-[#46AAAC] h-2 w-10 mx-1 rounded-full" />
-            <View className="bg-white h-2 w-[190px] rounded-full" />
-            <Text className="text-2xl ml-5 text-white font-extralight">
-              $125
-            </Text>
-          </View>
-          <Text className="px-5 pt-8 text-2xl text-white text-center font-bold">
+
+          <Text className="px-5 pt-5 text-2xl text-white text-center font-bold">
             Skills Required
           </Text>
-          <View className="flex-row justify-around mt-4 px-5">
+          <View className="flex-row justify-around mt-2 px-5">
             <View className="px-3 py-2 rounded-full border border-white">
               <Text className="text-white">Software Engineer</Text>
             </View>
@@ -117,10 +118,11 @@ const ProjectOverview = () => {
               <Text className="text-white">Photographer</Text>
             </View>
           </View>
-          <Text className="px-5 pt-10 text-2xl text-white text-center font-bold">
+          <View className="border-b border-gray-500 mt-7" />
+          <Text className="px-5 pt-5 text-2xl text-white text-center font-bold">
             Project Updates
           </Text>
-          <Text className="px-5 text-xl text-gray-400">
+          <Text className="px-5 pb-5 text-xl text-gray-400">
             As the user base grows, we’ve added new features to our community
             forums: the ability to create private groups, share photos, and...
             <Text className="text-blue-500"> more</Text>
