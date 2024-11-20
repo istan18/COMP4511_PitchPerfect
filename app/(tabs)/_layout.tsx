@@ -13,6 +13,7 @@ export default function TabsLayout() {
     pathname === "/project/applicants/confirmation" ||
     pathname === "/account/editProfile" ||
     pathname === "/otherUsers/reviewRating" ||
+    pathname === "/otherUsers/confirmation" ||
     pathname === "/otherUsers/reviewText";
 
   return (
